@@ -11,9 +11,20 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+
+        pink1: "#EC407A",
+        blue1: "#407AEC",
+        red1: "#FF2D47",
+        green1: "#66C76B",
+        black1: "#21211F",
+        white1: "#E3DFD8",
+        gray1: "#7A7772",
+        
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 };
 export default config;

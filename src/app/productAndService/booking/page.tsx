@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import ModalBooking from "./components/modalBooking";
 
-const ScheduleCard = () => {
+const ScheduleCard1 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
 
     const toggleExpand = () => {
@@ -43,7 +44,7 @@ const ScheduleCard = () => {
         </div>
     );
 };
-const ScheduleCard1 = () => {
+const ScheduleCard2 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
 
     const toggleExpand = () => {
@@ -104,7 +105,7 @@ const ScheduleCard1 = () => {
         </div>
     );
 };
-const ScheduleCard2 = () => {
+const ScheduleCard3 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
 
     const toggleExpand = () => {
@@ -145,7 +146,7 @@ const ScheduleCard2 = () => {
         </div>
     );
 };
-const ScheduleCard3 = () => {
+const ScheduleCard4 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
 
     const toggleExpand = () => {
@@ -216,7 +217,7 @@ const ScheduleCard3 = () => {
         </div>
     );
 };
-const ScheduleCard4 = () => {
+const ScheduleCard5 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
 
     const toggleExpand = () => {
@@ -268,7 +269,7 @@ const daysOfWeek = [
     { date: "วันเสาร์ที่ 7 ธันวาคม 2567", key: "saturday" },
 ];
 
-const ScheduleCard6 = ({ date }: { date: string }) => {
+const ScheduleCard = ({ date }: { date: string }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpand = () => {
@@ -285,7 +286,7 @@ const ScheduleCard6 = ({ date }: { date: string }) => {
                         fill="currentColor"
                         strokeWidth="0"
                         viewBox="0 0 512 512"
-                        className={`ml-auto w-4 h-4 transform transition-transform rotate-180 ${isExpanded ? "rotate-0" : ""
+                        className={`ml-auto w-4 h-4 transform transition-transform ${isExpanded ? "rotate-0" : "rotate-180"
                             }`}
                         height="1em"
                         width="1em"
@@ -300,9 +301,11 @@ const ScheduleCard6 = ({ date }: { date: string }) => {
             {isExpanded && (
                 <ul className="overflow-y-auto mt-2 flex flex-col gap-2 justify-start">
                     <li>
-                        <button className="w-full text-sm block py-2 px-4 rounded-md border border-green1 font-normal transition bg-white hover:bg-gray-200 text-green1">
+                        {/* <button className="w-full text-sm block py-2 px-4 rounded-md border text-green1 border-green1 font-normal transition bg-slate-50 hover:bg-green1 hover:text-slate-50">
                             เพิ่ม
-                        </button>
+                        </button> */}
+
+                        <ModalBooking />
                     </li>
                 </ul>
             )}
@@ -339,7 +342,7 @@ export default function booking() {
                 <div className='container w-1/5 mb-5 bg-slate-50'>
                     <div className='m-5 no-scrollbar'>
                         <div className="text-start flex flex-col px-2 gap-3">
-                            <div className='flex flex-row justify-between items-center'>
+                            <div className='flex flex-row justify-between items-center border-b-2'>
                                 <h2 className='text-black1 text-xl font-medium'>การจองคิว</h2>
                                 <a className='text-pink1 text-xs hover:text-pink-400'>ดูทั้งหมด</a>
                             </div>
@@ -351,7 +354,7 @@ export default function booking() {
 
                             <div>
                                 {daysOfWeek.map((day, index) => (
-                                    <ScheduleCard6 key={index} date={day.date} />
+                                    <ScheduleCard key={index} date={day.date} />
                                 ))}
                             </div>
                         </div>
@@ -365,14 +368,14 @@ export default function booking() {
                         <h3 className='text-gray1'>ไทม์ไลน์</h3>
                     </div>
 
-                    <div className='bg-slate-50 my-5 rounded-lg py-3 h-full'>
+                    <div className='bg-slate-50 my-5 rounded-lg py-3'>
 
                         <div className="">
                             <div className='flex flex-row justify-between mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
                                 <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: 20 รายการ</p>
                             </div>
-                           
+
                         </div>
 
                     </div>

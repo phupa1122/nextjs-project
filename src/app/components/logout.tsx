@@ -4,7 +4,7 @@ import { PiWarningCircle } from "react-icons/pi";
 
 export default function logout() {
     const openModal = () => {
-        const dialog = document.getElementById('my_modal_3') as HTMLDialogElement;
+        const dialog = document.getElementById('logout') as HTMLDialogElement;
         if (dialog) {
             dialog.showModal();
         }
@@ -16,7 +16,7 @@ export default function logout() {
             <button className="text-sm text-black1" onClick={openModal}>
                 ออกจากระบบ
             </button>
-            <dialog id="my_modal_3" className="modal">
+            <dialog id="logout" className="modal">
                 <div className="modal-box bg-slate-50">
                     <form method="dialog">
                         <div className="flex justify-between items-center border-b">

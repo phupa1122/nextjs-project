@@ -1,12 +1,21 @@
+
+
 import React from 'react';
 
 import { PiPencilSimpleLineBold } from "react-icons/pi";
 
 export default function modalProfile() {
     const openModal = () => {
-        const dialog = document.getElementById('my_modal') as HTMLDialogElement;
+        const dialog = document.getElementById('modalProfile') as HTMLDialogElement;
         if (dialog) {
             dialog.showModal();
+        }
+    };
+
+    const closeModal = () => {
+        const dialog = document.getElementById('modalProfile') as HTMLDialogElement;
+        if (dialog) {
+            dialog.close();
         }
     };
 
@@ -17,18 +26,19 @@ export default function modalProfile() {
                 <PiPencilSimpleLineBold />
                 แก้ไขข้อมูล
             </button>
-            <dialog id="my_modal" className="modal">
+            <dialog id="modalProfile" className="modal">
                 <div className="modal-box bg-slate-50">
-                    <form method="dialog" className="space-y-1">
                         <div className="flex justify-between items-center border-b">
                             <h3 className="font-semibold text-lg text-black1">แก้ไขข้อมูลส่วนตัว</h3>
                             <button
                                 className="btn btn-sm btn-square btn-ghost text-black1"
+                                onClick={closeModal}
                             >
                                 ✕
                             </button>
                         </div>
 
+                    <form method="dialog" className="space-y-1">
                         <div>
                             <label htmlFor="name" className="block text-sm/6 font-medium text-black1 text-start">
                                 ชื่อ
@@ -162,7 +172,7 @@ export default function modalProfile() {
                             </div>
                         </div>
                         <div className="mt-6 text-right space-x-3">
-                            <button className="btn btn-outline btn-base-content px-4 text-sm">ปิด</button>
+                            <button type='button' className="btn btn-outline btn-base-content px-4 text-sm" onClick={closeModal}>ปิด</button>
                             <button
                                 className="btn btn-warning px-4 text-sm text-slate-50">
                                 แก้ไขข้อมูล

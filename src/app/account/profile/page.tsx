@@ -1,10 +1,7 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import ProfileModal from "./profileModal";
+import ModalProfile from "./modalProfile";
 import Logout from "@/app/components/logout";
-
 
 export default function profile() {
 
@@ -104,8 +101,8 @@ export default function profile() {
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0"></dd>
                             </div>
 
-                            <div className="flex items-center justify-center bg-gray-100">
-                                <ProfileModal />
+                            <div className="flex items-center justify-center py-6 bg-slate-50">
+                                <ModalProfile />
                             </div>
                         </dl>
                     </div>

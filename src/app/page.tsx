@@ -303,7 +303,7 @@ export default function Home() {
                                                 className="aspect-square w-60 rounded-lg bg-gray1-200 object-cover"
                                             />
                                             <h3 className="mt-4 text-lg text-black1">{employee.name}</h3>
-                                            <p className="mt-1 text-sm font-medium text-black1">{employee.imageAlt}</p>
+                                            <p className="mt-1 text-sm font-medium text-gray1">{employee.imageAlt}</p>
                                         </a>
                                     </div>
                                 ))}

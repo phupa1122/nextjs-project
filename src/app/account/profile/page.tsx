@@ -32,7 +32,7 @@ export default function profile() {
                 </div>
             </div>
 
-            <div className='w-full flex flex-row pr-10 gap-5'>
+            <div className='w-full flex flex-row'>
                 <div className='container w-1/5 mb-5 bg-slate-50'>
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-4 items-center">
@@ -57,8 +57,8 @@ export default function profile() {
                     </div>
                 </div>
 
-                <div className='m-5 w-full'>
-                    <div className="px-4 sm:px-0">
+                <div className='w-full my-5 mx-10'>
+                    <div className="px-5 sm:px-0">
                         <h3 className="text-lg/7 font-medium text-gray1">ข้อมูลส่วนตัว</h3>
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg'>

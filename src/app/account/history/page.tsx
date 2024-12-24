@@ -32,7 +32,7 @@ export default function page() {
                 </div>
             </div>
 
-            <div className='w-full flex flex-row pr-10 gap-5'>
+            <div className='w-full flex flex-row'>
                 <div className='container w-1/5 mb-5 bg-slate-50'>
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-4 items-center">
@@ -57,7 +57,7 @@ export default function page() {
                     </div>
                 </div>
 
-                <div className='m-5 w-full'>
+                <div className='w-full my-5 mx-10'>
                     <div className="px-4 sm:px-0">
                         <h3 className="text-lg/7 font-medium text-gray1">ประวัติของจอง</h3>
                     </div>

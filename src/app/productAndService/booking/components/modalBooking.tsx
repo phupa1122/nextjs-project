@@ -40,8 +40,6 @@ export default function modalBooking() {
                         </button>
                     </div>
                     <form method="dialog" className="space-y-1">
-
-
                         <div>
                             <label htmlFor="date" className="block text-sm/6 font-medium text-black1 text-start">
                                 วันที่การจอง

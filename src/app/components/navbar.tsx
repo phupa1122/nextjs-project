@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 import { FaMagnifyingGlass } from "react-icons/fa6";
@@ -8,8 +10,26 @@ import { PiHandbagBold } from "react-icons/pi";
 import { PiUserCircleBold } from "react-icons/pi";
 
 function navbar() {
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
     return (
-        <div className="navbar bg-white1 px-10 h-10	 fixed top-0 left-0 z-50">
+        <div
+      className={`navbar px-10 h-10 fixed top-0 left-0 z-50 transition-colors duration-700 ${
+        isScrolled
+          ? 'bg-gradient-to-b from-neutral-50 to-white1'
+          : 'bg-gradient-to-b from-white1 to-neutral-50'
+      }`}
+    >
             <div className="navbar-start">
                 <img src='/images/Logo.png' alt='Logo' />
             </div>

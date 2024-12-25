@@ -15,7 +15,7 @@ const config: Config = {
         pink1: "#EC407A",
         blue1: "#407AEC",
         red1: "#FF2D47",
-        green1: "#66C76B",
+        green1: "#13C648",
         black1: "#21211F",
         white1: "#E3DFD8",
         gray1: "#7A7772",

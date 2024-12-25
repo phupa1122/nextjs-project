@@ -35,15 +35,15 @@ export default function promotion() {
                 <div className='mx-60 px-10'>
                     <div className='flex flex-col gap-5 py-5'>
                         <div className="flex flex-row justify-between">
-                            <div className="flex justify-center rounded-lg border border-gray1 p-2 gap-3">
+                            <div className="flex justify-center rounded-lg border border-gray-300 p-2 gap-3 bg-slate-50">
                                 <div className="flex flex-row text-center">
-                                    <div className="container bg-[#FFFFFF] w-24 h-24 rounded bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/promotion/all.png')" }}>
+                                    <div className="container bg-slate-50 w-24 h-24 rounded bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/promotion/all.png')" }}>
                                     </div>
                                 </div>
                                 <div className="flex flex-col text-start gap-1">
                                     <p className="text-lg/5 text-black1">ส่วนลด 20 % สูงสุด ฿100</p>
                                     <p className="text-xs/5 text-black1">ขั้นต่ำ ฿199</p>
-                                    <div className="flex w-fit justify-center rounded text-pink1 bg-white1 border  text-xs px-1 font-normal">
+                                    <div className="flex w-fit justify-center rounded text-pink1 bg-slate-50 border  text-xs px-1 font-normal">
                                         ลงทะเบียน
                                     </div>
                                     <p className="text-xs/5 text-gray1">ใช้ภายใน 7 วันหลังจากเก็บโค้ดส่วนลด</p>
@@ -55,7 +55,7 @@ export default function promotion() {
                                 </div>
                             </div>
 
-                            <div className="flex justify-center rounded-lg border border-gray1 p-2 gap-3">
+                            <div className="flex justify-center rounded-lg border border-gray-300 p-2 gap-3 bg-slate-50">
                                 <div className="flex flex-row text-center">
                                     <div className="container bg-[#FFFFFF] w-24 h-24 rounded bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/promotion/pro.png')" }}>
                                     </div>
@@ -76,7 +76,7 @@ export default function promotion() {
                             </div>
                         </div>
                         <div className="flex flex-row justify-between">
-                        <div className="flex justify-center rounded-lg border border-gray1 p-2 gap-3">
+                        <div className="flex justify-center rounded-lg border border-gray-300 p-2 gap-3 bg-slate-50">
                                 <div className="flex flex-row text-center">
                                     <div className="container bg-[#FFFFFF] w-24 h-24 rounded bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/promotion/pro.png')" }}>
                                     </div>
@@ -96,7 +96,7 @@ export default function promotion() {
                                 </div>
                             </div>
 
-                            <div className="flex justify-center rounded-lg border border-gray1 p-2 gap-3">
+                            <div className="flex justify-center rounded-lg border border-gray-300 p-2 gap-3 bg-slate-50">
                                 <div className="flex flex-row text-center">
                                     <div className="container bg-[#FFFFFF] w-24 h-24 rounded bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/promotion/all.png')" }}>
                                     </div>

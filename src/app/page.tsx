@@ -2,6 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import styled from 'styled-components';
 import { FaRegStar } from "react-icons/fa";
 import { PiPackage } from "react-icons/pi";
@@ -153,6 +155,14 @@ export default function Home() {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
+                    </div>
+
+                    <div className="flex justify-center py-2">
+                        <Link href="/productAndService">
+                            <button className="flex-none rounded-md bg-pink1 px-3.5 py-2.5 text-sm font-semibold text-slate-50 shadow-sm hover:bg-pink-600 focus-pink1">
+                                ดูทั้งหมด
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

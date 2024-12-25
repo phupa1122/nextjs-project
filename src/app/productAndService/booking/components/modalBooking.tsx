@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function modalBooking() {
@@ -16,11 +17,11 @@ export default function modalBooking() {
     };
 
     const services = ["บริการทรีตเมนต์", "บริการสักคิ้ว", "บริการทำเล็บ"];
-  const workers = {
-    "บริการทรีตเมนต์": ["ช่าง A", "ช่าง B", "ช่าง C"],
-    "บริการสักคิ้ว": ["ช่าง D", "ช่าง E"],
-    "บริการทำเล็บ": ["ช่าง F", "ช่าง G", "ช่าง H"],
-  };
+    const workers = {
+        "บริการทรีตเมนต์": ["ช่าง A", "ช่าง B", "ช่าง C"],
+        "บริการสักคิ้ว": ["ช่าง D", "ช่าง E"],
+        "บริการทำเล็บ": ["ช่าง F", "ช่าง G", "ช่าง H"],
+    };
 
     return (
         <div>
@@ -191,9 +192,13 @@ export default function modalBooking() {
                             <button type="button" className="btn btn-outline btn-base-content px-4 text-sm" onClick={closeModal}>
                                 ปิด
                             </button>
-                            <button className="btn btn-secondary px-4 text-sm text-slate-50">
-                                จองคิว
-                            </button>
+                            <Link href="/payment" passHref>
+                                <button
+                                    className="btn px-4 text-sm text-slate-50 bg-green1 border-green1 hover:bg-green-600 hover:text-white hover:border-green-600"
+                                >
+                                    จองคิว
+                                </button>
+                            </Link>
                         </div>
                     </form>
                 </div>

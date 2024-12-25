@@ -116,7 +116,7 @@ export default function productAndService() {
 
                 <div className='w-full'>
                     <div className='w-full h-auto'>
-                        <div className='bg-slate-50 flex justify-center items-center h-full py-2 px-2 md:px-4 border-y border-slate-50 rounded-none bg-fixed'>
+                        <div className='bg-slate-50 flex justify-center items-center h-full py-2 px-2 md:px-4 border-y border-slate-50 rounded-md bg-fixed'>
                             <input
                                 id="sreach"
                                 name="sreach"

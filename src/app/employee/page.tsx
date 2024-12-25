@@ -32,7 +32,7 @@ export default function employee() {
                         <div className="flex items-center justify-center my-14">
                             <div className="text-center w-80 flex flex-col gap-y-5">
                                 <p className="text-base text-black1 ">
-                                    เกี่ยวกับเรา
+                                    พนักงานของเรา
                                 </p>
                                 <h1 className="text-2xl	 font-bold text-black1">
                                 แมว
@@ -53,7 +53,7 @@ export default function employee() {
                         <div className="flex items-center justify-center my-14">
                             <div className="text-center w-80 flex flex-col gap-y-5">
                                 <p className="text-base text-black1 ">
-                                    พนักงาน
+                                พนักงานของเรา
                                 </p>
                                 <h1 className="text-2xl	 font-bold text-black1">
                                     ชาย
@@ -84,7 +84,7 @@ export default function employee() {
                         <div className="flex items-center justify-center my-14">
                             <div className="text-center w-80 flex flex-col gap-y-5">
                                 <p className="text-base text-black1 ">
-                                    เกี่ยวกับเรา
+                                พนักงานของเรา
                                 </p>
                                 <h1 className="text-2xl	 font-bold text-black1">
                                     หญิง                                </h1>

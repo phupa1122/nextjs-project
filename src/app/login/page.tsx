@@ -23,16 +23,16 @@ export default function login() {
             password: login.get("password") as string,
         };
 
-        fetch("https://www.melivecode.com/api/login", {
+        fetch('https://dummyjson.com/auth/login', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(JsonData),
+            body: JSON.stringify({JsonData}),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log("API Response:", data);
                 setLoading(false);
-                if (data.status === "ok") {
+                if (data.status == "ok") {
                     Swal.fire({
                         icon: "success",
                         title: "เข้าสู่ระบบสำเร็จ",
@@ -46,7 +46,9 @@ export default function login() {
                         text: "โปรดตรวจสอบชื่อผู้ใช้หรือรหัสผ่าน",
                         confirmButtonColor: "#FF2D47",
                     });
+                    console.log(data.status)
                 }
+                
             })
             .catch((error) => {
                 setLoading(false);
@@ -64,7 +66,7 @@ export default function login() {
 
     return (
         <>
-            <div className="hero min-h-screen bg-white1 bg-center" style={{ backgroundImage: "url('/images/login/bg-login.png')" }}>
+            <div className="hero min-h-screen w-full bg-white1 bg-center" style={{ backgroundImage: "url('/images/login/bg-login.png')" }}>
                 <div className="w-1/3 mt-10">
                     <div className='justify-center text-center'>
                         <h1 className="text-6xl font-bold text-black1">
@@ -101,7 +103,7 @@ export default function login() {
                                                         type="text"
                                                         required
                                                         autoComplete="email"
-                                                        className="block w-full pl-10 rounded-md bg-white1 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray1 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                                        className="block w-full pl-10 rounded-md bg-white1 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray1 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6 hover:bg-white1"
                                                     />
                                                 </div>
                                             </div>

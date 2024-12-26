@@ -7,26 +7,26 @@ import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
 const data = [
-    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", description: "Description 1", image: "/images/product/Bestproduct.png" },
-    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", description: "Description 2", image: "/images/product/Bestproduct.png" },
-    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", description: "Description 3", image: "/images/product/Bestproduct.png" },
-    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", description: "Description 4", image: "/images/product/Bestproduct.png" },
-    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", description: "Description 5", image: "/images/product/Product.png" },
-    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", description: "Description 6", image: "/images/product/Product.png" },
-    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", description: "Description 7", image: "/images/product/Product.png" },
-    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", description: "Description 8", image: "/images/product/Product.png" },
-    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", description: "Description 9", image: "/images/product/Treatment.png" },
-    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", description: "Description 10", image: "/images/product/Treatment.png" },
-    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", description: "Description 11", image: "/images/product/Treatment.png" },
-    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", description: "Description 12", image: "/images/product/Treatment.png" },
-    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", description: "Description 13", image: "/images/product/Tattoo.png" },
-    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", description: "Description 14", image: "/images/product/Tattoo.png" },
-    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", description: "Description 15", image: "/images/product/Tattoo.png" },
-    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", description: "Description 16", image: "/images/product/Tattoo.png" },
-    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", description: "Description 17", image: "/images/product/Nail.png" },
-    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", description: "Description 18", image: "/images/product/Nail.png" },
-    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", description: "Description 19", image: "/images/product/Nail.png" },
-    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", description: "Description 20", image: "/images/product/Nail.png" },
+    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", price: "450฿", image: "/images/product/Bestproduct.png" },
+    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", price: "450฿", image: "/images/product/Bestproduct.png" },
+    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", price: "450฿", image: "/images/product/Bestproduct.png" },
+    { title: "แป้งพัฟ", subtitle: "เนื้อแป้งแน่น ไม่ร่วงเป็นฝุ่นผง", price: "450฿", image: "/images/product/Bestproduct.png" },
+    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { title: "ครีม", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
+    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
+    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
+    { title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
+    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
 ];
 
 const PriceRangeSlider = () => {
@@ -71,6 +71,12 @@ const PriceRangeSlider = () => {
 
 export default function productAndService() {
 
+    const [searchText, setSearchText] = useState('');
+
+    const filteredProductAndServices = data.filter((data) => {
+        return data.title.includes(searchText);
+    });
+
     const pageUrl = '/';
 
     return (
@@ -93,7 +99,7 @@ export default function productAndService() {
 
             <div className='w-full flex flex-row pr-10 gap-5'>
                 <div className='container w-1/5 mb-5 bg-slate-50'>
-                    <div className='m-5 no-scrollbar'>
+                    <div className='m-5'>
                         <div className="text-start flex flex-col px-2 gap-5">
                             <div className='flex flex-col gap-2'>
                                 <p className="text-black1 text-lg font-medium">สินค้า</p>
@@ -120,15 +126,16 @@ export default function productAndService() {
                             <input
                                 id="sreach"
                                 name="sreach"
-                                type="sreach"
+                                type="text"
                                 required
                                 placeholder="ค้บหาสินค้าและบริการ"
-                                autoComplete="sreach"
+                                value={searchText}
+                                onChange={(event) => {setSearchText(event.target.value)}}
                                 className="min-w-0 flex-auto rounded-md bg-white1/5 px-3.5 py-2 text-base text-black1 outline outline-1 -outline-offset-1 outline-gray1 placeholder:text-gray1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                             />
-                            <button type="submit" className="flex-none rounded-md bg-blue-500 px-10 py-2.5 text-base font-semibold text-[#FFFFFF] shadow-sm hover:bg-blue-600 focus-pink1">
+                            {/* <button type="submit" className="flex-none rounded-md bg-blue-500 px-10 py-2.5 text-base font-normal text-[#FFFFFF] shadow-sm hover:bg-blue-600 focus-pink1">
                                 ค้นหา
-                            </button>
+                            </button> */}
                         </div>
 
                     </div>
@@ -141,11 +148,11 @@ export default function productAndService() {
                         <div className='py-3'>
                             <div className='flex flex-row justify-between  mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
-                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: 20 รายการ</p>
+                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: {filteredProductAndServices.length} รายการ</p>
                             </div>
                             <div className='px-10 mx-10 border-t border-gray1'>
                                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                                    {data.map((item, index) => (
+                                    {filteredProductAndServices.map((item, index) => (
                                         <div className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto" key={index}>
                                             <div className="w-full space-y-2">
                                                 <h1 className="text-black1 text-2xl text-center font-bold">{item.title}</h1>
@@ -170,8 +177,8 @@ export default function productAndService() {
                                                     <FaRegStar size={12} />
                                                 </div>
 
-                                                <div className="text-black1 text-justify overflow-hidden text-ellipsis mt-2" style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3 }}>
-                                                    {item.description}
+                                                <div className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2" style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3 }}>
+                                                    {item.price}
                                                 </div>
 
                                                 <div className="text-center mt-4 border-t border-gray1-300 pt-4">

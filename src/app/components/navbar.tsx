@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Login from '../login/page';
 
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { PiTicketBold } from "react-icons/pi";
@@ -42,44 +43,6 @@ function navbar() {
                     <Link href="/promotion" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">โปรโมชั่น</Link>
                     <Link href="/result" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">ผลลัพธ์ลูกค้า</Link>
                     <Link href="/contact" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">ติดต่อเรา</Link>
-
-                    {/* <li>
-                        <details className="hover:text-gray1 ">
-                            <summary>สินค้าและบริการ</summary>
-                            <ul className="p-2 text-black1 bg-white1 w-40 py-3 ">
-                                <details className="hover:text-gray1">
-                                    <summary>สินค้า</summary>
-                                    <ul className="p-2 text-black1 bg-white1 ">
-                                        <li className="hover:text-black1 hover:bg-pink1 rounded">
-                                            <a href="/productAndService/product_cream">ครีม</a>
-                                        </li>
-
-                                        <li className="hover:text-black1 hover:bg-pink1 rounded">
-                                            <a href="/productAndService/product_shampoo">แชทพู</a>
-                                        </li>
-                                    </ul>
-                                </details>
-
-                                <details className="hover:text-gray1">
-                                    <summary>บริการ</summary>
-                                    <ul className="p-2 text-black1 bg-white1">
-                                        <li className="hover:text-black1 hover:bg-pink1 rounded">
-                                            <a href="/productAndService/service_treatment">ทรีตเมนต์</a>
-                                        </li>
-
-                                        <li className="hover:text-black1 hover:bg-pink1 rounded">
-                                            <a href="/productAndService/service_tattoo">สักคิ้ว</a>
-                                        </li>
-
-                                        <li className="hover:text-black1 hover:bg-pink1 rounded">
-                                            <a href="/productAndService/service_nail">ทำเล็บ</a>
-                                        </li>
-                                    </ul>
-                                </details>
-                            </ul>
-                        </details>
-                    </li> */}
-
                 </ul>
             </div>
 

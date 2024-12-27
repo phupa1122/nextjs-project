@@ -4,7 +4,7 @@ const ServicesButtons = () => {
   const [activeButton, setActiveButton] = useState<string | null>(null);
 
   const handleButtonClick = (service: string) => {
-    setActiveButton(service); // เก็บค่าปุ่มที่ถูกคลิก
+    setActiveButton(service); // เก็บสถานะของปุ่มที่ถูกคลิก
   };
 
   return (
@@ -19,9 +19,9 @@ const ServicesButtons = () => {
       </button>
       <button
         className={`btn text-black1 ${
-          activeButton === 'tattoo' ? 'bg-pink1 text-white' : 'btn-ghost'
+          activeButton === 'brow' ? 'bg-pink1 text-white' : 'btn-ghost'
         }`}
-        onClick={() => handleButtonClick('tattoo')}
+        onClick={() => handleButtonClick('brow')}
       >
         บริการสักคิ้ว
       </button>

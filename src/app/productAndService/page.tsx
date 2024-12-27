@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Noitems from "../components/noitems";
 import { useRouter } from 'next/navigation';
 import Pagination from "./pagination";
+import ModalBooking from "./modalBooking";
 
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -218,7 +219,7 @@ export default function productAndService() {
                                                         {item.type === "สินค้า" ? (
                                                             <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
                                                         ) : (
-                                                            <></>
+                                                            <ModalBooking />
                                                         )}
                                                     </div>
                                                 </div>

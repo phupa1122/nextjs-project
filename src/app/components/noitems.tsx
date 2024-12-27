@@ -13,9 +13,6 @@ export default function noitems() {
                     <h1 className="mt-4 text-balance text-xl font-medium tracking-tight text-black1 sm:text-2xl">
                         ไม่มีรายการ
                     </h1>
-                    <p className="mt-4 text-pretty text-lg font-normal text-gray1 sm:text-base/8">
-                        เพิ่มรายการอื่น ๆ ไปยังการจัดเก็บของฉันสิ
-                    </p>
                 </div>
             </div>
         </>

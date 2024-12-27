@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ModalBooking from "./components/modalBooking";
+import ModalBooking from "./modalBooking";
 
 const ScheduleCard1 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
@@ -346,11 +346,6 @@ export default function booking() {
                                 <h2 className='text-black1 text-xl font-medium'>การจองคิว</h2>
                                 <a className='text-pink1 text-xs hover:text-pink-400'>ดูทั้งหมด</a>
                             </div>
-                            {/* <ScheduleCard />
-                            <ScheduleCard1 />
-                            <ScheduleCard2 />
-                            <ScheduleCard3 />
-                            <ScheduleCard4 /> */}
 
                             <div>
                                 {daysOfWeek.map((day, index) => (

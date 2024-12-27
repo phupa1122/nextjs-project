@@ -16,17 +16,10 @@ export default function modalBooking() {
         }
     };
 
-    const services = ["บริการทรีตเมนต์", "บริการสักคิ้ว", "บริการทำเล็บ"];
-    const workers = {
-        "บริการทรีตเมนต์": ["ช่าง A", "ช่าง B", "ช่าง C"],
-        "บริการสักคิ้ว": ["ช่าง D", "ช่าง E"],
-        "บริการทำเล็บ": ["ช่าง F", "ช่าง G", "ช่าง H"],
-    };
-
     return (
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}
-            <button className="w-full text-sm block py-2 px-4 rounded-md border text-green1 border-green1 font-normal transition bg-slate-50 hover:bg-green1 hover:text-slate-50" onClick={openModal}>
+            <button className="px-3 py-1 items-center text-pink1 rounded hover:bg-pink1 hover:text-slate-50" onClick={openModal}>
                 จองคิว
             </button>
             <dialog id="modalBooking" className="modal">
@@ -98,9 +91,9 @@ export default function modalBooking() {
                                 บริการ
                             </label>
                             <div className="flex flex-row mt-1 space-x-3">
-                                <button className="btn btn-active btn-ghost">บริการทรีตเมนต์</button>
-                                <button className="btn btn-active btn-ghost">บริการสักคิ้ว</button>
-                                <button className="btn btn-active btn-ghost">บริการทำเล็บ</button>
+                                <button className="btn btn-active btn-ghost text-black1">บริการทรีตเมนต์</button>
+                                <button className="btn btn-active btn-ghost text-black1">บริการสักคิ้ว</button>
+                                <button className="btn btn-active btn-ghost text-black1">บริการทำเล็บ</button>
                             </div>
                         </div>
 
@@ -189,12 +182,12 @@ export default function modalBooking() {
                         </div>
 
                         <div className="mt-6 text-right space-x-3">
-                            <button type="button" className="btn btn-outline btn-base-content px-4 text-sm" onClick={closeModal}>
+                            <button type="button" className="py-1 px-4 text-base text-green-600 bg-slate-50 border-green-600 rounded-md hover:bg-slate-50 hover:text-gray1 hover:border-green1" onClick={closeModal}>
                                 ปิด
                             </button>
                             <Link href="/payment" passHref>
                                 <button
-                                    className="btn px-4 text-sm text-slate-50 bg-green1 border-green1 hover:bg-green-600 hover:text-white hover:border-green-600"
+                                    className="py-1 px-4 text-base text-slate-50 bg-green-600 border-green-600 rounded-md hover:bg-green1 hover:text-gray hover:border-gray"
                                 >
                                     จองคิว
                                 </button>

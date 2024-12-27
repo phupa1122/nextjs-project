@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Login from '../login/page';
 
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { PiTicketBold } from "react-icons/pi";

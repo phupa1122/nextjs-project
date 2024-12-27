@@ -26,7 +26,7 @@ export default function login() {
         fetch('https://dummyjson.com/auth/login', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({JsonData}),
+            body: JSON.stringify({ JsonData }),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -48,7 +48,7 @@ export default function login() {
                     });
                     console.log(data.status)
                 }
-                
+
             })
             .catch((error) => {
                 setLoading(false);

@@ -1,4 +1,8 @@
 import React from 'react'
+import Map from './map';
+
+import { PiPhoneCallFill } from "react-icons/pi";
+import { PiMapPinAreaFill } from "react-icons/pi";
 
 export default function contact() {
 
@@ -23,26 +27,28 @@ export default function contact() {
             </div>
 
             <div className='m-10'>
-                <div className="flex items-center justify-between px-20">
-                    <div className="text-start w-80 flex flex-col gap-3">
-                        <h1 className="text-2xl font-bold text-black1">
+                <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-between mx-20 gap-4">
+                    <div className="text-start w-full sm:w-full md:w-2/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
+                        <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
+                            <PiPhoneCallFill size={24} />
                             เบอร์โทรศัพท์
                         </h1>
-                        <p className="text-base text-start text-black1">
+                        <p className="text-base text-start text-gray1">
                             090-3166790
                         </p>
                     </div>
-                    <div className="text-start w-80 flex flex-col gap-3">
-                        <h1 className="text-2xl font-bold text-black1">
+                    <div className="text-start w-full sm:w-full md:w-3/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
+                        <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
+                            <PiMapPinAreaFill size={24} />
                             ที่อยู่
                         </h1>
-                        <p className="text-base text-start text-black1">
+                        <p className="text-base text-start text-gray1">
                             199 2 ตำบล บ้านโฮ่ง อำเภอ บ้านโฮ่ง ลำพูน 51130
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row items-center justify-center space-x-0 px-20 my-5">
-                </div>
+
+                <Map />
 
             </div>
         </>

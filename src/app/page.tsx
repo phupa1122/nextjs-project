@@ -38,13 +38,12 @@ const data = [
     { title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", description: "Description 20", image: "/images/product/Nail.png" },
 ];
 
-
 const CenteredDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: pink1;
+  color: #EC407A;
 `;
 
 const employees = [
@@ -73,15 +72,23 @@ export default function Home() {
         <>
             {/* โฆษณา */}
             <div className="hero min-h-screen bg-white1 bg-center" style={{ backgroundImage: "url('/images/bg-homepage.png')" }}>
-                <div className="ml-auto mr-10 pr-20 w-1/3">
+                <div className="ml-auto mr-10 w-1/3">
                     <div className="text-right">
-                        <p className="mb-6 text-xl	 text-black1">
+                        <p className="md:mb-6 md:text-xl text-black1 sm:mb-2">
                             ยกกระชับผิวหน้า
                         </p>
-                        <h1 className="text-6xl	 font-bold text-black1">
+                        <h1 className="md:text-6xl font-bold text-black1 ">
                             บำรุงผิวพรรณและความสวยงาม
                         </h1>
-                        <p className="mt-6 text-black1">
+                        <p
+                            className="md:mt-6 text-black1 sm:mt-2"
+                            style={{
+                                display: "-webkit-box",
+                                WebkitBoxOrient: "vertical",
+                                WebkitLineClamp: 2,
+                                overflow: "hidden",
+                            }}
+                        >
                             ส่วนผสมจากธรรมชาติจากพืชเพื่อช่วยให้ลูกค้ามีผิวเปล่งปลั่งและมีสุขภาพดี
                         </p>
                     </div>
@@ -196,41 +203,65 @@ export default function Home() {
             </div>
 
             {/* การขาย */}
-            <div className="m-10">
-                <div className="w-full my-10 px-20">
-                    <div className="grid gap-40 grid-cols-3">
+            <div className="mx-10">
+                <div className="w-full my-10 px-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiPackage size={48} color="pink" />
+                                <PiPackage size={48} />
                             </CenteredDiv>
-                            <h1 className="text-2xl	 font-bold text-black1">
+                            <h1 className="text-2xl font-bold text-black1">
                                 จัดส่งฟรี
                             </h1>
-                            <p className=" text-black1 text-sm">
+                            <p
+                                className="text-sm text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 2,
+                                    overflow: "hidden",
+                                }}
+                            >
                                 การจัดส่งฟรีสำหรับทุกคำสั่งซื้อ โดยไม่ต้องมีการสั่งซื้อขั้นต่ำ
                             </p>
                         </div>
 
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiChats size={48} color="pink" />
+                                <PiChats size={48} />
                             </CenteredDiv>
-                            <h1 className="text-2xl	 font-bold text-black1">
+                            <h1 className="text-2xl font-bold text-black1">
                                 สนับสนุน
                             </h1>
-                            <p className="text-black1 text-sm">
+                            <p
+                                className="text-sm text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 2,
+                                    overflow: "hidden",
+                                }}
+                            >
                                 ให้ความช่วยเหลือตลอด 24 ชั่วโมงทุกวันเพื่อตอบคำถามหรือข้อกังวลต่างๆ
                             </p>
                         </div>
 
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiCurrencyBtc size={48} color="pink" />
+                                <PiCurrencyBtc size={48} />
                             </CenteredDiv>
-                            <h1 className="text-2xl	 font-bold text-black1">
+                            <h1 className="text-2xl font-bold text-black1">
                                 คืนเงิน
                             </h1>
-                            <p className="text-black1 text-sm">
+                            <p
+                                className="text-sm text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 2,
+                                    overflow: "hidden",
+                                }}
+                            >
                                 ประกันคืนเงิน 100% เพื่อความพึงพอใจของคุณ
                             </p>
                         </div>
@@ -246,21 +277,27 @@ export default function Home() {
 
                         </div>
                     </div>
-                    <div className="w-1/2 h-[400px] flex-row bg-[#FFFFFF] bg-center rounded-r-lg">
-                        <div className="flex items-center justify-center my-14">
-                            <div className="text-center w-80 flex flex-col gap-y-5">
-                                <p className="text-base text-black1 ">
-                                    เกี่ยวกับเรา
-                                </p>
-                                <h1 className="text-2xl	 font-bold text-black1">
-                                    ร้านค้าของเรา
-                                </h1>
-                                <p className="text-base text-start text-black1">
-                                    เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
-                                    การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
-                                    อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
-                                </p>
-                            </div>
+                    <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-r-lg">
+                        <div className="w-1/2 text-center">
+                            <p className="text-base text-black1">
+                                เกี่ยวกับเรา
+                            </p>
+                            <h1 className="text-2xl font-bold text-black1 my-5">
+                                ร้านค้าของเรา
+                            </h1>
+                            <p
+                                className="text-base text-start text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 8,
+                                    overflow: "hidden",
+                                }}
+                            >
+                                เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
+                                การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
+                                อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -269,21 +306,27 @@ export default function Home() {
             {/* ความคิดเห็น */}
             <div className="m-10">
                 <div className="flex flex-row items-center justify-center space-x-0 px-20 mt-10">
-                    <div className="w-1/2 h-[400px] flex-row bg-[#FFFFFF] bg-center rounded-l-lg">
-                        <div className="flex items-center justify-center my-14">
-                            <div className="text-center w-80 flex flex-col gap-y-5">
-                                <p className="text-base text-black1 ">
-                                    เกี่ยวกับเรา
-                                </p>
-                                <h1 className="text-2xl	 font-bold text-black1">
-                                    ร้านค้าของเรา
-                                </h1>
-                                <p className="text-base text-start text-black1">
-                                    เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
-                                    การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
-                                    อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
-                                </p>
-                            </div>
+                    <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-l-lg">
+                        <div className="w-1/2 text-center">
+                            <p className="text-base text-black1">
+                                เกี่ยวกับเรา
+                            </p>
+                            <h1 className="text-2xl font-bold text-black1 my-5">
+                                ร้านค้าของเรา
+                            </h1>
+                            <p
+                                className="text-base text-start text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 8,
+                                    overflow: "hidden",
+                                }}
+                            >
+                                เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
+                                การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
+                                อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
+                            </p>
                         </div>
                     </div>
                     <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center">

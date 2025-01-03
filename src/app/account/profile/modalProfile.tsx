@@ -45,7 +45,7 @@ export default function modalProfile() {
                                 <input
                                     id="name"
                                     name="name"
-                                    type="name"
+                                    type="text"
                                     required
                                     autoComplete="name"
                                     defaultValue="ชื่อ"
@@ -62,7 +62,7 @@ export default function modalProfile() {
                                 <input
                                     id="lname"
                                     name="lname"
-                                    type="lname"
+                                    type="text"
                                     required
                                     autoComplete="lname"
                                     defaultValue="นามสกุล"
@@ -79,7 +79,7 @@ export default function modalProfile() {
                                 <input
                                     id="username"
                                     name="username"
-                                    type="username"
+                                    type="text"
                                     required
                                     autoComplete="username"
                                     defaultValue="ชื่อผู้ใช้"

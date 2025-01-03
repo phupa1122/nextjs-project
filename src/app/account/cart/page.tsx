@@ -62,7 +62,7 @@ export default function cart() {
                         <h3 className="text-lg/7 font-medium text-gray1">ตะกร้าของฉัน</h3>
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg'>
-                        {/* <Noitems /> */}
+                        <Noitems />
 
                         
                     </div>

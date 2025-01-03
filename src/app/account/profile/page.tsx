@@ -63,47 +63,47 @@ export default function profile() {
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg'>
                         <dl className="divide-y divide-gray1 mx-10">
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">รูปโปรไฟล์</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0 flex items-center">รูปโปรไฟล์ช่วยปรับเปลี่ยนบัญชีของคุณ</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">ชื่อ</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0 flex items-center">ชื่อ</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">นามสกุล</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0">นามสกุล</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">อีเมล์</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0">อีเมล์</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">เบอร์โทรศัพท์</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0">เบอร์โทรศัพท์</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">วัน เดือน ปีที่เกิด</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0">วัน เดือน ปีที่เกิด</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">รหัสผ่าน</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0">รหัสผ่าน</dd>
                             </div>
 
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <div className="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm/6 font-medium text-gray1">ยืนยันรหัสผ่าน</dt>
                                 <dd className="mt-1 text-sm/6 text-black1 sm:col-span-2 sm:mt-0"></dd>
                             </div>
 
-                            <div className="flex items-center justify-center py-6 bg-slate-50">
+                            <div className="flex items-center justify-center py-3 bg-slate-50">
                                 <ModalProfile />
                             </div>
                         </dl>

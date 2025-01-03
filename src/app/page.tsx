@@ -419,10 +419,10 @@ export default function Home() {
             <div className="m-10">
                 <div className="relative isolate overflow-hidden bg-white1 py-16 sm:py-5 lg:py-10">
                     <div
-                        className="absolute inset-0 -z-10 bg-cover bg-center mx-20"
+                        className="absolute inset-0 -z-10 bg-cover bg-center"
                         style={{ backgroundImage: "url('/images/Sub.png')" }}
                     ></div>
-                    <div className="mx-auto max-w-6xl px-20 lg:px-10 py-10">
+                    <div className="mx-auto max-w-6xl px-20 lg:px-10 py-3">
                         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2">
                             <div className="max-w-xl lg:max-w-lg">
                                 <div className="items-center space-x-2 inline-flex">

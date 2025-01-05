@@ -12,26 +12,26 @@ import { IoMdArrowDropup } from "react-icons/io";
 import { PiShoppingBagOpenFill } from "react-icons/pi";
 
 const data = [
-    { id: "1", name: "สินค้า", type: "ครีม", title: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "2", name: "สินค้า", type: "ครีม", title: "ใสสะอาด", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "3", name: "สินค้า", type: "ครีม", title: "ลดสิว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "4", name: "สินค้า", type: "ครีม", title: "ผิวเนียน", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "5", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "6", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "7", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "8", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "9", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "10", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "11", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "12", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "13", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "14", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "15", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "16", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "17", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "18", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "19", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "20", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "1", type: "สินค้า", title: "ครีม", name: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "2", type: "สินค้า", title: "ครีม", name: "ใสสะอาด", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "3", type: "สินค้า", title: "ครีม", name: "ลดสิว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "4", type: "สินค้า", title: "ครีม", name: "ผิวเนียน", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "5", type: "สินค้า", title: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "6", type: "สินค้า", title: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "7", type: "สินค้า", title: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "8", type: "สินค้า", title: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "9", type: "ทรีตเมนต์", title: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "10", type: "ทรีตเมนต์", title: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "11", type: "ทรีตเมนต์", title: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "12", type: "ทรีตเมนต์", title: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "13", type: "สักคิ้ว", title: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "14", type: "สักคิ้ว", title: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "15", type: "สักคิ้ว", title: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "16", type: "สักคิ้ว", title: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "17", type: "ทำเล็บ", title: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "18", type: "ทำเล็บ", title: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "19", type: "ทำเล็บ", title: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "20", type: "ทำเล็บ", title: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
 ];
 
 const PriceRangeSlider = () => {
@@ -95,14 +95,14 @@ export default function productAndService() {
 
     useEffect(() => {
         const filtered = data.filter((item) => {
-            return item.title.includes(searchText);
+            return item.name.includes(searchText);
         });
         setFilteredProductAndServices(filtered);
     }, [searchText]);
 
     const handleCream = () => {
         const filtered = data.filter((item) => {
-            return item.type === 'ครีม';
+            return item.title === 'ครีม';
             //router.push('/productAndService/product_cream');
         });
         setFilteredProductAndServices(filtered);
@@ -110,7 +110,7 @@ export default function productAndService() {
     };
     const handleShampoo = () => {
         const filtered = data.filter((item) => {
-            return item.type === 'แชมพู';
+            return item.title === 'แชมพู';
         });
         setFilteredProductAndServices(filtered);
         console.log(filtered);
@@ -118,21 +118,21 @@ export default function productAndService() {
 
     const handleTreatment = () => {
         const filtered = data.filter((item) => {
-            return item.name === 'ทรีตเมนต์';
+            return item.title === 'ทรีตเมนต์';
         });
         setFilteredProductAndServices(filtered);
         console.log(filtered);
     };
     const handleTattoo = () => {
         const filtered = data.filter((item) => {
-            return item.name === 'สักคิ้ว';
+            return item.title === 'สักคิ้ว';
         });
         setFilteredProductAndServices(filtered);
         console.log(filtered);
     };
     const handleNail = () => {
         const filtered = data.filter((item) => {
-            return item.name === 'ทำเล็บ';
+            return item.title === 'ทำเล็บ';
         });
         setFilteredProductAndServices(filtered);
         console.log(filtered);
@@ -277,7 +277,7 @@ export default function productAndService() {
                                             ).map((item, index) => (
                                                 <div className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto" key={index}>
                                                     <div className="w-full space-y-2">
-                                                        <h1 className="text-black1 text-2xl text-center font-bold">{item.title}</h1>
+                                                        <h1 className="text-black1 text-2xl text-center font-bold">{item.name}</h1>
                                                         <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
                                                             <Image
                                                                 src={item.image}
@@ -307,7 +307,7 @@ export default function productAndService() {
                                                         </div>
 
                                                         <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                                                            {item.name === "สินค้า" ? (
+                                                            {item.type === "สินค้า" ? (
                                                                 <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
                                                             ) : (
                                                                 <ModalBooking />

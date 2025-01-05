@@ -190,7 +190,7 @@ export default function newAccount() {
 
                                     </form>
 
-                                    <div className='mx-20'>
+                                    <div className='mx-10'>
                                         <div className="flex items-center justify-between mt-3">
                                             <a href="/login" className="flex w-24 justify-center bg-white1 text-gray1 px-2 py-1 rounded-md shadow transition outline-1 border-gray1 border-2 hover:bg-gray1 hover:text-white1 hover:border-gray1">
                                                 ยกเลิก

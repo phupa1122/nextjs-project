@@ -12,26 +12,26 @@ import { IoMdArrowDropup } from "react-icons/io";
 import { PiShoppingBagOpenFill } from "react-icons/pi";
 
 const data = [
-    { name: "สินค้า", type: "ครีม", title: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { name: "สินค้า", type: "ครีม", title: "ใสสะอาด", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { name: "สินค้า", type: "ครีม", title: "ลดสิว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { name: "สินค้า", type: "ครีม", title: "ผิวเนียน", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
-    { name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
-    { name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
-    { name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
-    { name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "1", name: "สินค้า", type: "ครีม", title: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "2", name: "สินค้า", type: "ครีม", title: "ใสสะอาด", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "3", name: "สินค้า", type: "ครีม", title: "ลดสิว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "4", name: "สินค้า", type: "ครีม", title: "ผิวเนียน", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
+    { id: "5", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "6", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "7", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "8", name: "สินค้า", type: "แชมพู", title: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
+    { id: "9", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "10", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "11", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "12", name: "ทรีตเมนต์", type: "ทรีตเมนต์", title: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+    { id: "13", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "14", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "15", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "16", name: "สักคิ้ว", type: "สักคิ้ว", title: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
+    { id: "17", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "18", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "19", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
+    { id: "20", name: "ทำเล็บ", type: "ทำเล็บ", title: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
 ];
 
 const PriceRangeSlider = () => {
@@ -99,7 +99,23 @@ export default function productAndService() {
         });
         setFilteredProductAndServices(filtered);
     }, [searchText]);
-    
+
+    const handleCream = () => {
+        const filtered = data.filter((item) => {
+            return item.type === 'ครีม';
+            //router.push('/productAndService/product_cream');
+        });
+        setFilteredProductAndServices(filtered);
+        console.log(filtered);
+    };
+    const handleShampoo = () => {
+        const filtered = data.filter((item) => {
+            return item.type === 'แชมพู';
+        });
+        setFilteredProductAndServices(filtered);
+        console.log(filtered);
+    };
+
     const handleTreatment = () => {
         const filtered = data.filter((item) => {
             return item.name === 'ทรีตเมนต์';
@@ -120,11 +136,6 @@ export default function productAndService() {
         });
         setFilteredProductAndServices(filtered);
         console.log(filtered);
-    };
-
-    const ProductFilter = (product: string) => {
-        setSelectedProduct(selectedProduct === product ? null : product);
-        setSearchText("");
     };
 
     const ServiceFilter = (service: string) => {
@@ -175,19 +186,8 @@ export default function productAndService() {
                                     </button>
                                     {ProductDropdown && (
                                         <ul className="overflow-y-auto mt-2 flex flex-wrap gap-4 justify-start">
-                                            {Product.map((items) => (
-                                                <li key={items}>
-                                                    <button
-                                                        onClick={() => ProductFilter(items)}
-                                                        className={`text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition ${selectedProduct === items
-                                                            ? "bg-blue1 text-white"
-                                                            : "bg-white hover:bg-gray-200 text-gray-800"
-                                                            }`}
-                                                    >
-                                                        {items}
-                                                    </button>
-                                                </li>
-                                            ))}
+                                            <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" onClick={handleCream}>ครีม</button>
+                                            <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" onClick={handleShampoo}>แชมพู</button>
                                         </ul>
                                     )}
                                 </div>
@@ -209,7 +209,7 @@ export default function productAndService() {
                                     </button>
                                     {ServiceDropdown && (
                                         <ul className="overflow-y-auto mt-2 flex flex-wrap gap-4 justify-start">
-                                            {Service.map((items) => (
+                                            {/* {Service.map((items) => (
                                                 <li key={items}>
                                                     <button
                                                         onClick={() => ServiceFilter(items)}
@@ -221,7 +221,12 @@ export default function productAndService() {
                                                         {items}
                                                     </button>
                                                 </li>
-                                            ))}
+                                            ))} */}
+
+                                            <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" onClick={handleTreatment}>ทรีตเมนต์</button>
+                                            <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" onClick={handleTattoo}>สักคิ้ว</button>
+                                            <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" onClick={handleNail}>ทำเล็บ</button>
+
                                         </ul>
                                     )}
                                 </div>
@@ -256,7 +261,7 @@ export default function productAndService() {
                         <div className='py-3'>
                             <div className='flex flex-row justify-between mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
-                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: {currentItems.filter(item =>selectedProduct === null || item.type === selectedProduct).length} รายการ</p>
+                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: {currentItems.filter(item => selectedProduct === null || item.type === selectedProduct).length} รายการ</p>
                             </div>
 
                             <div className="px-10 mx-10 border-t border-gray1">

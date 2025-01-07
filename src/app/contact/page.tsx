@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from './map';
+import Map from '../components/map';
 
 import { PiPhoneCallFill } from "react-icons/pi";
 import { PiMapPinAreaFill } from "react-icons/pi";

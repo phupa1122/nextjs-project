@@ -78,7 +78,7 @@ export default function productAndService() {
     const [ProductDropdown, setProductDropdown] = useState(true);
     const [ServiceDropdown, setServiceDropdown] = useState(true);
 
-    // selectedFilter
+    // เลือก filter ข้อมูล
     const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
     const [selectedService, setSelectedService] = useState<string | null>(null);
 
@@ -142,8 +142,6 @@ export default function productAndService() {
         setSearchText("");
     };
 
-
-
     const pageUrl = '/';
 
     return (
@@ -165,7 +163,7 @@ export default function productAndService() {
             </div>
 
             <div className='w-full flex flex-row pr-10 sapce-x-10'>
-                <aside className="fixed inset-y-0 left-0 w-3/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full">
+                <aside className="fixed inset-y-0 left-0 w-3/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full drop-shadow-md">
                     <div className='m-5'>
                         <div className="text-start flex flex-col mx-2 gap-5">
                             <div className='flex flex-col gap-2'>
@@ -243,7 +241,7 @@ export default function productAndService() {
                 {/* <SideBar /> */}
                 <div className='w-full'>
                     <div className='w-full h-auto pl-10'>
-                        <div className='bg-slate-50 flex justify-center items-center h-full py-4 px-2 md:px-4 border-y border-slate-50 rounded-md bg-fixed'>
+                        <div className='bg-slate-50 flex justify-center items-center h-full py-4 px-2 md:px-4 border-y border-slate-50 rounded-md bg-fixed drop-shadow-md'>
                             <input
                                 id="sreach"
                                 name="sreach"
@@ -257,7 +255,7 @@ export default function productAndService() {
                         </div>
                     </div>
 
-                    <div className=' bg-slate-50 my-5 rounded-lg ml-10 h-auto'>
+                    <div className=' bg-slate-50 my-5 rounded-lg ml-10 h-auto drop-shadow-md'>
                         <div className='py-3'>
                             <div className='flex flex-row justify-between mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>

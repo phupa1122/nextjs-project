@@ -1,0 +1,28 @@
+"use client"
+
+import React from 'react'
+
+interface searchProps {
+    setSearchText: React.Dispatch<React.SetStateAction<string>>,
+    searchText : string
+}
+export default function Sreach({setSearchText, searchText} : searchProps) {
+
+
+    return (
+        <div className='w-full h-auto pl-10'>
+            <div className='bg-slate-50 flex justify-center items-center h-full py-4 px-2 md:px-4 border-y border-slate-50 rounded-md bg-fixed drop-shadow-md'>
+                <input
+                    id="sreach"
+                    name="sreach"
+                    type="text"
+                    required
+                    placeholder="ค้นหาสินค้าและบริการ"
+                    value={searchText}
+                    onChange={(event) => { setSearchText(event.target.value) }}
+                    className="min-w-0 flex-auto rounded-md bg-white1/5 px-3.5 py-2 text-base text-gray1 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                />
+            </div>
+        </div>
+    )
+}

@@ -1,27 +1,29 @@
 import { time } from 'console';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import selectedService from './booking/selectedService';
 
 const Service = ["บริการทรีตเมนต์", "บริการสักคิ้ว", "บริการทำเล็บ"];
 const Times = ["11:00", "13:00", "15:00", "17:00", "10:00", "12:00", "14:00", "16:00", "09:00", "11:00", "13:00", "15:00"];
 
 interface ModalBookingProps {
-    category: string[];  // สมมติว่า 'category' เป็น array ของบริการ
+    item: {
+        category?: string;
+        // เพิ่ม property อื่นๆ ของ item ตามต้องการ
+      };
 }
 
-const ModalBooking: React.FC<ModalBookingProps> = ({ category }) => {
+const ModalBooking: React.FC<ModalBookingProps> = ({ item  }) => {
     const openModal = () => {
-        const dialog = document.getElementById('modalBooking') as HTMLDialogElement;
-        if (dialog) {
-            dialog.showModal();
+        const modal = document.getElementById('modalBooking') as HTMLDialogElement;
+        if (modal) {
+            modal.showModal();
         }
     };
 
     const closeModal = () => {
-        const dialog = document.getElementById('modalBooking') as HTMLDialogElement;
-        if (dialog) {
-            dialog.close();
+        const modal = document.getElementById('modalBooking') as HTMLDialogElement;
+        if (modal) {
+            modal.close();
         }
     };
 
@@ -92,16 +94,7 @@ const ModalBooking: React.FC<ModalBookingProps> = ({ category }) => {
                             บริการ
                         </label>
                         <div className="flex flex-row space-x-3">
-                            {category.map((cat, index) => (
-                                <button
-                                className='px-3 py-1 text-base font-semibold text-gray1 border rounded-md cursor-not-allowed'
-                                key={index}
-                                onClick={(e) => e.preventDefault()}  // ป้องกันการคลิก
-                            >
-                                {cat}
-                            </button>
-                            
-                            ))}
+                        <p>{item.category}</p>
                         </div>
                     </div>
 
@@ -253,7 +246,7 @@ const ModalBooking: React.FC<ModalBookingProps> = ({ category }) => {
                             <button type="button" className="py-2 px-4 text-base text-green-600 bg-slate-50 border-green-600 rounded-md hover:bg-slate-50 hover:text-gray1 hover:border-green1" onClick={closeModal}>
                                 ปิด
                             </button>
-                            <Link href="/payment" passHref>
+                            <Link href="/payment">
                                 <button
                                     type='submit'
                                     className="py-2 px-4 text-base text-slate-50 bg-green-600 border-green-600 rounded-md hover:bg-green1 hover:text-gray hover:border-gray"

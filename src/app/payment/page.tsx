@@ -35,7 +35,7 @@ export default function payment() {
                 </div>
 
                 <div className='flex flex-row gap-10'>
-                    <div className='bg-slate-50 mt-3 rounded-lg p-5 w-2/3 space-y-2 h-[429px]'>
+                    <div className='bg-slate-50 mt-3 rounded-lg p-5 w-2/3 space-y-2 h-[429px] drop-shadow-md'>
                         <div>
                             <label htmlFor="date" className="block text-sm/6 font-medium text-black1 text-start">
                                 วันที่การจอง
@@ -201,7 +201,7 @@ export default function payment() {
                         </div>
                     </div>
 
-                    <div className='bg-slate-50 mt-3 rounded-lg p-5 w-1/3'>
+                    <div className='bg-slate-50 mt-3 rounded-lg p-5 w-1/3 drop-shadow-md'>
                         <div className="mt-2 space-y-3">
                             <p className="text-lg font-medium text-black1">ชำระเงิน</p>
                             <div className='flex flex-row justify-between border-b-2'>

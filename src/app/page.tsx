@@ -174,7 +174,7 @@ export default function Home() {
                                                     <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
                                                 ) : (
                                                     // ในหน้าหลักที่ใช้ `ModalBooking`
-                                                    <ModalBooking category={item.category ? [item.category] : []} />
+                                                    <ModalBooking item={item} />
 
                                                 )}
                                             </div>
@@ -365,7 +365,7 @@ export default function Home() {
                         <a className="text-black1 text-sm">ดูแลลูกค้า</a>
                         <a className="text-black1 text-2xl font-bold">พนักงานของเรา</a>
                     </div>
-                    <div>
+                    <div className="pt-10">
                         <div className="mx-auto max-w-xl px-5 py-10 sm:px-6 lg:max-w-7xl lg:px-10 flex justify-center items-center">
                             <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-20">
                                 {employees.map((employee) => (
@@ -388,7 +388,7 @@ export default function Home() {
             </div>
 
             {/* โปรโมชั่น */}
-            <div className="flex flex-row items-center justify-center space-x-0">
+            <div className="flex flex-row items-center justify-center space-x-0 mt-10">
                 <div className="w-full">
                     <div className="w-full flex flex-col items-center">
                         <div className=" w-40 flex flex-col text-center space-y-2">
@@ -446,7 +446,7 @@ export default function Home() {
                         </div>
                         <div className='m-10'>
                             <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-between mx-20 gap-4">
-                                <div className="text-start w-full sm:w-full md:w-2/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3 drop-shadow-md">
+                                <div className="text-start w-full sm:w-full md:w-2/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
                                         <PiPhoneCallFill size={24} />
                                         เบอร์โทรศัพท์
@@ -455,7 +455,7 @@ export default function Home() {
                                         090-3166790
                                     </p>
                                 </div>
-                                <div className="text-start w-full sm:w-full md:w-3/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3 drop-shadow-md">
+                                <div className="text-start w-full sm:w-full md:w-3/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
                                         <PiMapPinAreaFill size={24} />
                                         ที่อยู่

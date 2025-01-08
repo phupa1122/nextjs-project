@@ -330,10 +330,10 @@ export default function Home() {
                     <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-l-lg">
                         <div className="w-1/2 text-center">
                             <p className="text-base text-black1">
-                                เกี่ยวกับเรา
+                                ผลลัพธ์
                             </p>
                             <h1 className="text-2xl font-bold text-black1 my-5">
-                                ร้านค้าของเรา
+                                ความคิดเห็นลูกค้า
                             </h1>
                             <p
                                 className="text-base text-start text-black1"

@@ -6,15 +6,14 @@ interface searchProps {
     setSearchText: React.Dispatch<React.SetStateAction<string>>,
     searchText : string
 }
+
 export default function Sreach({setSearchText, searchText} : searchProps) {
-
-
     return (
-        <div className='w-full h-auto pl-10'>
+        <div className='w-full h-auto'>
             <div className='bg-slate-50 flex justify-center items-center h-full py-4 px-2 md:px-4 border-y border-slate-50 rounded-md bg-fixed drop-shadow-md'>
                 <input
-                    id="sreach"
-                    name="sreach"
+                    id="search"
+                    name="search"
                     type="text"
                     required
                     placeholder="ค้นหาสินค้าและบริการ"

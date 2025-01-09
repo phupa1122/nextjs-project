@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ModalBooking from "./productAndService/modalBooking";
 import Map from "./components/map";
 
 import styled from 'styled-components';
@@ -19,6 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import Modal from "./productAndService/components/modal";
 
 const data = [
     { id: "1", type: "สินค้า", category: "ครีม", name: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
@@ -174,7 +174,7 @@ export default function Home() {
                                                     <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
                                                 ) : (
                                                     // ในหน้าหลักที่ใช้ `ModalBooking`
-                                                    <ModalBooking item={item} />
+                                                    <Modal item={item} />
 
                                                 )}
                                             </div>

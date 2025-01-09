@@ -1,12 +1,16 @@
-import React from 'react'
+"use client"
 
-const posts = [
+import React, { useState } from 'react'
+import Image from 'next/image';
+
+import { FaStar, FaRegStar } from "react-icons/fa";
+
+const dataResult = [
     {
         id: 1,
         title: 'ใบหน้ากระฉับมีสัดส่วน',
         href: '#',
-        description:
-            'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        image: "/images/product/All.png",
         date: '16 ธ.ค 2567',
         datetime: '2024-12-16',
         category: { title: 'ทรีตเมนต์', href: '#' },
@@ -18,10 +22,85 @@ const posts = [
                 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         },
     },
+    {
+        id: 2,
+        title: 'ขาวใส',
+        href: '#',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: { title: 'สักคิ้ว', href: '#' },
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            href: '#',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 3,
+        title: 'ผิวสวย',
+        href: '#',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: { title: 'ทรีตเมนต์', href: '#' },
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            href: '#',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 4,
+        title: 'ผิวสวย',
+        href: '#',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: { title: 'ทำเล็บ', href: '#' },
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            href: '#',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 5,
+        title: 'ผิวสวย',
+        href: '#',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: { title: 'สักคิ้ว', href: '#' },
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            href: '#',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+
     // More posts...
 ];
 
 export default function result() {
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = 12; // จำนวนข้อมูลต่อหน้า
+
+    // คำนวณข้อมูลสำหรับเพจปัจจุบัน
+    const startIndex = (currentPage - 1) * pageSize;
+    const currentItems = dataResult.slice(startIndex, startIndex + pageSize);
+
+    // คำนวณจำนวนเพจทั้งหมด
+    const totalPages = Math.ceil(dataResult.length / pageSize);
 
     const pageUrl = '/';
 
@@ -47,50 +126,110 @@ export default function result() {
 
             <div className="m-10">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    {/* <div className="mx-auto max-w-2xl lg:mx-0">
-                        <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray1-900 sm:text-5xl">From the blog</h2>
-                        <p className="mt-2 text-lg/8 text-gray1-600">Learn how to grow your business with our expert advice.</p>
-                    </div> */}
-                    <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray1-200 pt-10 sm:mt-5 sm:pt-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                        {posts.map((post) => (
-                            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between bg-slate-50 p-5 rounded-md">
-                                <div className="flex items-center gap-x-4 text-xs">
-                                    <time dateTime={post.datetime} className="text-gray1">
-                                        {post.date}
-                                    </time>
-                                    <a
-                                        href={post.category.href}
-                                        className="relative z-10 rounded-full bg-gray1-50 px-3 py-1.5 font-medium text-gray1 hover:bg-gray1"
+                    <div role="tablist" className="tabs tabs-bordered px-60 text-gray1">
+                        <input type="radio" name="my_tabs_1" role="tab" className="tab text-gray1 focus:text-pink1 focus:font-medium" aria-label="ทั้งหมด" defaultChecked />
+                        <input type="radio" name="my_tabs_1" role="tab" className="tab text-gray1 focus:text-pink1 focus:font-medium" aria-label="ทรีตเมนต์" />
+                        <input type="radio" name="my_tabs_1" role="tab" className="tab text-gray1 focus:text-pink1 focus:font-medium" aria-label="สักคิ้ว" />
+                        <input type="radio" name="my_tabs_1" role="tab" className="tab text-gray1 focus:text-pink1 focus:font-medium" aria-label="ทำเล็บ" />
+                    </div>
+
+                    <div className='w-full mt-3 bg-slate-50 rounded-lg drop-shadow-md'>
+
+                        <div className='py-3 rounded-lg'>
+                            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                                {dataResult.map((item) => (
+                                    <div
+                                        key={item.id}
+                                        className="bg-[#FFFFFF] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
                                     >
-                                        {post.category.title}
-                                    </a>
-                                </div>
-                                <div className="group relative">
-                                    <h3 className="mt-3 text-lg/6 font-semibold text-gray1 group-hover:text-gray1">
-                                        <a href={post.href}>
-                                            <span className="absolute inset-0" />
-                                            {post.title}
-                                        </a>
-                                    </h3>
-                                    <p className="mt-5 line-clamp-3 text-sm/6 text-gray1">{post.description}</p>
-                                </div>
-                                <div className="relative mt-8 flex items-center gap-x-4">
-                                    <img alt="" src={post.author.imageUrl} className="size-10 rounded-full bg-gray1" />
-                                    <div className="text-sm/6">
-                                        <p className="font-semibold text-gray1">
-                                            <a href={post.author.href}>
-                                                <span className="absolute inset-0" />
-                                                {post.author.name}
-                                            </a>
-                                        </p>
-                                        <p className="text-gray1">{post.author.role}</p>
+                                        <article className="flex max-w-xl flex-col items-start justify-between">
+                                            <div className="group relative w-full">
+                                                <h3 className="text-xl font-semibold text-black1">
+                                                    <a className="block text-black1">
+                                                        {item.title}
+                                                    </a>
+                                                </h3>
+
+                                                <Image
+                                                    src={item.image}
+                                                    alt="models"
+                                                    width={200}
+                                                    height={200}
+                                                    priority={true}
+                                                    style={{
+                                                        objectFit: "cover",
+                                                        objectPosition: "top center",
+                                                        height: "200px", // กำหนดความสูงเท่ากัน
+                                                        width: "100%"
+
+                                                    }}
+                                                    className="rounded-md mx-auto"
+                                                />
+                                            </div>
+                                            <div className="flex flex-row mt-3">
+                                                <FaStar size={16} color='#EC407A' />
+                                                <FaStar size={16} color='#EC407A' />
+                                                <FaStar size={16} color='#EC407A' />
+                                                <FaRegStar size={16} color='#EC407A' />
+                                                <FaRegStar size={16} color='#EC407A' />
+                                            </div>
+                                            <div className="relative mt-3 flex items-center gap-x-4">
+                                                <img alt="" src={item.author.imageUrl} className="size-10 rounded-full bg-gray1" />
+                                                <div className="text-sm/6">
+                                                    <p className="font-semibold text-black1">
+                                                        <a href={item.author.href}>
+                                                            <span className="absolute inset-0" />
+                                                            {item.author.name}
+                                                        </a>
+                                                    </p>
+                                                    <div className="flex items-center gap-x-4 text-xs">
+                                                        <time dateTime={item.datetime} className="text-gray1">
+                                                            {item.date}
+                                                        </time>
+                                                        <a
+                                                            href={item.category.href}
+                                                            className="relative z-10 rounded-full bg-gray1-50 px-3 py-1 font-medium text-gray1 hover:bg-gray-100"
+                                                        >
+                                                            {item.category.title}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
                                     </div>
-                                </div>
-                            </article>
-                        ))}
+                                ))}
+                            </div>
+
+                            {/* ปุ่มเปลี่ยนหน้า */}
+                            <div className="flex justify-center mt-6">
+                                <button
+                                    className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                    disabled={currentPage === 1}
+                                >
+                                    ก่อนหน้า
+                                </button>
+                                {Array.from({ length: totalPages }, (_, i) => (
+                                    <button
+                                        key={i}
+                                        className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === i + 1 ? "bg-gray-300" : "hover:bg-gray-200"}`}
+                                        onClick={() => setCurrentPage(i + 1)}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
+                                <button
+                                    className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                    disabled={currentPage === totalPages}
+                                >
+                                    ถัดไป
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

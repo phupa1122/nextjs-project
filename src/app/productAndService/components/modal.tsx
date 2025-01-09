@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 interface ModalProps {
     item: {
         category?: string
-        id: number
+        id: string
     };
 }
 

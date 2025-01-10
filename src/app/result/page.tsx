@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import Noitems from '../components/noitems';
 
+
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
@@ -136,11 +137,8 @@ const result = () => {
 
             <div className="m-10">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
                     <div className='w-full mt-3 bg-slate-50 rounded-lg drop-shadow-md p-5'>
-
                         <div className="flex justify-end items-center">
-
                             <Menu as="div" className="relative inline-block text-left">
                                 <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-black1 shadow-sm ring-1 ring-inset ring-gray-400 hover:bg-gray-50">
                                     {selectedMenu === '' ? 'ทั้งหมด' : selectedMenu} {/* แสดง 'ทั้งหมด' ถ้าไม่มีการเลือกเมนู */}
@@ -152,21 +150,19 @@ const result = () => {
                                 >
                                     <div className="py-1">
                                         <Menu.Item>
-
                                             {({ active }) => (
                                                 <a
                                                     href="#"
                                                     onClick={() => handleMenuClick('')}
                                                     className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-black1' : 'text-gray-700'
                                                         }`}
-
                                                 >
                                                     ทั้งหมด
                                                 </a>
                                             )}
                                         </Menu.Item>
-                                        <Menu.Item>
 
+                                        <Menu.Item>
                                             {({ active }) => (
                                                 <a
                                                     href="#"
@@ -179,6 +175,7 @@ const result = () => {
                                                 </a>
                                             )}
                                         </Menu.Item>
+
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
@@ -191,6 +188,7 @@ const result = () => {
                                                 </a>
                                             )}
                                         </Menu.Item>
+
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
@@ -209,11 +207,33 @@ const result = () => {
                         </div>
 
                         <div className='rounded-lg'>
-                            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                                {filtered.length === 0 ? (
-                                    <Noitems />
-                                ) : (
-                                    filtered.map((item) => (
+                            {filtered.length === 0 ? (
+                                <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-3 my-5">
+                                    {Array(6)
+                                        .fill(null)
+                                        .map((_, index) => (
+                                            <div
+                                                key={index}
+                                                className="animate-pulse bg-white p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
+                                            >
+                                                <div className="h-4 bg-gray-300 rounded-md mt-3 w-3/4"></div>
+                                                <div className="h-40 bg-gray-300 rounded-md mt-3"></div>
+                                                <div className="h-4 bg-gray-300 rounded-md mt-2 w-1/2"></div>
+                                                <div className="flex space-x-2 mt-3">
+                                                    <div className="h-10 w-10 bg-gray-300 rounded-full"></div>
+                                                    <div className="flex flex-col space-y-2">
+                                                        <div className="h-4 bg-gray-300 rounded-md w-40"></div>
+                                                        <div className="h-4 bg-gray-300 rounded-md w-20"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                </div>
+
+
+                            ) : (
+                                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                                    {filtered.map((item) => (
                                         <div
                                             key={item.id}
                                             className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
@@ -221,11 +241,8 @@ const result = () => {
                                             <article className="flex max-w-xl flex-col items-start justify-between">
                                                 <div className="group relative w-full">
                                                     <h3 className="text-xl font-semibold text-black1">
-                                                        <a className="block text-black1">
-                                                            {item.title}
-                                                        </a>
+                                                        <a className="block text-black1">{item.title}</a>
                                                     </h3>
-
                                                     <Image
                                                         src={item.image}
                                                         alt="models"
@@ -235,21 +252,25 @@ const result = () => {
                                                         style={{
                                                             objectFit: "cover",
                                                             objectPosition: "top center",
-                                                            height: "200px", // กำหนดความสูงเท่ากัน
-                                                            width: "100%"
+                                                            height: "200px",
+                                                            width: "100%",
                                                         }}
                                                         className="rounded-md mx-auto"
                                                     />
                                                 </div>
                                                 <div className="flex flex-row mt-3">
-                                                    <FaStar size={16} color='#EC407A' />
-                                                    <FaStar size={16} color='#EC407A' />
-                                                    <FaStar size={16} color='#EC407A' />
-                                                    <FaRegStar size={16} color='#EC407A' />
-                                                    <FaRegStar size={16} color='#EC407A' />
+                                                    <FaStar size={16} color="#EC407A" />
+                                                    <FaStar size={16} color="#EC407A" />
+                                                    <FaStar size={16} color="#EC407A" />
+                                                    <FaRegStar size={16} color="#EC407A" />
+                                                    <FaRegStar size={16} color="#EC407A" />
                                                 </div>
                                                 <div className="relative mt-3 flex items-center gap-x-4">
-                                                    <img alt="" src={item.author.imageUrl} className="size-10 rounded-full bg-gray1" />
+                                                    <img
+                                                        alt=""
+                                                        src={item.author.imageUrl}
+                                                        className="size-10 rounded-full bg-gray1"
+                                                    />
                                                     <div className="text-sm/6">
                                                         <p className="font-semibold text-black1">
                                                             <a>
@@ -261,9 +282,7 @@ const result = () => {
                                                             <time dateTime={item.datetime} className="text-gray1">
                                                                 {item.date}
                                                             </time>
-                                                            <a
-                                                                className="relative z-10 rounded-full bg-gray1-50 px-3 py-1 font-medium text-gray1 hover:bg-gray-100"
-                                                            >
+                                                            <a className="relative z-10 rounded-full bg-gray1-50 px-3 py-1 font-medium text-gray1 hover:bg-gray-100">
                                                                 {item.category}
                                                             </a>
                                                         </div>
@@ -271,10 +290,9 @@ const result = () => {
                                                 </div>
                                             </article>
                                         </div>
-                                    ))
-                                )}
-                            </div>
-
+                                    ))}
+                                </div>
+                            )}
 
                             {/* ปุ่มเปลี่ยนหน้า */}
                             <div className="flex justify-center">
@@ -305,17 +323,6 @@ const result = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* <div>
-                    {filteredData.map((item) => (
-                        <div key={item.id} className="mb-4">
-                            <img src={item.image} alt={item.title} className="w-full h-64 object-cover" />
-                            <h2 className="text-lg font-semibold">{item.title}</h2>
-                            <p className="text-sm text-gray-500">{item.date}</p>
-                            <p className="text-sm">{item.category}</p>
-                        </div>
-                    ))}
-                </div> */}
             </div >
         </>
 

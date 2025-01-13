@@ -241,7 +241,12 @@ const result = () => {
                                             <article className="flex max-w-xl flex-col items-start justify-between">
                                                 <div className="group relative w-full">
                                                     <h3 className="text-xl font-semibold text-black1">
-                                                        <a className="block text-black1">{item.title}</a>
+                                                        <a className="block text-black1" style={{
+                                                            display: "-webkit-box",
+                                                            WebkitBoxOrient: "vertical",
+                                                            WebkitLineClamp: 2,
+                                                            overflow: "hidden",
+                                                        }}>{item.title}</a>
                                                     </h3>
                                                     <Image
                                                         src={item.image}
@@ -325,81 +330,6 @@ const result = () => {
                 </div>
             </div >
         </>
-
-
-
-
-
-
-        // <div>
-        //     {/* ปุ่มที่ให้ผู้ใช้เลือกเมนู */}
-        //     <button onClick={() => handleMenuClick('ทรีตเมนต์')}>ทรีตเมนต์</button>
-        //     <button onClick={() => handleMenuClick('หมวดหมู่ 2')}>หมวดหมู่ 2</button>
-        //     {/* เพิ่มปุ่มที่เลือกเมนูอื่น ๆ ได้ */}
-
-        //     {/* แสดงข้อมูลที่กรอง */}
-        //     <div>
-        //         {filtered.map((item) => (
-        //             <div
-        //                 key={item.id}
-        //                 className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
-        //             >
-        //                 <article className="flex max-w-xl flex-col items-start justify-between">
-        //                     <div className="group relative w-full">
-        //                         <h3 className="text-xl font-semibold text-black1">
-        //                             <a className="block text-black1">
-        //                                 {item.title}
-        //                             </a>
-        //                         </h3>
-
-        //                         <Image
-        //                             src={item.image}
-        //                             alt="models"
-        //                             width={200}
-        //                             height={200}
-        //                             priority={true}
-        //                             style={{
-        //                                 objectFit: "cover",
-        //                                 objectPosition: "top center",
-        //                                 height: "200px", // กำหนดความสูงเท่ากัน
-        //                                 width: "100%"
-        //                             }}
-        //                             className="rounded-md mx-auto"
-        //                         />
-        //                     </div>
-        //                     <div className="flex flex-row mt-3">
-        //                         <FaStar size={16} color='#EC407A' />
-        //                         <FaStar size={16} color='#EC407A' />
-        //                         <FaStar size={16} color='#EC407A' />
-        //                         <FaRegStar size={16} color='#EC407A' />
-        //                         <FaRegStar size={16} color='#EC407A' />
-        //                     </div>
-        //                     <div className="relative mt-3 flex items-center gap-x-4">
-        //                         <img alt="" src={item.author.imageUrl} className="size-10 rounded-full bg-gray1" />
-        //                         <div className="text-sm/6">
-        //                             <p className="font-semibold text-black1">
-        //                                 <a>
-        //                                     <span className="absolute inset-0" />
-        //                                     {item.author.name}
-        //                                 </a>
-        //                             </p>
-        //                             <div className="flex items-center gap-x-4 text-xs">
-        //                                 <time dateTime={item.datetime} className="text-gray1">
-        //                                     {item.date}
-        //                                 </time>
-        //                                 <a
-        //                                     className="relative z-10 rounded-full bg-gray1-50 px-3 py-1 font-medium text-gray1 hover:bg-gray-100"
-        //                                 >
-        //                                     {item.category}
-        //                                 </a>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </article>
-        //             </div>
-        //         ))}
-        //     </div>
-        // </div>
     );
 };
 

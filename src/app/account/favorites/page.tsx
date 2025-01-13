@@ -1,11 +1,18 @@
 "use client";
 
-import React from 'react'
-import Link from 'next/link';
+import React, { useState } from 'react'
+import Image from 'next/image';
+import Link from "next/link";
 import Noitems from '@/app/components/noitems';
+import Delete from '@/app/components/delete';
 import Logout from '@/app/components/logout';
 
+
+import { FaStar, FaRegStar } from "react-icons/fa";
+
 export default function favorites() {
+
+    const [currentPage, setCurrentPage] = useState(1);
 
     const pageUrl = '/';
     const profileURL = '/account/profile';
@@ -13,27 +20,54 @@ export default function favorites() {
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
 
+    const items = [
+        { id: 9, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+        { id: 10, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
+        { id: 13, type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
+        { id: 17, type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" }
+
+    ];
+
+    const pageSize = 12; // จำนวนข้อมูลต่อหน้า
+
+    // คำนวณข้อมูลสำหรับเพจปัจจุบัน
+    const startIndex = (currentPage - 1) * pageSize;
+    const currentItems = items.slice(startIndex, startIndex + pageSize);
+
+    // คำนวณจำนวนเพจทั้งหมด
+    const totalPages = Math.ceil(items.length / pageSize);
+
     return (
         <>
-            <div className="hero h-96 bg-white1 bg-center" style={{ backgroundImage: "url('/images/profile/bg-profile.png')" }}>
-                <div className="flex items-center justify-center">
-                    <div className="text-center items-center">
-                        <h1 className="text-6xl font-bold text-black1">รายการโปรด</h1>
-                        <div className="mx-auto">
-                            <div className="breadcrumbs text-lg text-black1">
-                                <ul className="flex justify-center">
-                                    <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
-                                    <li>บัญชีของฉัน</li>
-                                    <li>รายการโปรด</li>
-                                </ul>
-                            </div>
+            <div className="relative w-full h-[50vh] hero bg-white1 bg-center">
+                {/* ภาพพื้นหลัง */}
+                <Image
+                    src="/images/profile/bg-profile.png"
+                    alt="bg-profile"
+                    layout="fill"
+                    objectFit="cover"
+                />
+
+                {/* เนื้อหาที่แสดงบนภาพพื้นหลัง */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    {/* หัวข้อ */}
+                    <h1 className="text-6xl font-bold text-black1">รายการโปรด</h1>
+
+                    {/* Breadcrumbs */}
+                    <div className="mx-auto">
+                        <div className="breadcrumbs text-lg text-black1">
+                            <ul className="flex justify-center">
+                                <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
+                                <li>บัญชีของฉัน</li>
+                                <li>รายการโปรด</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className='w-full flex flex-row'>
-                <div className='container w-1/5 mb-5 bg-slate-50'>
+            <div className='w-full flex flex-row '>
+                <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-4 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
@@ -61,9 +95,81 @@ export default function favorites() {
                     <div className="px-4 sm:px-0">
                         <h3 className="text-lg/7 font-medium text-gray1">รายการโปรด</h3>
                     </div>
+
+
                     <div className='bg-slate-50 mt-3 rounded-lg'>
-                        <Noitems />
+                        {items.length === 0 ? (
+                            <Noitems />
+                        ) : (
+                            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                                {items.map((item, index) => (
+                                    <div className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto" key={index}>
+                                        <div className="w-full space-y-2">
+                                            <h1 className="text-black1 text-2xl text-center font-bold">{item.name}</h1>
+                                            <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
+                                                <Image
+                                                    src={item.image}
+                                                    alt="models"
+                                                    width={200}
+                                                    height={200}
+                                                    priority={true}
+                                                    style={{ objectFit: "cover", objectPosition: "top center" }}
+                                                    className="rounded-md mx-auto"
+                                                />
+                                            </div>
+                                            <p className="text-gray1 text-start truncate">{item.subtitle}</p>
+
+                                            <div className="flex flex-row">
+                                                {Array.from({ length: 5 }, (_, i) => (
+                                                    <FaStar key={i} size={12} />
+                                                ))}
+                                            </div>
+
+                                            <div
+                                                className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
+                                                style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 3 }}
+                                            >
+                                                {item.price}฿
+                                            </div>
+
+                                            <div className="text-center mt-4 border-t border-gray1-300 pt-4">
+                                                <Delete />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+
+                        {/* ปุ่มเปลี่ยนหน้า */}
+                        <div className="flex justify-center py-3">
+                            <button
+                                className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                disabled={currentPage === 1}
+                            >
+                                ก่อนหน้า
+                            </button>
+                            {Array.from({ length: totalPages }, (_, i) => (
+                                <button
+                                    key={i}
+                                    className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === i + 1 ? "bg-gray-300" : "hover:bg-gray-200"}`}
+                                    onClick={() => setCurrentPage(i + 1)}
+                                >
+                                    {i + 1}
+                                </button>
+                            ))}
+                            <button
+                                className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                disabled={currentPage === totalPages}
+                            >
+                                ถัดไป
+                            </button>
+                        </div>
                     </div>
+
                 </div>
             </div >
         </>

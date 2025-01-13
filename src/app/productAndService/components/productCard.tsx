@@ -2,19 +2,28 @@ import React from 'react'
 import Image from 'next/image'
 
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { data } from '../data';
 
+interface productCardProps {
+    key: number;
+    name: string;
+    type: string
+    category: string
+    price: string
+    image: string
+    subtitle: string
+}
 
-export default function productCard() {
+export default function productCard({key,name,type,category,price,image,subtitle}:productCardProps ) {
     return (
         <div
+            key={key}
             className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
         >
             <div className="w-full space-y-2">
-                <h1 className="text-black1 text-2xl text-center font-bold">ชื่อสินค้า</h1>
+                <h1 className="text-black1 text-2xl text-center font-bold">{name}</h1>
                 <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
                     <Image
-                        src="/images/product/All.png"
+                        src={image || "default.jpg"}
                         alt="models"
                         width={200}
                         height={200}
@@ -23,7 +32,7 @@ export default function productCard() {
                         className="rounded-md mx-auto"
                     />
                 </div>
-                <p className="text-gray1 text-start truncate">รายละเอียดสินค้า</p>
+                <p className="text-gray1 text-start truncate">{subtitle}</p>
 
                 <div className="flex flex-row">
                     <FaStar size={12} />
@@ -37,11 +46,12 @@ export default function productCard() {
                     className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
                     style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 3 }}
                 >
-                    ราคา
+                    {price}
                 </div>
 
                 <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                    จองคิว
+                <button className='text-md text-center text-gray-400' ></button>
+
                 </div>
             </div>
         </div>

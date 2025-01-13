@@ -98,9 +98,10 @@ export default function productAndService() {
             </div>
 
             <div className='w-full flex flex-row pr-10 sapce-x-10'>
-                {/* <SideBar /> */}
+
 
                 <Sidebar />
+
 
                 <div className='w-full ml-10'>
                     <Search searchText={searchText} setSearchText={setSearchText} />
@@ -111,13 +112,15 @@ export default function productAndService() {
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
                                 <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: 20 รายการ</p>
                             </div>
-
                             <div className='px-10 mx-10 border-t border-gray1'>
                                 {/* แสดงข้อมูล */}
                                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                                        <ProductCard />
-                                </div>
+                                    {currentItems?.map((item, index) => (
 
+                                        <ProductCard key={item.id || index+1} name={item.name || "-"} type={item.type || "-"} category={item.category || "-"} subtitle={item.subtitle || "-"} price={item.price || "-"} image={item.image || "-"} />
+                                    )
+                                    )}
+                                </div>
                                 {/* ปุ่มเปลี่ยนหน้า */}
                                 <div className="flex justify-center mt-6">
                                     <button

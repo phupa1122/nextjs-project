@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Map from "./components/map";
+import './swiper.css';
 
 import styled from 'styled-components';
 import { FaRegStar } from "react-icons/fa";
@@ -14,11 +15,15 @@ import { PiCurrencyBtc } from "react-icons/pi";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { PiMapPinAreaFill } from "react-icons/pi";
 import { PiEnvelopeSimple } from "react-icons/pi";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
+import 'swiper/css/navigation';
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import Modal from "./productAndService/components/modal";
+
+
 
 const data = [
     { id: "1", type: "สินค้า", category: "ครีม", name: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
@@ -71,6 +76,80 @@ const employees = [
         imageAlt: 'สักคิ้ว, ทรีตเมนต์'
     },
 ]
+
+const dataResult = [
+    {
+        id: 1,
+        title: 'ใบหน้ากระฉับมีสัดส่วน',
+        image: "/images/product/All.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: 'ทรีตเมนต์',
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 2,
+        title: 'ขาวใส',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: 'สักคิ้ว',
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 3,
+        title: 'ผิวสวย',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: 'ทรีตเมนต์',
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 4,
+        title: 'ผิวสวย',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: 'ทำเล็บ',
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 5,
+        title: 'ผิวสวย',
+        image: "/images/product/shampoo.png",
+        date: '16 ธ.ค 2567',
+        datetime: '2024-12-16',
+        category: 'สักคิ้ว',
+        author: {
+            name: 'Michael Foster',
+            role: 'Co-Founder / CTO',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+
+];
 
 export default function Home() {
     return (
@@ -327,28 +406,81 @@ export default function Home() {
             {/* ความคิดเห็น */}
             <div className="m-10">
                 <div className="flex flex-row items-center justify-center space-x-0 px-20 mt-10 drop-shadow-md">
-                    <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-l-lg">
-                        <div className="w-1/2 text-center">
+                    <div className="w-1/2 h-[400px] flex flex-col bg-slate-50 bg-center items-center justify-center rounded-l-lg">
+                        <div className="w-1/2 text-center space-y-2 mt-3">
                             <p className="text-base text-black1">
-                                ผลลัพธ์
+                                ความคิดเห็น
                             </p>
-                            <h1 className="text-2xl font-bold text-black1 my-5">
-                                ความคิดเห็นลูกค้า
+                            <h1 className="text-2xl font-bold text-black1">
+                                ลูกค้าของเรา
                             </h1>
-                            <p
-                                className="text-base text-start text-black1"
-                                style={{
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 8,
-                                    overflow: "hidden",
-                                }}
-                            >
-                                เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
-                                การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
-                                อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
-                            </p>
                         </div>
+                        <Swiper
+                            pagination={true}
+                            modules={[Pagination, Autoplay]}
+                            className="mySwiper"
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            speed={1000}
+                            loop={true}
+                            breakpoints={{
+                                0: { slidesPerView: 1 },
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 1 },
+                                1024: { slidesPerView: 1 },
+                                1280: { slidesPerView: 1 },
+                            }}
+                        >
+                            {dataResult.map((item, index) => (
+                                <SwiperSlide className="my-4 flex justify-start" key={index}>
+                                    <div className="bg-[#ffffff] p-4 w-60 lg:w-3/5 md:w-72 drop-shadow-md border border-gray1-300 rounded-lg mx-auto">
+                                        <article className="flex max-w-xl flex-col items-start justify-between">
+                                            <div className="group relative w-full">
+                                                <h3 className="text-xl font-semibold text-black1 justify-items-start">
+                                                    <a className="block text-black1">{item.title}</a>
+                                                </h3>
+
+                                            </div>
+                                            <div className="flex flex-row mt-3">
+                                                <FaStar size={12} color="#EC407A" />
+                                                <FaStar size={12} color="#EC407A" />
+                                                <FaStar size={12} color="#EC407A" />
+                                                <FaRegStar size={12} color="#EC407A" />
+                                                <FaRegStar size={12} color="#EC407A" />
+                                            </div>
+
+                                            <div className="flex space-x-2 mt-3 items-center">
+                                                <div className="h-10 w-10 bg-gray-300 rounded-full">
+                                                    <img
+                                                        alt=""
+                                                        src={item.author.imageUrl}
+                                                        className="size-10 rounded-full bg-gray1"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <p className="font-semibold text-black1 text-start">
+                                                        <a>
+                                                            <span className="absolute inset-0" />
+                                                            {item.author.name}
+                                                        </a>
+                                                    </p>
+                                                    <div className="flex items-center gap-x-4 text-xs">
+                                                        <time dateTime={item.datetime} className="text-gray1">
+                                                            {item.date}
+                                                        </time>
+                                                        <a className="relative z-10 rounded-full bg-gray1-50 px-3 py-1 font-medium text-gray1 hover:bg-gray-100">
+                                                            {item.category}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </article>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                     <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center">
                         <div className="h-[400px] flex-row bg-white1 bg-center rounded-r-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
@@ -359,8 +491,8 @@ export default function Home() {
             </div>
 
             {/* พนักงานของเรา */}
-            <div className="flex flex-row items-center justify-center space-x-0 px-10">
-                <div className="container ">
+            <div className="flex flex-row items-center justify-center space-x-0 px-10" id="employee">
+                <div className="container">
                     <div className="flex flex-col items-center space-y-2">
                         <a className="text-black1 text-sm">ดูแลลูกค้า</a>
                         <a className="text-black1 text-2xl font-bold">พนักงานของเรา</a>
@@ -396,48 +528,81 @@ export default function Home() {
                             <a className="text-black1 text-2xl font-bold">โปรโมชั่น</a>
                         </div>
                     </div>
-                    <div className="w-full">
-                        <div className="grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-10">
-                            <div className="flex flex-row items-center justify-center space-x-0 mt-10 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-                                <div className="w-full h-80 bg-center" style={{ backgroundImage: "url('/images/product/All.png')" }}>
-                                    <div className="text-start w-fit mt-5 ml-5">
-                                        <p className="text-base text-black1">
-                                            ทั้งหมด
-                                        </p>
+
+
+                    <div className="bg-slate-50 h-80 mt-5">
+                        <Swiper
+                            pagination={true}
+                            navigation={true} // เปิดใช้งาน navigation
+                            modules={[Navigation, Pagination, Autoplay]}
+                            className="mySwiper"
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            speed={1000}
+                            loop={true}
+                            breakpoints={{
+                                0: { slidesPerView: 1 },
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 1 },
+                                1024: { slidesPerView: 1 },
+                                1280: { slidesPerView: 1 },
+                            }}
+                        >
+                            <SwiperSlide>
+                                <div
+                                    className="w-full h-full bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/product/All.png')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
+                                    <div className="text-start w-fit p-5">
+                                        <p className="text-base text-black1"></p>
                                     </div>
                                 </div>
+                            </SwiperSlide>
 
+
+                            <SwiperSlide>
                                 <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Treat.png')" }}>
-                                    <div className="text-start w-fit mt-5 ml-5">
+                                    <div className="text-start w-fit">
                                         <p className="text-base text-black1">
                                             ทรีตเมนต์
                                         </p>
                                     </div>
                                 </div>
+                            </SwiperSlide>
 
+                            <SwiperSlide>
                                 <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Tattoo1.png')" }}>
-                                    <div className="text-start w-fit mt-5 ml-5">
+                                    <div className="text-start w-fit">
                                         <p className="text-base text-black1">
                                             สักคิ้ว
                                         </p>
                                     </div>
                                 </div>
+                            </SwiperSlide>
 
-                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Nail1.png')" }}>
-                                    <div className="text-start w-fit mt-5 ml-5">
-                                        <p className="text-base text-black1">
-                                            ทำเล็บ
-                                        </p>
+                            <SwiperSlide>
+                                <div
+                                    className="w-full h-full bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/promotion/nail.jpeg')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
+                                    <div className="text-start w-fit p-5">
+                                        <p className="text-base text-black1"></p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
+
                 </div>
             </div>
 
-            {/* สมัครสมาชิก */}
-            <div className="m-10">
+            {/* ติดต่อเรา */}
+            <div className="m-10" id="contact-us">
                 <div className="flex flex-row items-center justify-center space-x-0 px-10">
                     <div className="container">
                         <div className="flex flex-col items-center space-y-2">

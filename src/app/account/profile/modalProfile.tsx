@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { PiUserCircleFill } from "react-icons/pi";
 
 import { PiPencilSimpleLineBold } from "react-icons/pi";
 
@@ -20,23 +22,33 @@ export default function modalProfile() {
     return (
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}
-            <button className="btn btn-outline btn-warning px-4 text-sm" onClick={openModal}>
+            <button className="flex flex-row gap-2 px-4 py-2 items-center text-amber-400 border border-amber-400 rounded-md hover:bg-amber-400 hover:border-amber-400 hover:text-slate-50" onClick={openModal}>
                 <PiPencilSimpleLineBold />
                 แก้ไขข้อมูล
             </button>
             <dialog id="modalProfile" className="modal">
-                <div className="modal-box bg-slate-50">
-                        <div className="flex justify-between items-center border-b">
-                            <h3 className="font-semibold text-lg text-black1">แก้ไขข้อมูลส่วนตัว</h3>
+
+                <div className="modal-box bg-slate-50 space-y-2">
+                    <div className="flex justify-start items-center border-b">
+                        <h3 className="font-semibold text-xl text-black1">แก้ไขข้อมูลส่วนตัว</h3>
+                    </div>
+
+                    <div>
+                        <label htmlFor="photo" className="block text-sm/6 font-medium text-black1 text-start">
+                            รูปโปรไฟล์
+                        </label>
+                        <div className="flex items-center gap-x-1">
+                            <PiUserCircleFill aria-hidden="true" className="size-12 text-gray-300" />
                             <button
-                                className="btn btn-sm btn-square btn-ghost text-black1"
-                                onClick={closeModal}
+                                type="button"
+                                className="rounded-md bg-white px-2 py-1.5 text-xs font-normal text-gray1 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                             >
-                                ✕
+                                เปลี่ยน
                             </button>
                         </div>
+                    </div>
 
-                    <form method="dialog" className="space-y-1">
+                    <div className='flex flex-row space-x-5'>
                         <div>
                             <label htmlFor="name" className="block text-sm/6 font-medium text-black1 text-start">
                                 ชื่อ
@@ -48,8 +60,8 @@ export default function modalProfile() {
                                     type="text"
                                     required
                                     autoComplete="name"
-                                    defaultValue="ชื่อ"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    placeholder="ชื่อ"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -65,29 +77,14 @@ export default function modalProfile() {
                                     type="text"
                                     required
                                     autoComplete="lname"
-                                    defaultValue="นามสกุล"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    placeholder="นามสกุล"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
+                    </div>
 
-                        <div>
-                            <label htmlFor="username" className="block text-sm/6 font-medium text-black1 text-start">
-                                ชื่อผู้ใช้
-                            </label>
-                            <div className="mt-1">
-                                <input
-                                    id="username"
-                                    name="username"
-                                    type="text"
-                                    required
-                                    autoComplete="username"
-                                    defaultValue="ชื่อผู้ใช้"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                />
-                            </div>
-                        </div>
-
+                    <div>
                         <div>
                             <label htmlFor="email" className="block text-sm/6 font-medium text-black1 text-start">
                                 อีเมล์
@@ -99,12 +96,14 @@ export default function modalProfile() {
                                     type="email"
                                     required
                                     autoComplete="email"
-                                    defaultValue="อีเมล์"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    placeholder="อีเมล์"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
+                    </div>
 
+                    <div className='flex flex-row space-x-5'>
                         <div>
                             <label htmlFor="phone" className="block text-sm/6 font-medium text-black1 text-start">
                                 เบอร์โทรศัพท์
@@ -116,8 +115,8 @@ export default function modalProfile() {
                                     type="phone"
                                     required
                                     autoComplete="phone"
-                                    defaultValue="เบอร์โทรศัพท์"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    placeholder="เบอร์โทรศัพท์"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -133,11 +132,13 @@ export default function modalProfile() {
                                     type="date"
                                     required
                                     autoComplete="date"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
+                    </div>
 
+                    <div className='flex flex-row space-x-5'>
                         <div>
                             <label htmlFor="password" className="block text-sm/6 font-medium text-black1">
                                 รหัสผ่าน
@@ -149,7 +150,7 @@ export default function modalProfile() {
                                     type="password"
                                     required
                                     autoComplete="current-password"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -165,18 +166,23 @@ export default function modalProfile() {
                                     type="password"
                                     required
                                     autoComplete="current-password"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-pink1 outline outline-1 outline-offset-1 outline-gray-200 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
                         </div>
-                        <div className="mt-6 text-right space-x-3">
-                            <button type='button' className="btn btn-outline btn-base-content px-4 text-sm" onClick={closeModal}>ปิด</button>
+                    </div>
+                    <div className="flex flex-row justify-end mt-6 text-right space-x-3">
+                        <form method="dialog">
+                            <button className="px-4 py-2 items-center text-gray1 border border-gray1 rounded-md hover:bg-gray1 hover:border-gray1 hover:text-slate-50">ปิด</button>
+                        </form>
+
+                        <form method="dialog">
                             <button
-                                className="btn btn-warning px-4 text-sm text-slate-50">
+                                className="px-4 py-2 items-center text-slate-50 border bg-amber-400 border-amber-400 rounded-md hover:bg-amber-500 hover:border-amber-500 hover:text-slate-50">
                                 แก้ไขข้อมูล
                             </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </dialog>
         </div>

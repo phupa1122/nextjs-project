@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from 'next/image';
 import Link from "next/link";
 import ModalProfile from "./modalProfile";
 import Logout from "@/app/components/logout";
@@ -15,25 +16,35 @@ export default function profile() {
 
     return (
         <>
-            <div className="hero h-96 bg-white1 bg-center" style={{ backgroundImage: "url('/images/profile/bg-profile.png')" }}>
-                <div className="flex items-center justify-center">
-                    <div className="text-center items-center">
-                        <h1 className="text-6xl font-bold text-black1">ข้อมูลส่วนตัว</h1>
-                        <div className="mx-auto">
-                            <div className="breadcrumbs text-lg text-black1">
-                                <ul className="flex justify-center">
-                                    <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
-                                    <li>บัญชีของฉัน</li>
-                                    <li>ข้อมูลส่วนตัว</li>
-                                </ul>
-                            </div>
+            <div className="relative w-full h-[50vh] hero bg-white1 bg-center">
+                {/* ภาพพื้นหลัง */}
+                <Image
+                    src="/images/profile/bg-profile.png"
+                    alt="bg-profile"
+                    layout="fill"
+                    objectFit="cover"
+                />
+
+                {/* เนื้อหาที่แสดงบนภาพพื้นหลัง */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    {/* หัวข้อ */}
+                    <h1 className="text-6xl font-bold text-black1">ข้อมูลส่วนตัว</h1>
+
+                    {/* Breadcrumbs */}
+                    <div className="mx-auto">
+                        <div className="breadcrumbs text-lg text-black1">
+                            <ul className="flex justify-center">
+                                <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
+                                <li>บัญชีของฉัน</li>
+                                <li>ข้อมูลส่วนตัว</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className='container w-1/5 mb-5 bg-slate-50'>
+                <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-4 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
@@ -56,6 +67,8 @@ export default function profile() {
                         </div>
                     </div>
                 </div>
+
+
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-5 sm:px-0">

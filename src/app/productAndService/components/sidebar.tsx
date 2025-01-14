@@ -19,7 +19,7 @@ export default function sidebar() {
 
         return (
             <div className="max-w-md mx-auto">
-                <h2 className="text-lg font-medium mb-4 text-start text-black1">ราคา</h2>
+                <h2 className="font-semibold mb-4 text-start text-black1">ราคา</h2>
 
                 <div className="flex flex-col items-center">
                     <input

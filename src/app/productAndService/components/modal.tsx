@@ -2,17 +2,13 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
 
 interface ModalProps {
-    item: {
-        category?: string
-        id: string
-    };
+    id: number
+    category: string
+    price: number
 }
 
-const Modal: React.FC<ModalProps> = ({ item }) => {
-    const openModal = () => {
-        const modal = document.getElementById(`my_modal_2${item.id}`) as HTMLDialogElement;
-        modal?.showModal();
-    }
+const Modal: React.FC<ModalProps> = ({ id, category, price }: ModalProps) => {
+
 
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
     const [availableTimes, setAvailableTimes] = useState<string[]>([]);
@@ -53,14 +49,7 @@ const Modal: React.FC<ModalProps> = ({ item }) => {
 
     return (
         <>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <button className="px-3 py-1 items-center text-pink1 rounded hover:bg-pink1 hover:text-slate-50" onClick={openModal}>
-                จองคิว
-            </button>
-
-            {/* <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>open modal</button> */}
-
-            <dialog id={`my_modal_2${item.id}`} className="modal">
+            <dialog id={`my_modal_2${id}`} className="modal">
                 <div className="modal-box bg-slate-50 space-y-2">
                     <div className="flex justify-start items-center border-b">
                         <h3 className="font-semibold text-xl text-black1">กรอกข้อมูลการจองคิว</h3>
@@ -73,10 +62,36 @@ const Modal: React.FC<ModalProps> = ({ item }) => {
                         <div className="flex flex-row space-x-3">
                             <button
                                 disabled
-                                className="py-2 px-4 text-gray1 border border-gray-100 rounded-md cursor-not-allowed"
+                                className="py-2 px-3 text-pink1 border border-gray-100 rounded-md cursor-not-allowed"
                             >
-                                {item.category}
+                                {category}
                             </button>
+                        </div>
+                    </div>
+
+                    {/* ราคา */}
+                    <div className='flex flex-row space-x-5'>
+                        <div className='flex flex-col w-1/2'>
+                            <label htmlFor="price" className="block text-sm/6 font-medium text-black1 text-start">
+                                ราคา (บาท)
+                            </label>
+                            <div className="mt-1">
+                                <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start sm:text-sm/6 cursor-not-allowed">
+                                    {price}
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div className='flex flex-col w-1/2'>
+                            <label htmlFor="depositPrice" className="block text-sm/6 font-medium text-black1 text-start">
+                                ราคาค่ามัดจำการจองคิว 10%
+                            </label>
+                            <div className="mt-1">
+                                <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start  sm:text-sm/6 cursor-not-allowed">
+                                    {(price * 0.1).toFixed(0)}
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -96,7 +111,6 @@ const Modal: React.FC<ModalProps> = ({ item }) => {
                                     className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
                             </div>
-
                         </div>
 
                         <div className='flex flex-col w-1/2'>
@@ -112,43 +126,6 @@ const Modal: React.FC<ModalProps> = ({ item }) => {
                                     autoComplete="phone"
                                     placeholder="เบอร์โทรศัพท์"
                                     className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* ราคา */}
-                    <div className='flex flex-row space-x-5'>
-                        <div className='flex flex-col w-1/2'>
-                            <label htmlFor="price" className="block text-sm/6 font-medium text-black1 text-start">
-                                ราคา
-                            </label>
-                            <div className="mt-1">
-                                <input
-                                    id="price"
-                                    name="price"
-                                    type=""
-                                    required
-                                    autoComplete="promotion"
-                                    placeholder="ราคา"
-                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                />
-                            </div>
-                        </div>
-
-                        <div className='flex flex-col w-1/2'>
-                            <label htmlFor="depositPrice" className="block text-sm/6 font-medium text-black1 text-start">
-                                ราคาค่ามัดจำการจองคิว 10%
-                            </label>
-                            <div className="mt-1">
-                                <input
-                                    id="depositPrice"
-                                    name="depositPrice"
-                                    type="text"
-                                    readOnly
-                                    autoComplete="depositPrice"
-                                    placeholder="0"
-                                    className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-gray-200 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-200 sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -215,21 +192,19 @@ const Modal: React.FC<ModalProps> = ({ item }) => {
 
                     <div className="flex flex-row justify-end mt-6 text-right space-x-3">
                         <form method="dialog">
-                            <button className="py-2 px-4 text-base text-green-600 bg-slate-50 border-green-600 rounded-md hover:bg-slate-50 hover:text-gray1 hover:border-green1">ปิด</button>
+                            <button className="py-2 px-4 text-base text-gray1 border border-gray-200 bg-slate-50 rounded-md hover:bg-gray-200 hover:text-gray1 hover:border-gray-200">ปิด</button>
                         </form>
 
-                        <Link href="/payment">
+                        <Link href="/account/cart">
                             <button
                                 type='submit'
-                                className="py-2 px-4 text-base text-slate-50 bg-green-600 border-green-600 rounded-md hover:bg-green1 hover:text-gray hover:border-gray"
+                                className="py-2 px-4 text-base text-slate-50 bg-green1 border-green1 rounded-md hover:bg-green-600 hover:text-gray hover:border-green-600"
                             >
                                 จองคิว
                             </button>
                         </Link>
                     </div>
                 </div>
-
-
 
                 <form method="dialog" className="modal-backdrop space-y-3">
                     <button type="submit">Close</button>

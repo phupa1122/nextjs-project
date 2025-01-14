@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Noitems from '@/app/components/noitems';
 import Logout from '@/app/components/logout';
+import CartCard from './cartCard';
+import Table from './table';
 
 export default function cart() {
 
@@ -44,7 +46,7 @@ export default function cart() {
             </div>
 
             <div className='w-full flex flex-row'>
-            <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
+                <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-4 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
@@ -72,11 +74,12 @@ export default function cart() {
                     <div className="px-4 sm:px-0">
                         <h3 className="text-lg/7 font-medium text-gray1">ตะกร้าของฉัน</h3>
                     </div>
-                    <div className='bg-slate-50 mt-3 rounded-lg'>
-                        <Noitems />
-
-
+                    <div className='bg-slate-50 mt-3 rounded-lg p-5 '>
+                        <div className='bg-[#FFFFFF] rounded-lg border shadow-lg'>
+                            <Table />
+                        </div>
                     </div>
+
                 </div>
             </div >
         </>

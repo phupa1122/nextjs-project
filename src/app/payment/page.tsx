@@ -37,19 +37,42 @@ export default function payment() {
                 <div className='flex flex-row gap-10'>
                     <div className='bg-slate-50 mt-3 rounded-lg p-5 w-2/3 space-y-2 h-[429px] drop-shadow-md'>
                         <div>
-                            <label htmlFor="date" className="block text-sm/6 font-medium text-black1 text-start">
-                                วันที่การจอง
+                            <label htmlFor="service" className="block text-sm/6 font-medium text-black1 text-start">
+                                บริการ
                             </label>
-                            <div className="mt-1">
-                                <input
-                                    id="date"
-                                    name="date"
-                                    type="date"
-                                    required
-                                    autoComplete="date"
-                                    className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                            <div className="flex flex-row space-x-3">
+                                <button
                                     disabled
-                                />
+                                    className="py-2 px-3 text-gray1 border border-gray-100 rounded-md cursor-not-allowed"
+                                >
+                                    ประเภท
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* ราคา */}
+                        <div className='flex flex-row space-x-5'>
+                            <div className='flex flex-col w-1/2'>
+                                <label htmlFor="price" className="block text-sm/6 font-medium text-black1 text-start">
+                                    ราคา (บาท)
+                                </label>
+                                <div className="mt-1">
+                                    <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start sm:text-sm/6 cursor-not-allowed">
+                                        500
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div className='flex flex-col w-1/2'>
+                                <label htmlFor="depositPrice" className="block text-sm/6 font-medium text-black1 text-start">
+                                    ราคาค่ามัดจำการจองคิว 10%
+                                </label>
+                                <div className="mt-1">
+                                    <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start  sm:text-sm/6 cursor-not-allowed">
+                                        50
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -65,9 +88,8 @@ export default function payment() {
                                         type="text"
                                         required
                                         autoComplete="name"
-                                        //defaultValue={fetchedData.name || ""}  แสดงข้อมูลจากฐานข้อมูล
-                                        placeholder="วิว"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        placeholder="รุ่งไพลิน"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline-pink1 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -80,11 +102,11 @@ export default function payment() {
                                     <input
                                         id="phone"
                                         name="phone"
-                                        type="tel"
+                                        type="number"
                                         required
-                                        autoComplete="tel"
-                                        placeholder="098-7654321" //defaultValue
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        autoComplete="phone"
+                                        placeholder="095-6789805"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline-pink1 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -92,18 +114,18 @@ export default function payment() {
 
                         <div className='flex flex-row space-x-5'>
                             <div className='flex flex-col w-1/2'>
-                                <label htmlFor="service" className="block text-sm/6 font-medium text-black1 text-start">
-                                    บริการ
+                                <label htmlFor="date" className="block text-sm/6 font-medium text-black1 text-start">
+                                    วันที่การจอง
                                 </label>
-                                <div className="mt-1">
+                                <div>
                                     <input
-                                        id="service"
-                                        name="service"
+                                        id="employee"
+                                        name="employee"
                                         type="text"
                                         required
                                         autoComplete="off"
-                                        placeholder="บริการทรีตเมนต์"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        placeholder="ช่างแมว"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 focus:outline-pink1 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -112,15 +134,15 @@ export default function payment() {
                                 <label htmlFor="employee" className="block text-sm/6 font-medium text-black1 text-start">
                                     พนักงาน
                                 </label>
-                                <div className="mt-1">
+                                <div>
                                     <input
-                                        id="depositPrice"
-                                        name="depositPrice"
+                                        id="date"
+                                        name="date"
                                         type="text"
                                         required
                                         autoComplete="off"
-                                        placeholder="ช่างแมว"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        placeholder="19 ม.ค 2568"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 focus:outline-pink1 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -128,75 +150,24 @@ export default function payment() {
 
                         <div className='flex flex-row space-x-5'>
                             <div className='flex flex-col w-1/2'>
-                                <label htmlFor="price" className="block text-sm/6 font-medium text-black1 text-start">
-                                    ราคา
+                                <label htmlFor="times" className="block text-sm/6 font-medium text-black1 text-start">
+                                    วันที่การจอง
                                 </label>
-                                <div className="mt-1">
+                                <div>
                                     <input
-                                        id="price"
-                                        name="price"
-                                        type="number"
+                                        id="times"
+                                        name="times"
+                                        type="text"
                                         required
                                         autoComplete="off"
-                                        placeholder="500"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        placeholder="13.00"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 focus:outline-pink1 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
 
                             <div className='flex flex-col w-1/2'>
-                                <label htmlFor="depositPrice" className="block text-sm/6 font-medium text-black1 text-start">
-                                    ราคาค่ามัดจำการจองคิว 10%
-                                </label>
-                                <div className="mt-1">
-                                    <input
-                                        id="depositPrice"
-                                        name="depositPrice"
-                                        type="number"
-                                        required
-                                        autoComplete="off"
-                                        placeholder="50"
-                                        className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-gray-200 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                        disabled
-                                    //readonly ใช้ readonly แทน disabled
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='flex flex-row space-x-5'>
-                            <div className='flex flex-col w-1/2'>
-                                <label htmlFor="time" className="block text-sm/6 font-medium text-black1">
-                                    เวลาเริ่มต้น
-                                </label>
-                                <div className="mt-1">
-                                    <input
-                                        id="time"
-                                        name="time"
-                                        type="time"
-                                        required
-                                        autoComplete="off"
-                                        defaultValue="11:00"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className='flex flex-col w-1/2'>
-                                <label htmlFor="time" className="block text-sm/6 font-medium text-black1">
-                                    เวลาสิ้นสุด
-                                </label>
-                                <div className="mt-1">
-                                    <input
-                                        id="time"
-                                        name="time"
-                                        type="time"
-                                        required
-                                        autoComplete="off"
-                                        defaultValue="12:30"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
-                                    />
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

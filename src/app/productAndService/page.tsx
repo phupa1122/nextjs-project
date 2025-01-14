@@ -10,9 +10,6 @@ import Search from "./components/search";
 import Pagination from "./components/pagination";
 import ProductCard from "./components/productCard";
 
-import { FaRegStar } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-
 export default function productAndService() {
 
     const [searchText, setSearchText] = useState('');
@@ -79,6 +76,7 @@ export default function productAndService() {
 
     const pageUrl = '/';
 
+
     return (
         <>
             <div className="hero h-96 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/bg-product-service.png')" }}>
@@ -110,43 +108,55 @@ export default function productAndService() {
                         <div className='py-3'>
                             <div className='flex flex-row justify-between  mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
-                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: 20 รายการ</p>
+                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: {currentItems.length} รายการ</p>
                             </div>
                             <div className='px-10 mx-10 border-t border-gray1'>
                                 {/* แสดงข้อมูล */}
-                                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                                    {currentItems?.map((item, index) => (
+                                {currentItems && currentItems.length > 0 ? (
+                                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                                        {currentItems.map((item, index) => (
+                                            <ProductCard
+                                                key={item.id || index + 1}
+                                                id={item.id || index + 1}
+                                                name={item.name || "-"}
+                                                type={item.type || "-"}
+                                                category={item.category || "-"}
+                                                subtitle={item.subtitle || "-"}
+                                                price={item.price || index}
+                                                image={item.image || "-"}
+                                            />
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <Noitems />
+                                )}
+                            </div>
 
-                                        <ProductCard key={item.id || index+1} name={item.name || "-"} type={item.type || "-"} category={item.category || "-"} subtitle={item.subtitle || "-"} price={item.price || "-"} image={item.image || "-"} />
-                                    )
-                                    )}
-                                </div>
-                                {/* ปุ่มเปลี่ยนหน้า */}
-                                <div className="flex justify-center mt-6">
+                            {/* ปุ่มเปลี่ยนหน้า */}
+                            <div className="flex justify-center mt-6">
+                                <button
+                                    className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                    disabled={currentPage === 1}
+                                >
+                                    ก่อนหน้า
+                                </button>
+                                {Array.from({ length: totalPages }, (_, i) => (
                                     <button
-                                        className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
-                                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                                        disabled={currentPage === 1}
+                                        key={i}
+                                        className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === i + 1 ? "bg-gray-300" : "hover:bg-gray-200"}`}
+                                        onClick={() => setCurrentPage(i + 1)}
                                     >
-                                        ก่อนหน้า
+                                        {i + 1}
                                     </button>
-                                    {Array.from({ length: totalPages }, (_, i) => (
-                                        <button
-                                            key={i}
-                                            className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === i + 1 ? "bg-gray-300" : "hover:bg-gray-200"}`}
-                                            onClick={() => setCurrentPage(i + 1)}
-                                        >
-                                            {i + 1}
-                                        </button>
-                                    ))}
-                                    <button
-                                        className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
-                                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-                                        disabled={currentPage === totalPages}
-                                    >
-                                        ถัดไป
-                                    </button>
-                                </div>
+                                ))}
+                                <button
+                                    className={`px-4 py-2 mx-1 border text-blue1 rounded-md ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"}`}
+                                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                    disabled={currentPage === totalPages}
+                                >
+                                    ถัดไป
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -76,7 +76,7 @@ export default function login() {
                             <div className="breadcrumbs text-lg text-black1">
                                 <ul className="flex justify-center">
                                     <li><a href="/" className="hover:text-pink1">หน้าแรก</a></li>
-                                    <li>บัญชีของฉัน</li>
+                                    <li>บัญชีของฉันน</li>
                                 </ul>
                             </div>
                         </div>

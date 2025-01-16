@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import Link from "next/link";
 import Noitems from '@/app/components/noitems';
-import Delete from '@/app/components/delete';
 import Logout from '@/app/components/logout';
+import Swal from "sweetalert2";
 
 
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -21,12 +21,43 @@ export default function favorites() {
     const historyURL = '/account/history';
 
     const items = [
-        { id: 9, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-        { id: 10, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-        { id: 13, type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
-        { id: 17, type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" }
+        { id: 9, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: 350, image: "/images/product/Treatment.png" },
+        { id: 10, type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: 350, image: "/images/product/Treatment.png" },
+        { id: 13, type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: 150, image: "/images/product/Tattoo.png" },
+        { id: 17, type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: 199, image: "/images/product/Nail.png" }
 
     ];
+
+    const handleDelete = (id: number) => {
+        Swal.fire({
+            title: "ลบรายการโปรดหรือไม่?",
+            text: "",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "ลบรายการ",
+            cancelButtonText: "ยกเลิก",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteData(id);
+            }
+        });
+    };
+
+    const deleteData = async (id: number) => {
+        try {
+            const response = await fetch(`/api/delete/${id}`, { method: "DELETE" });
+            if (response.ok) {
+                Swal.fire("ลบสำเร็จ!", "ข้อมูลของคุณถูกลบแล้ว.", "success");
+                // เพิ่มโค้ดเพื่ออัปเดตข้อมูลในตาราง
+            } else {
+                Swal.fire("เกิดข้อผิดพลาด!", "ไม่สามารถลบข้อมูลได้.", "error");
+            }
+        } catch (error) {
+            Swal.fire("เกิดข้อผิดพลาด!", "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์.", "error");
+        }
+    };
 
     const pageSize = 12; // จำนวนข้อมูลต่อหน้า
 
@@ -129,11 +160,14 @@ export default function favorites() {
                                                 className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
                                                 style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 3 }}
                                             >
-                                                {item.price}฿
+                                                {item.price} ฿
                                             </div>
 
-                                            <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                                                <Delete />
+                                            <div
+                                                className="cursor-pointer text-red-500 hover:text-red-700 text-center"
+                                                onClick={() => handleDelete(item.id)}
+                                            >
+                                                ลบรายการ
                                             </div>
                                         </div>
                                     </div>

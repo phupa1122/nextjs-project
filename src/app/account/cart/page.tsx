@@ -5,8 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Noitems from '@/app/components/noitems';
 import Logout from '@/app/components/logout';
-import CartCard from './cartCard';
-import Table from './table';
+import Table from './components/table';
 
 export default function cart() {
 

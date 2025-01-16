@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface modalDetailProps {
+interface modalEditProps {
     id: number
     title: string
     price: number
@@ -11,7 +11,7 @@ interface modalDetailProps {
     time: string
 }
 
-export default function modalDetail({ id, title, price, name, phone, date, emp, time }: modalDetailProps) {
+export default function modalEdit({ id, title, price, name, phone, date, emp, time }: modalEditProps) {
     return (
         <div>
             <dialog id={`my_modal_2${id}`} className="modal" key={id}>
@@ -64,9 +64,16 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 ชื่อลูกค้า
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {name}
-                                </button>
+                                <input
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    required
+                                    autoComplete="name"
+                                    placeholder="ชื่อลูกค้า"
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                />
+
                             </div>
                         </div>
 
@@ -135,6 +142,5 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                 </form>
             </dialog>
         </div>
-    );
-
+    )
 }

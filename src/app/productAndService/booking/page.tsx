@@ -301,10 +301,6 @@ const ScheduleCard = ({ date }: { date: string }) => {
             {isExpanded && (
                 <ul className="overflow-y-auto mt-2 flex flex-col gap-2 justify-start">
                     <li>
-                        {/* <button className="w-full text-sm block py-2 px-4 rounded-md border text-green1 border-green1 font-normal transition bg-slate-50 hover:bg-green1 hover:text-slate-50">
-                            เพิ่ม
-                        </button> */}
-
                         <ModalBooking />
                     </li>
                 </ul>
@@ -339,7 +335,7 @@ export default function booking() {
             </div>
 
             <div className='w-full flex flex-row pr-10 gap-5'>
-                <div className='container w-1/5 mb-5 bg-slate-50'>
+                <div className='container w-1/4 mb-5 bg-slate-50'>
                     <div className='m-5 no-scrollbar'>
                         <div className="text-start flex flex-col px-2 gap-3">
                             <div className='flex flex-row justify-between items-center border-b-2'>

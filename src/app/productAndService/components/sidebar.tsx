@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation';
+
 import { IoMdArrowDropup } from "react-icons/io";
 import { PiShoppingBagOpenFill } from "react-icons/pi";
-// import ModalBooking from "./modalBooking";
+
 
 
 export default function sidebar() {
     const [ProductDropdown, setProductDropdown] = useState(true);
     const [ServiceDropdown, setServiceDropdown] = useState(true);
 
-
+    const router = useRouter();
 
     const PriceRangeSlider = () => {
         const [price, setPrice] = useState(500);
@@ -45,12 +47,12 @@ export default function sidebar() {
 
 
     return (
-        <aside className="fixed inset-y-0 left-0 w-3/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full drop-shadow-md">
+        <aside className="fixed inset-y-0 left-0 w-1/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full drop-shadow-md">
             <div className='m-5'>
-                <div className="text-start flex flex-col mx-2 gap-5">
-                    <div className='flex flex-col gap-2'>
+                <div className="text-start flex flex-col mx-2 gap-2">
+                    <div className='flex flex-col'>
 
-                        <div className="mb-4 text-gray-600">
+                        <div className="text-gray-600">
                             <button
                                 className="w-full text-left py-2"
                                 onClick={() => setProductDropdown(!ProductDropdown)}
@@ -98,6 +100,17 @@ export default function sidebar() {
                     <div className=' items-center'>
                         <PriceRangeSlider />
                     </div>
+
+                    <div className="flex w-full flex-col">
+                        <div className="divider text-gray1">หรือ</div>
+                    </div>
+
+                    <button
+                        className="w-full text-sm block py-2 px-4 rounded-md border text-green1 border-green1 font-normal transition bg-[#FFFFFF] hover:bg-green1 hover:text-slate-50"
+                        onClick={() => router.push('/productAndService/booking')}
+                    >
+                        เลือกจากปฏิทิน
+                    </button>
                 </div>
             </div>
         </aside>

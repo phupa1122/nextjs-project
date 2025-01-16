@@ -14,7 +14,7 @@ interface modalDetailProps {
 export default function modalDetail({ id, title, price, name, phone, date, emp, time }: modalDetailProps) {
     return (
         <div>
-            <dialog id={`my_modal_2${id}`} className="modal" key={id}>
+            <dialog id={`book${id}`} className="modal" key={id}>
                 <div className="modal-box bg-slate-50 space-y-2">
                     <div className="flex justify-start items-center border-b">
                         <h3 className="font-semibold text-xl text-black1">รายละเอียด</h3>

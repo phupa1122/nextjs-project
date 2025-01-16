@@ -1,12 +1,11 @@
 import React from "react";
 import { PiTrashFill } from "react-icons/pi";
 import ModalDetail from "./modalDetail";
+import ModalEdit from "./modalEdit";
 import { useRouter } from "next/navigation";
 import { dataBook } from "./dataBook.js";
 import Swal from "sweetalert2";
 import Noitems from "@/app/components/noitems";
-
-import { PiPencilSimpleLineBold } from "react-icons/pi";
 
 const TableComponent = () => {
     const router = useRouter();
@@ -88,7 +87,7 @@ const TableComponent = () => {
                           className="text-gray1 text-xs border-b-2"
                           onClick={() => {
                             const modal = document.getElementById(
-                              `my_modal_2${book.id}`
+                              `book${book.id}`
                             ) as HTMLDialogElement;
                             if (modal) modal.showModal();
                           }}
@@ -111,13 +110,23 @@ const TableComponent = () => {
                       className="text-sm text-pink1 hover:text-blue1 transition-colors duration-200"
                       onClick={() => {
                         const modal = document.getElementById(
-                          `my_modal_2${book.id}`
+                          `edit${book.id}`
                         ) as HTMLDialogElement;
                         if (modal) modal.showModal();
                       }}
                     >
                       แก้ไขการจอง
                     </button>
+                    <ModalEdit
+                          id={book.id || index + 1}
+                          title={book.title || "-"}
+                          price={book.price || index}
+                          name={book.name || "-"}
+                          phone={book.phone || "-"}
+                          date={book.date || "-"}
+                          emp={book.emp || "-"}
+                          time={book.time || "-"}
+                        />
                   </td>
                   <th className="py-3 px-4 group">
                     <PiTrashFill

@@ -139,7 +139,7 @@ function navbar() {
                 </button>
                 <button className="btn btn-ghost btn-square">
                     <div className="Ticket">
-                        <Link href="#" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiTicketBold size={24} color='black1' /></Link>
+                        <Link href="/account/coupon" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiTicketBold size={24} color='black1' /></Link>
                     </div>
                 </button>
                 <button className="btn btn-ghost btn-square">

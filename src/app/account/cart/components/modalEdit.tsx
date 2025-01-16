@@ -1,3 +1,4 @@
+import employee from '@/app/employee/page'
 import React from 'react'
 
 interface modalEditProps {
@@ -14,7 +15,7 @@ interface modalEditProps {
 export default function modalEdit({ id, title, price, name, phone, date, emp, time }: modalEditProps) {
     return (
         <div>
-            <dialog id={`my_modal_2${id}`} className="modal" key={id}>
+            <dialog id={`edit${id}`} className="modal" key={id}>
                 <div className="modal-box bg-slate-50 space-y-2">
                     <div className="flex justify-start items-center border-b">
                         <h3 className="font-semibold text-xl text-black1">รายละเอียด</h3>
@@ -39,9 +40,15 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 ราคา (บาท)
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {price}
-                                </button>
+                                <input
+                                    id="depositPrice"
+                                    name="depositPrice"
+                                    type="text"
+                                    required
+                                    autoComplete="depositPrice"
+                                    
+                                    className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start sm:text-sm/6 cursor-not-allowed"
+                                />
                             </div>
                         </div>
 
@@ -51,9 +58,15 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 ราคาค่ามัดจำการจองคิว 10%
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {(price * 0.1).toFixed(0)}
-                                </button>
+                                <input
+                                    id="depositPrice"
+                                    name="depositPrice"
+                                    type="text"
+                                    required
+                                    autoComplete="depositPrice"
+                                    placeholder={(price * 0.1).toFixed(0)}
+                                    className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start sm:text-sm/6 cursor-not-allowed"
+                                />
                             </div>
                         </div>
                     </div>
@@ -70,10 +83,9 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                     type="text"
                                     required
                                     autoComplete="name"
-                                    placeholder="ชื่อลูกค้า"
+                                    placeholder={name}
                                     className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                 />
-
                             </div>
                         </div>
 
@@ -83,9 +95,15 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 เบอร์โทรศัพท์
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {phone}
-                                </button>
+                                <input
+                                    id="phone"
+                                    name="phone"
+                                    type="text"
+                                    required
+                                    autoComplete="phone"
+                                    placeholder={phone}
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                />
                             </div>
                         </div>
                     </div>
@@ -96,9 +114,15 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 วันที่การจอง
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {date}
-                                </button>
+                                <input
+                                    id="date"
+                                    name="date"
+                                    type="text"
+                                    required
+                                    autoComplete="date"
+                                    defaultValue={date}
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                />
                             </div>
                         </div>
 
@@ -108,9 +132,15 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 พนักงาน
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
-                                    {emp}
-                                </button>
+                                <input
+                                    id="employee"
+                                    name="employee"
+                                    type="text"
+                                    required
+                                    autoComplete="employee"
+                                    placeholder={emp}
+                                    className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                />
                             </div>
                         </div>
                     </div>
@@ -121,7 +151,7 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                                 เวลาที่สามารถจองได้
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <button className="text-gray1 border rounded-md px-3 py-1">
                                     {time}
                                 </button>
                             </div>

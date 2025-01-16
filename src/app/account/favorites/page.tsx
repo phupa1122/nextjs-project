@@ -16,6 +16,7 @@ export default function favorites() {
 
     const pageUrl = '/';
     const profileURL = '/account/profile';
+    const couponURL = '/account/coupon';
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
@@ -114,6 +115,7 @@ export default function favorites() {
                         </div>
                         <div className="text-start flex flex-col px-2 gap-3">
                             <Link href={profileURL} className="text-black1 text-sm border-b border-gray1 pb-3">ข้อมูลส่วนตัว</Link>
+                            <Link href={couponURL} className="text-black1 text-sm">คูปองส่วนลด</Link>
                             <Link href={favoritesURL} className="text-pink1 text-sm">รายการโปรด</Link>
                             <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
                             <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>

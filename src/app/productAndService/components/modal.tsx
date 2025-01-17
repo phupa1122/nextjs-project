@@ -61,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({ id, category, price }: ModalProps) => {
                         <div className="flex flex-row space-x-3">
                             <button
                                 disabled
-                                className="py-2 px-3 text-pink1 border border-gray-100 rounded-md cursor-not-allowed"
+                                className="py-2 px-3 text-gray1 border border-gray-100 rounded-md cursor-not-allowed"
                             >
                                 {category}
                             </button>

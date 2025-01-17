@@ -59,7 +59,7 @@ export default function productCard({ id, name, type, category, price, image, su
                     </div>
 
                     <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                        <button className="px-3 py-1 items-center text-pink1 rounded hover:bg-pink1 hover:text-slate-50" onClick={()=>openModal(id)}>
+                        <button className="px-3 py-1 items-center text-pink1 rounded hover:text-blue1" onClick={()=>openModal(id)}>
                             จองคิว
                         </button>
                         <Modal id={id} category={category} price={price} />

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import ModalBooking from "./modalBooking";
+import ModalBooking from "./components/modalBooking";
+import Calendar from "./components/calender";
 
 const ScheduleCard1 = () => {
     const [isExpanded, setIsExpanded] = useState(false); // จัดการสถานะเปิด/ปิด
@@ -334,7 +335,7 @@ export default function booking() {
                 </div>
             </div>
 
-            <div className='w-full flex flex-row pr-10 gap-5'>
+            <div className='w-full flex flex-row'>
                 <div className='container w-1/4 mb-5 bg-slate-50'>
                     <div className='m-5 no-scrollbar'>
                         <div className="text-start flex flex-col px-2 gap-3">
@@ -353,23 +354,17 @@ export default function booking() {
                     </div>
                 </div>
 
-                <div className='w-full'>
-
-                    <div className=" mt-5 px-4 sm:px-0">
-                        <h3 className='text-gray1'>ไทม์ไลน์</h3>
-                    </div>
-
-                    <div className='bg-slate-50 my-5 rounded-lg py-3'>
-
-                        <div className="">
-                            <div className='flex flex-row justify-between mx-10 items-center'>
-                                <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
-                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: 20 รายการ</p>
-                            </div>
-
+                <div className='w-full flex flex-row pt-5 pr-10'>
+                    <div className='w-full ml-10'>
+                        <div className="px-4 sm:px-0">
+                            <h3 className="text-lg/7 font-medium text-gray1">ไทม์ไลน์</h3>
                         </div>
 
+                        <div className='bg-slate-50 my-5 rounded-lg border border-gray-200 shadow-lg'>
+                            <Calendar />
+                        </div>
                     </div>
+
                 </div>
             </div>
         </>

@@ -35,7 +35,7 @@ function navbar() {
                 ? 'bg-gradient-to-b from-neutral-50 to-white1'
                 : 'bg-gradient-to-b from-white1 to-neutral-50'
                 }`}
-        >
+        > 
             <div className="navbar-start">
                 <img src='/images/Logo.png' alt='Logo' />
             </div>

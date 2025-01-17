@@ -6,11 +6,12 @@ import { AuthContext } from '../context/authContext';
 import axios from 'axios';
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
-
+import { useRouter } from 'next/navigation';
 
 export default function login() {
     const [form, setForm] = useState({ username: "", password: "" });
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({
@@ -45,7 +46,7 @@ export default function login() {
             if (role === "admin") {
                 window.location.href = "/dashboard/admin";
             } else {
-                window.location.href = "/dashboard/user";
+                router.push("/");
             }
         } catch (error: any) {
             Swal.fire({

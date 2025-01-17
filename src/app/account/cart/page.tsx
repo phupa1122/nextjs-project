@@ -3,7 +3,6 @@
 import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
-import Noitems from '@/app/components/noitems';
 import Logout from '@/app/components/logout';
 import Table from './components/table';
 
@@ -15,13 +14,6 @@ export default function cart() {
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
-
-    const openModal = () => {
-        const dialog = document.getElementById('delete') as HTMLDialogElement;
-        if (dialog) {
-            dialog.showModal();
-        }
-    };
 
     return (
         <>

@@ -58,13 +58,10 @@ export default function modalDelete({ id }: modalDeleteProps) {
                     </form>
                 </div>
 
-
-
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
             </dialog>
         </div>
     );
-
 }

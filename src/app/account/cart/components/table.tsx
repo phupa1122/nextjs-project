@@ -4,7 +4,6 @@ import ModalEdit from "./modalEdit";
 import ModalDelete from "./modalDelete";
 import { useRouter } from "next/navigation";
 import { dataBook } from "./dataBook.js";
-import Swal from "sweetalert2";
 import Noitems from "@/app/components/noitems";
 
 import { Loader, PencilLine, Trash2 } from 'lucide-react';

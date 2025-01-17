@@ -1,50 +1,12 @@
 import React from "react";
 import ModalDetail from "./modalDetail";
-import { useRouter } from "next/navigation";
 import { dataHistory } from "./dataHistory.js";
-import Swal from "sweetalert2";
 import Noitems from "@/app/components/noitems";
 
 import { CircleCheck, Trash2 } from 'lucide-react';
 import ModalDelete from "./modalDelete";
 
 const TableComponent = () => {
-    const router = useRouter();
-
-    const navigateToPayment = () => {
-        router.push("/payment");
-    };
-
-    const handleDelete = (id: number) => {
-        Swal.fire({
-            title: "ลบการจองคิวหรือไม่?",
-            text: "",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "ลบการจองคิว",
-            cancelButtonText: "ยกเลิก",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                deleteData(id);
-            }
-        });
-    };
-
-    const deleteData = async (id: number) => {
-        try {
-            const response = await fetch(`/api/delete/${id}`, { method: "DELETE" });
-            if (response.ok) {
-                Swal.fire("ลบสำเร็จ!", "ข้อมูลของคุณถูกลบแล้ว.", "success");
-                // เพิ่มโค้ดเพื่ออัปเดตข้อมูลในตาราง
-            } else {
-                Swal.fire("เกิดข้อผิดพลาด!", "ไม่สามารถลบข้อมูลได้.", "error");
-            }
-        } catch (error) {
-            Swal.fire("เกิดข้อผิดพลาด!", "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์.", "error");
-        }
-    };
 
     return dataHistory.length > 0 ? (
         <div className="overflow-x-auto mx-5 py-2">

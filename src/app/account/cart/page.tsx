@@ -16,6 +16,13 @@ export default function cart() {
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
 
+    const openModal = () => {
+        const dialog = document.getElementById('delete') as HTMLDialogElement;
+        if (dialog) {
+            dialog.showModal();
+        }
+    };
+
     return (
         <>
             <div className="relative w-full h-[50vh] hero bg-white1 bg-center">
@@ -80,7 +87,6 @@ export default function cart() {
                             <Table />
                         </div>
                     </div>
-
                 </div>
             </div >
         </>

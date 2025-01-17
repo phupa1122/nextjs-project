@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ModalDetail from "./modalDetail";
 import ModalEdit from "./modalEdit";
 import ModalDelete from "./modalDelete";
 import { useRouter } from "next/navigation";
 import { dataBook } from "./dataBook.js";
 import Noitems from "@/app/components/noitems";
+import './styles.css';
 
 import { Loader, PencilLine, Trash2 } from 'lucide-react';
 
@@ -70,7 +71,7 @@ const TableComponent = () => {
                             <td className="py-3 px-4 text-gray1 text-sm">{book.price} บาท</td>
                             <td className="py-3 px-4 text-gray1 text-sm">
                                 <div className="flex flex-row gap-2 items-center text-amber-400">
-                                    <Loader size={16} />
+                                <Loader size={16} />
                                     รออนุมัติ
                                 </div>
                             </td>

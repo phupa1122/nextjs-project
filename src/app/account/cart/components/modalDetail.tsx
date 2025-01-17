@@ -24,12 +24,11 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                         <label htmlFor="service" className="block text-sm/6 font-medium text-black1 text-start">
                             บริการ
                         </label>
-                        <div className="flex flex-row space-x-3">
-                            <p
-                                className="text-sm text-gray1"
-                            >
+                        <div className="flex flex-row space-x-3 mt-1">
+                            <p className="text-gray1 text-start sm:text-sm/6">
                                 {title}
                             </p>
+
                         </div>
                     </div>
 
@@ -39,21 +38,20 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 ราคา (บาท)
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {price}
-                                </button>
+                                </p>
                             </div>
                         </div>
-
 
                         <div className='flex flex-col w-1/2'>
                             <label htmlFor="depositPrice" className="block text-sm/6 font-medium text-black1 text-start">
                                 ราคาค่ามัดจำการจองคิว 10%
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {(price * 0.1).toFixed(0)}
-                                </button>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -64,9 +62,9 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 ชื่อลูกค้า
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {name}
-                                </button>
+                                </p>
                             </div>
                         </div>
 
@@ -76,9 +74,9 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 เบอร์โทรศัพท์
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {phone}
-                                </button>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -89,9 +87,9 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 วันที่การจอง
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {date}
-                                </button>
+                                </p>
                             </div>
                         </div>
 
@@ -101,9 +99,9 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 พนักงาน
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {emp}
-                                </button>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -114,9 +112,9 @@ export default function modalDetail({ id, title, price, name, phone, date, emp, 
                                 เวลาที่สามารถจองได้
                             </label>
                             <div className="mt-1">
-                                <button className="text-gray1 text-start sm:text-sm/6">
+                                <p className="text-gray1 text-start sm:text-sm/6">
                                     {time}
-                                </button>
+                                </p>
                             </div>
                         </div>
                     </div>

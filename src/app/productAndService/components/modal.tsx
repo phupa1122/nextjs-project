@@ -9,7 +9,6 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ id, category, price }: ModalProps) => {
 
-
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
     const [availableTimes, setAvailableTimes] = useState<string[]>([]);
     const [selectedTime, setSelectedTime] = useState<string | null>(null)

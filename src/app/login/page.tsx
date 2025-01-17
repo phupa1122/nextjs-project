@@ -1,68 +1,64 @@
 "use client"
-
+ 
 import React, { useState, useContext } from 'react'
 import Swal from "sweetalert2";
 import { AuthContext } from '../context/authContext';
-
+import axios from 'axios';
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoKeyOutline } from "react-icons/io5";
 
-interface Login {
-    email: string
-    password: string
-}
+
 export default function login() {
+    const [form, setForm] = useState({ username: "", password: "" });
     const [loading, setLoading] = useState(false);
-    // const { setLoggedIn } = useContext(AuthContext);
 
-    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const login = new FormData(e.currentTarget);
-        const JsonData = {
-            email: login.get("email") as string,
-            password: login.get("password") as string,
-        };
-
-        fetch('https://dummyjson.com/auth/login', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ JsonData }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("API Response:", data);
-                setLoading(false);
-                if (data.status == "ok") {
-                    Swal.fire({
-                        icon: "success",
-                        title: "เข้าสู่ระบบสำเร็จ",
-                        text: "ยินดีต้อนรับ!",
-                        confirmButtonColor: "#13C648",
-                    });
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "เข้าสู่ระบบไม่สำเร็จ",
-                        text: "โปรดตรวจสอบชื่อผู้ใช้หรือรหัสผ่าน",
-                        confirmButtonColor: "#FF2D47",
-                    });
-                    console.log(data.status)
-                }
-
-            })
-            .catch((error) => {
-                setLoading(false);
-                Swal.fire({
-                    icon: "error",
-                    title: "ข้อผิดพลาด",
-                    text: "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
-                    confirmButtonColor: "#FF2D47",
-                });
-                console.error("Error:", error);
-            });
-
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value,
+        });
     };
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(form);
+        setLoading(true);
+
+        try {
+            const response = await axios.post("http://localhost:8000/api/login", {
+                username: form.username,
+                password: form.password,
+            });
+            console.log(response.data);
+    
+            const { token, role } = response.data;
+    
+            localStorage.setItem("token", token);
+    
+            Swal.fire({
+                icon: "success",
+                title: "เข้าสู่ระบบสำเร็จ",
+                text: "ยินดีต้อนรับ!",
+                confirmButtonColor: "#13C648",
+            });
+    
+            if (role === "admin") {
+                window.location.href = "/dashboard/admin";
+            } else {
+                window.location.href = "/dashboard/user";
+            }
+        } catch (error: any) {
+            Swal.fire({
+                icon: "error",
+                title: "เข้าสู่ระบบไม่สำเร็จ",
+                text: error.response?.data?.message || "โปรดตรวจสอบชื่อผู้ใช้หรือรหัสผ่าน",
+                confirmButtonColor: "#FF2D47",
+            });
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
@@ -76,7 +72,7 @@ export default function login() {
                             <div className="breadcrumbs text-lg text-black1">
                                 <ul className="flex justify-center">
                                     <li><a href="/" className="hover:text-pink1">หน้าแรก</a></li>
-                                    <li>บัญชีของฉันน</li>
+                                    <li>บัญชีของฉัน</li>
                                 </ul>
                             </div>
                         </div>
@@ -89,20 +85,20 @@ export default function login() {
                                 </div>
 
                                 <div className="sm:mx-auto sm:w-full sm:max-w-sm sm:my-3">
-                                    <form className="space-y-3" onSubmit={handleLogin}>
+                                    <form onSubmit={handleSubmit} className="space-y-3" >
                                         <div>
-                                            <label htmlFor="email" className="block text-sm/6 font-medium text-black1 text-start">
+                                            <label htmlFor="username" className="block text-sm/6 font-medium text-black1 text-start">
                                                 ชื่อผู้ใช้
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
                                                     <FaRegUserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
                                                     <input
-                                                        id="email"
-                                                        name="email"
+                                                        id="username"
+                                                        name="username"
                                                         type="text"
                                                         required
-                                                        autoComplete="email"
+                                                        onChange={handleChange}
                                                         className="block w-full pl-10 rounded-md bg-white1 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray1 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6 hover:bg-white1"
                                                     />
                                                 </div>
@@ -123,7 +119,7 @@ export default function login() {
                                                         name="password"
                                                         type="password"
                                                         required
-                                                        autoComplete="current-password"
+                                                        onChange={handleChange}
                                                         className="block w-full pl-10 rounded-md bg-white1 px-3 py-1.5 text-pink1 outline outline-1 -outline-offset-1 outline-gray1 placeholder:text-pink1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
                                                     />
                                                 </div>
@@ -188,7 +184,7 @@ export default function login() {
                                             </a>
                                         </div>
                                         <div className="text-sm">
-                                            <a href="/login/newAccount" className="font-semibold text-pink1 hover:text-gray1">
+                                            <a href="/signup" className="font-semibold text-pink1 hover:text-gray1">
                                                 ลงทะเบียน
                                             </a>
                                         </div>

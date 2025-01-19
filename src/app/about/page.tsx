@@ -2,9 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components';
-import { LuLeaf } from "react-icons/lu";
-import { LuCrown } from "react-icons/lu";
-import { PiCurrencyBtc } from "react-icons/pi";
+import { Leaf, Crown, HandCoins} from 'lucide-react';
 
 const CenteredDiv = styled.div`
   display: flex;
@@ -128,7 +126,7 @@ export default function about() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div className="text-center flex flex-col gap-y-5">
                         <CenteredDiv>
-                            <LuLeaf size={48} />
+                            <Leaf size={40}/>
                         </CenteredDiv>
                         <h1 className="text-2xl font-bold text-black1">
                             ธรรมชาติ
@@ -148,7 +146,7 @@ export default function about() {
 
                     <div className="text-center flex flex-col gap-y-5">
                         <CenteredDiv>
-                            <LuCrown size={48} />
+                            <Crown size={40} />
                         </CenteredDiv>
                         <h1 className="text-2xl font-bold text-black1">
                             คุณภาพ
@@ -168,7 +166,7 @@ export default function about() {
 
                     <div className="text-center flex flex-col gap-y-5">
                         <CenteredDiv>
-                            <PiCurrencyBtc size={48} />
+                            <HandCoins  size={40} />
                         </CenteredDiv>
                         <h1 className="text-2xl font-bold text-black1">
                             คืนเงิน

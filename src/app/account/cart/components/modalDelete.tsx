@@ -31,12 +31,12 @@ export default function modalDelete({ id }: modalDeleteProps) {
                 <div className="modal-box bg-slate-50">
                     <form method="dialog">
                         <div className="flex justify-between items-center border-b">
-                            <div className="flex justify-between items-center space-x-2 text-error">
-                                <CircleAlert size={20} />
+                            <div className="flex justify-center items-center space-x-2 text-error">
+                                <CircleAlert/>
                                 <h2 className="text-lg font-medium text-error">ลบการจองคิว</h2>
                             </div>
                             <button
-                                className="btn btn-sm btn-square btn-ghost text-black1"
+                                className="text-black1"
                             >
                                 ✕
                             </button>

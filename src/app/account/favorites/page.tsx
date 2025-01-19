@@ -8,7 +8,7 @@ import Logout from '@/app/components/logout';
 import Swal from "sweetalert2";
 
 
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { Star } from 'lucide-react';
 
 export default function favorites() {
 
@@ -154,7 +154,7 @@ export default function favorites() {
 
                                             <div className="flex flex-row">
                                                 {Array.from({ length: 5 }, (_, i) => (
-                                                    <FaStar key={i} size={12} />
+                                                    <Star key={i} size={12} color='#7A7772' />
                                                 ))}
                                             </div>
 

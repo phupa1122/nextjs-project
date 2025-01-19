@@ -71,7 +71,7 @@ const TableComponent = () => {
                             <td className="py-3 px-4 text-gray1 text-sm">{book.price} บาท</td>
                             <td className="py-3 px-4 text-gray1 text-sm">
                                 <div className="flex flex-row gap-2 items-center text-amber-400">
-                                <Loader size={16} />
+                                <Loader size={20 } />
                                     รออนุมัติ
                                 </div>
                             </td>

@@ -3,12 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import { PiTicketBold } from "react-icons/pi";
-import { PiHeartStraightBold } from "react-icons/pi";
-import { PiHandbagBold } from "react-icons/pi";
-import { PiUserCircleBold } from "react-icons/pi";
-import { AiOutlineBars } from "react-icons/ai";
+import { Search, Ticket, Heart, ShoppingBag, CircleUserRound, AlignRight } from 'lucide-react';
 
 function navbar() {
 
@@ -99,7 +94,7 @@ function navbar() {
             <div className="drawer drawer-end lg:hidden">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex justify-end items-center">
-                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost"><AiOutlineBars size={24} color='#21211F' /></label>
+                    <label htmlFor="my-drawer-4" className="drawer-button"><AlignRight color='#21211F' /></label>
                 </div>
                 {/* {isVisible && ( */}
                 <div className="drawer-side">
@@ -117,45 +112,34 @@ function navbar() {
                         <li className='hover:text-gray-400'><Link href="/productAndService">สินค้าและบริการ</Link></li>
                         <li className='hover:text-gray-400'><Link href="/promotion">โปรโมชั่น</Link></li>
                         <li className='hover:text-gray-400'><Link href="/result">ผลลัพธ์ลูกค้า</Link></li>
-                        <li className='border-b-2 hover:text-gray-400'><Link href="/contact">ติดต่อเรา</Link></li>
+                        <li className='hover:text-gray-400 border-b-2'><Link href="/contact">ติดต่อเรา</Link></li>
 
-
-                        <li className="mt-3 hover:text-gray-400"><Link href="#">ค้นหา</Link></li>
-                        <li className="mt-3 hover:text-gray-400"><Link href="/account/profile">คูปองของฉัน</Link></li>
-                        <li className="mt-3 hover:text-gray-400"><Link href="/account/favorites">รายการโปรด</Link></li>
-                        <li className="mt-3 hover:text-gray-400"><Link href="/account/cart">ตะกร้าของฉัน</Link></li>
-                        <li className="mt-3 hover:text-gray-400"><Link href="/login">เข้าสุ่ระบบ</Link></li>
+                        <li className="hover:text-gray-400"><Link href="#">ค้นหา</Link></li>
+                        <li className="hover:text-gray-400"><Link href="/account/profile">คูปองของฉัน</Link></li>
+                        <li className="hover:text-gray-400"><Link href="/account/favorites">รายการโปรด</Link></li>
+                        <li className="hover:text-gray-400"><Link href="/account/cart">ตะกร้าของฉัน</Link></li>
+                        <li className="hover:text-gray-400"><Link href="/login">เข้าสุ่ระบบ</Link></li>
 
                     </ul>
                 </div>
                 {/* )} */}
             </div>
 
-            <div className="navbar-end hidden lg:flex">
-                <button className="btn btn-ghost btn-square">
-                    <div className="MagnifyingGlass">
-                        <Link href="#" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><FaMagnifyingGlass size={20} color='black1' /></Link>
-                    </div>
+            <div className="navbar-end hidden lg:flex gap-5">
+                <button className="MagnifyingGlass">
+                    <Link href="#" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Search strokeWidth={2.5} /></Link>
                 </button>
-                <button className="btn btn-ghost btn-square">
-                    <div className="Ticket">
-                        <Link href="/account/coupon" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiTicketBold size={24} color='black1' /></Link>
-                    </div>
+                <button className="Ticket">
+                    <Link href="/account/coupon" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Ticket strokeWidth={2.5} /></Link>
                 </button>
-                <button className="btn btn-ghost btn-square">
-                    <div className="HeartStraight">
-                        <Link href="/account/favorites" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiHeartStraightBold size={24} color='black1' /></Link>
-                    </div>
+                <button className="HeartStraight">
+                    <Link href="/account/favorites" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Heart strokeWidth={2.5} /></Link>
                 </button>
-                <button className="btn btn-ghost btn-square">
-                    <div className="Handbag">
-                        <Link href="/account/cart" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiHandbagBold size={24} color='black1' /></Link>
-                    </div>
+                <button className="Handbag">
+                    <Link href="/account/cart" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><ShoppingBag strokeWidth={2.5} /></Link>
                 </button>
-                <button className="btn btn-ghost btn-square">
-                    <div className="UserCircle">
-                        <Link href="/login" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><PiUserCircleBold size={24} color='black1' /></Link>
-                    </div>
+                <button className="UserCircle">
+                    <Link href="/login" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><CircleUserRound strokeWidth={2.5} /></Link>
                 </button>
 
             </div>

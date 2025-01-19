@@ -1,8 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
-import { PiUserCircleFill } from "react-icons/pi";
 
-import { PiPencilSimpleLineBold } from "react-icons/pi";
+import { PencilLine} from 'lucide-react';
+import { PiUserCircleFill } from "react-icons/pi";
 
 export default function modalProfile() {
     const openModal = () => {
@@ -23,7 +22,7 @@ export default function modalProfile() {
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}
             <button className="flex flex-row gap-2 px-4 py-2 items-center text-amber-400 border border-amber-400 rounded-md hover:bg-amber-400 hover:border-amber-400 hover:text-slate-50" onClick={openModal}>
-                <PiPencilSimpleLineBold />
+            <PencilLine size={16} />
                 แก้ไขข้อมูล
             </button>
             <dialog id="modalProfile" className="modal">

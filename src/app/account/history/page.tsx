@@ -3,7 +3,6 @@
 import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
-import Noitems from '@/app/components/noitems';
 import Logout from '@/app/components/logout';
 import TableHistory from '../cart/components/tableHistory';
 

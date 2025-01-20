@@ -5,25 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Map from "./components/map";
 import './swiper.css';
+import ModalBooking from "./productAndService/booking/components/modalBooking";
+import Star from "./components/star";
 
 import styled from 'styled-components';
-import { FaRegStar } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-import { PiPackage } from "react-icons/pi";
-import { PiChats } from "react-icons/pi";
-import { PiCurrencyBtc } from "react-icons/pi";
-import { PiPhoneCallFill } from "react-icons/pi";
-import { PiMapPinAreaFill } from "react-icons/pi";
-import { PiEnvelopeSimple } from "react-icons/pi";
+import { Package, MessagesSquare, HandCoins } from 'lucide-react';
+import { PiPhoneCallFill, PiMapPinAreaFill } from "react-icons/pi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
-import Modal from "./productAndService/components/modal";
-
-
 
 const data = [
     { id: "1", type: "สินค้า", category: "ครีม", name: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
@@ -233,13 +226,7 @@ export default function Home() {
                                             </div>
                                             <p className="text-gray1 text-start truncate">{item.subtitle}</p>
 
-                                            <div className="flex flex-row">
-                                                <FaStar size={12} />
-                                                <FaStar size={12} />
-                                                <FaStar size={12} />
-                                                <FaRegStar size={12} />
-                                                <FaRegStar size={12} />
-                                            </div>
+                                            <Star />
 
                                             <div
                                                 className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
@@ -253,7 +240,7 @@ export default function Home() {
                                                     <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
                                                 ) : (
                                                     // ในหน้าหลักที่ใช้ `ModalBooking`
-                                                    <Modal item={item} />
+                                                    <ModalBooking />
 
                                                 )}
                                             </div>
@@ -308,7 +295,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiPackage size={48} />
+                                <Package size={40} />
                             </CenteredDiv>
                             <h1 className="text-2xl font-bold text-black1">
                                 จัดส่งฟรี
@@ -328,7 +315,7 @@ export default function Home() {
 
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiChats size={48} />
+                                <MessagesSquare size={40} />
                             </CenteredDiv>
                             <h1 className="text-2xl font-bold text-black1">
                                 สนับสนุน
@@ -348,7 +335,7 @@ export default function Home() {
 
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
-                                <PiCurrencyBtc size={48} />
+                                <HandCoins size={40} />
                             </CenteredDiv>
                             <h1 className="text-2xl font-bold text-black1">
                                 คืนเงิน
@@ -431,24 +418,19 @@ export default function Home() {
                             }}
                         >
                             {dataResult.map((item, index) => (
-                                <SwiperSlide className="my-4 flex justify-start" key={index}>
+                                <SwiperSlide className="flex justify-start pt-20" key={index}>
                                     <div className="bg-[#ffffff] p-4 w-60 lg:w-3/5 md:w-72 drop-shadow-md border border-gray1-300 rounded-lg mx-auto">
-                                        <article className="flex max-w-xl flex-col items-start justify-between">
+                                        <article className="flex max-w-xl flex-col items-start justify-between gap-1">
                                             <div className="group relative w-full">
                                                 <h3 className="text-xl font-semibold text-black1 justify-items-start">
                                                     <a className="block text-black1">{item.title}</a>
                                                 </h3>
 
                                             </div>
-                                            <div className="flex flex-row mt-3">
-                                                <FaStar size={12} color="#EC407A" />
-                                                <FaStar size={12} color="#EC407A" />
-                                                <FaStar size={12} color="#EC407A" />
-                                                <FaRegStar size={12} color="#EC407A" />
-                                                <FaRegStar size={12} color="#EC407A" />
-                                            </div>
+                                            
+                                            <Star />
 
-                                            <div className="flex space-x-2 mt-3 items-center">
+                                            <div className="flex space-x-2 items-center">
                                                 <div className="h-10 w-10 bg-gray-300 rounded-full">
                                                     <img
                                                         alt=""
@@ -491,13 +473,13 @@ export default function Home() {
             </div>
 
             {/* พนักงานของเรา */}
-            <div className="flex flex-row items-center justify-center space-x-0 px-10" id="employee">
+            <div className="flex flex-row items-center justify-center space-x-0 m-10" id="employee">
                 <div className="container">
                     <div className="flex flex-col items-center space-y-2">
                         <a className="text-black1 text-sm">ดูแลลูกค้า</a>
                         <a className="text-black1 text-2xl font-bold">พนักงานของเรา</a>
                     </div>
-                    <div className="pt-10">
+                    <div>
                         <div className="mx-auto max-w-xl px-5 py-10 sm:px-6 lg:max-w-7xl lg:px-10 flex justify-center items-center">
                             <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-20">
                                 {employees.map((employee) => (
@@ -529,8 +511,7 @@ export default function Home() {
                         </div>
                     </div>
 
-
-                    <div className="bg-slate-50 h-80 mt-5">
+                    <div className="bg-slate-50 h-80 mt-10">
                         <Swiper
                             pagination={true}
                             navigation={true} // เปิดใช้งาน navigation
@@ -609,7 +590,7 @@ export default function Home() {
                             <a className="text-black1 text-sm">บริการ</a>
                             <a className="text-black1 text-2xl font-bold">ติดต่อเรา</a>
                         </div>
-                        <div className='m-10'>
+                        <div className='mt-10'>
                             <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-between mx-20 gap-4">
                                 <div className="text-start w-full sm:w-full md:w-2/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">

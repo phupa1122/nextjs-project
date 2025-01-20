@@ -9,7 +9,17 @@ import Swal from "sweetalert2";
 
 import { Star } from 'lucide-react';
 
-export default function favorites() {
+interface FavoriteProps {
+    id: number;
+    name: string;
+    type: string
+    category: string
+    price: number
+    image: string
+    subtitle: string
+}
+
+const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, image, subtitle }: FavoriteProps) => {
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -210,3 +220,5 @@ export default function favorites() {
         </>
     )
 }
+
+export default Favorite

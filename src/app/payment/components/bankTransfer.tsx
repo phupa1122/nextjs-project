@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 
-import { PiBankBold } from "react-icons/pi";
-
 const bankTransfer: React.FC = () => {
     const [showBankDetails, setShowBankDetails] = useState(false);
 
@@ -64,7 +62,6 @@ const bankTransfer: React.FC = () => {
                         <div className='w-24 h-24' style={{ backgroundImage: "url('/images/payment/bank.png')" }}>
 
                         </div>
-                        {/* <PiBankBold size={48} color='pink'/> */}
                         <div className='text-black1'>
                             <p>ชื่อบัญชี: มงคล ขัดปัญญา</p>
                             <p>หมายเลขบัญชี: 732-0-114981</p>

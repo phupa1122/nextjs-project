@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 
-import { IoMdArrowDropup } from "react-icons/io";
-import { PiShoppingBagOpenFill } from "react-icons/pi";
-
-
+import { ChevronDown, ShoppingBag } from 'lucide-react';
 
 export default function sidebar() {
     const [ProductDropdown, setProductDropdown] = useState(true);
@@ -58,9 +55,9 @@ export default function sidebar() {
                                 onClick={() => setProductDropdown(!ProductDropdown)}
                             >
                                 <h1 className="flex items-center gap-2" >
-                                    <PiShoppingBagOpenFill color="EC407A" />
+                                    <ShoppingBag size={16} color="#EC407A" />
                                     <span className="font-semibold">สินค้า</span>
-                                    <IoMdArrowDropup className={`ml-auto w-4 h-4 transform ${ProductDropdown ? "rotate-0" : "rotate-180"}`} />
+                                    <ChevronDown className={`ml-auto w-4 h-4 transform ${ProductDropdown ? "rotate-0" : "rotate-180"}`} />
 
                                 </h1>
                             </button>
@@ -78,10 +75,10 @@ export default function sidebar() {
                                 onClick={() => setServiceDropdown(!ServiceDropdown)}
                             >
                                 <h1 className="flex items-center gap-2">
-                                    <PiShoppingBagOpenFill color="EC407A" />
+                                    <ShoppingBag size={16} color="#EC407A" />
                                     <span className="font-semibold">บริการ</span>
 
-                                    <IoMdArrowDropup className={`ml-auto w-4 h-4 transform ${ServiceDropdown ? "rotate-0" : "rotate-180"}`} />
+                                    <ChevronDown className={`ml-auto w-4 h-4 transform ${ServiceDropdown ? "rotate-0" : "rotate-180"}`} />
 
                                 </h1>
                             </button>

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { MdOutlinePhotoLibrary } from "react-icons/md";
 
 export default function promotion() {
 

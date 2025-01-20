@@ -1,23 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState, useEffect } from 'react';
 import Noitems from "../components/noitems";
 import { data } from "./data" // database from data.js
-import Modal from "./components/modal";
 import Sidebar from "./components/sidebar"
 import Search from "./components/search";
-import Pagination from "./components/pagination";
 import ProductCard from "./components/productCard";
 
 export default function productAndService() {
 
     const [searchText, setSearchText] = useState('');
     const [filteredProductAndServices, setFilteredProductAndServices] = useState(data);
-
-    // เลือก filter ข้อมูล
-    const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
-    const [selectedService, setSelectedService] = useState<string | null>(null);
 
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 12; // จำนวนข้อมูลต่อหน้า
@@ -97,11 +90,10 @@ export default function productAndService() {
 
             <div className='w-full flex flex-row pr-10 sapce-x-10'>
 
-
                 <Sidebar />
 
-
                 <div className='w-full ml-10'>
+                    
                     <Search searchText={searchText} setSearchText={setSearchText} />
 
                     <div className='bg-slate-50 my-5 rounded-lg'>

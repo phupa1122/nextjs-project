@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PiWarningCircle } from "react-icons/pi";
+import { CircleAlert } from 'lucide-react';
 
 export default function logout() {
     const openModal = () => {
@@ -21,7 +21,7 @@ export default function logout() {
                     <form method="dialog">
                         <div className="flex justify-between items-center border-b">
                             <div className="flex justify-between items-center space-x-2 text-error">
-                                <PiWarningCircle size={24} />
+                                <CircleAlert />
                                 <h2 className="text-lg font-medium text-error">ออกจากระบบ</h2>
                             </div>
                             <button

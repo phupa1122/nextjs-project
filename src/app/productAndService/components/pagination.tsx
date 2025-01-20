@@ -18,7 +18,14 @@ export default function Pagination() {
             {/* แสดงข้อมูล */}
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 {currentItems.map((item, index) => (
-                    <ProductCard />
+                    <ProductCard id={item.id || index + 1}
+                        name={item.name || "-"}
+                        type={item.type || "-"}
+                        category={item.category || "-"}
+                        price={item.price || index + 1}
+                        image={item.image || "-"}
+                        subtitle={item.subtitle || "-"}
+                    />
                 ))}
             </div>
 

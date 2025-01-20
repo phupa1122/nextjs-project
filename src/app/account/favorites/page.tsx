@@ -7,7 +7,6 @@ import Noitems from '@/app/components/noitems';
 import Logout from '@/app/components/logout';
 import Swal from "sweetalert2";
 
-
 import { Star } from 'lucide-react';
 
 export default function favorites() {

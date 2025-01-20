@@ -1,12 +1,6 @@
 import React from 'react'
 
-import { PiUserRectangle } from "react-icons/pi";
-import { IoKeyOutline } from "react-icons/io5";
-import { PiUserCircle } from "react-icons/pi";
-import { PiEnvelope } from "react-icons/pi";
-import { PiPhone } from "react-icons/pi";
-import { PiCake } from "react-icons/pi";
-import { PiLockKey } from "react-icons/pi";
+import { UsersRound, CircleUserRound, Mail, Phone, Cake, KeyRound, LockKeyhole } from 'lucide-react';
 
 export default function newAccount() {
 
@@ -40,7 +34,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiUserRectangle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <UsersRound size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="name"
                                                         name="name"
@@ -59,7 +53,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiUserRectangle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <UsersRound size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="lname"
                                                         name="lname"
@@ -78,7 +72,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiUserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <CircleUserRound size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="username"
                                                         name="username"
@@ -97,7 +91,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <Mail size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="email"
                                                         name="email"
@@ -116,7 +110,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <Phone size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="phone"
                                                         name="phone"
@@ -135,7 +129,7 @@ export default function newAccount() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiCake className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 size-5" />
+                                                    <Cake size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1" />
                                                     <input
                                                         id="date"
                                                         name="date"
@@ -149,12 +143,12 @@ export default function newAccount() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="password" className="block text-sm/6 font-medium text-black1">
+                                            <label htmlFor="password" className="block text-sm/6 font-medium text-black1 text-start">
                                                 รหัสผ่าน
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <IoKeyOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
+                                                    <KeyRound size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
                                                     <input
                                                         id="password"
                                                         name="password"
@@ -168,12 +162,12 @@ export default function newAccount() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="password" className="block text-sm/6 font-medium text-black1">
+                                            <label htmlFor="password" className="block text-sm/6 font-medium text-black1 text-start">
                                                 ยืนยันรหัสผ่าน
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <PiLockKey className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
+                                                    <LockKeyhole size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
                                                     <input
                                                         id="password"
                                                         name="password"

@@ -11,13 +11,6 @@ export default function modalProfile() {
         }
     };
 
-    const closeModal = () => {
-        const dialog = document.getElementById('modalProfile') as HTMLDialogElement;
-        if (dialog) {
-            dialog.close();
-        }
-    };
-
     return (
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}

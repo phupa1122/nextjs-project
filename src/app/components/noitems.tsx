@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { FaInbox } from "react-icons/fa";
+import { Inbox } from 'lucide-react';
 
 export default function noitems() {
     return (
@@ -8,7 +8,7 @@ export default function noitems() {
             <div className='p-10'>
                 <div className="text-center">
                     <div className="flex justify-center items-center mx-auto">
-                        <FaInbox size={48} color="pink1" />
+                        <Inbox size={48} color="#EC407A" />
                     </div>
                     <h1 className="mt-4 text-balance text-xl font-medium tracking-tight text-black1 sm:text-2xl">
                         ไม่มีรายการ

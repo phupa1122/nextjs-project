@@ -2,10 +2,8 @@
 
 import React, { useState, useContext } from 'react'
 import Swal from "sweetalert2";
-import { AuthContext } from '../context/authContext';
 
-import { FaRegUserCircle } from "react-icons/fa";
-import { IoKeyOutline } from "react-icons/io5";
+import { CircleUserRound, LockKeyhole } from 'lucide-react';
 
 interface Login {
     email: string
@@ -96,7 +94,7 @@ export default function login() {
                                             </label>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <FaRegUserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
+                                                    <CircleUserRound size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
                                                     <input
                                                         id="email"
                                                         name="email"
@@ -117,7 +115,7 @@ export default function login() {
                                             </div>
                                             <div className="mt-1">
                                                 <div className="relative">
-                                                    <IoKeyOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
+                                                    <LockKeyhole size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black1 " />
                                                     <input
                                                         id="password"
                                                         name="password"

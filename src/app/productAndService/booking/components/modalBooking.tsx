@@ -16,8 +16,6 @@ export default function modalBooking() {
         }
     };
 
-    
-
     return (
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}

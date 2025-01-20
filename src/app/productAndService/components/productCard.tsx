@@ -1,8 +1,7 @@
 import React, { ReactHTMLElement } from 'react'
 import Image from 'next/image'
 
-
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { Star } from 'lucide-react';
 import Modal from './modal'
 
 interface productCardProps {
@@ -43,12 +42,12 @@ export default function productCard({ id, name, type, category, price, image, su
                     </div>
                     <p className="text-gray1 text-start truncate">{subtitle}</p>
 
-                    <div className="flex flex-row">
-                        <FaStar size={12} />
-                        <FaStar size={12} />
-                        <FaStar size={12} />
-                        <FaRegStar size={12} />
-                        <FaRegStar size={12} />
+                    <div className="flex flex-row text-gray1">
+                        <Star size={12} />
+                        <Star size={12} />
+                        <Star size={12} />
+                        <Star size={12} />
+                        <Star size={12} />
                     </div>
 
                     <div

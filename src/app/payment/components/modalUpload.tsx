@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2'
 
-import { MdAddPhotoAlternate } from "react-icons/md";
-import { PiCalendarCheck } from "react-icons/pi";
+import { ImagePlus, CircleCheck } from 'lucide-react';
 
 export default function ModalUpload() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -92,7 +91,7 @@ export default function ModalUpload() {
                                                 className="h-40 w-auto rounded-md"
                                             />
                                         ) : (
-                                            <MdAddPhotoAlternate aria-hidden="true" className="mx-auto size-12 text-gray-300" />
+                                            <ImagePlus aria-hidden="true" className="mx-auto size-12 text-gray-300" />
                                         )}
                                         <div className="mt-4 flex text-sm/6 text-gray1">
                                             <label
@@ -149,7 +148,7 @@ export default function ModalUpload() {
 
                             <div className="mt-2 space-y-1 text-center">
                                 <div className="flex justify-center">
-                                    <PiCalendarCheck size={36} color='#13C648' />
+                                    <CircleCheck size={36} color='#13C648' />
                                 </div>
                                 <p className="text-black1 text-base">บริการ: ทรีตเมนต์มาร์คด้วยมือ + เครื่อง</p>
                                 <p className="text-gray1 text-sm">คุณ: วิว</p>

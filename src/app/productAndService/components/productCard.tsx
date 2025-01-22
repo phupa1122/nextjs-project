@@ -24,7 +24,7 @@ export default function productCard({ id, name, type, category, price, image, su
         <>
             <div
                 key={id}
-                className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
+                className="bg-[#ffffff] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
             >
                 <div className="w-full space-y-2">
 

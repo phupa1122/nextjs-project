@@ -93,19 +93,23 @@ export default function productAndService() {
                 <Sidebar />
 
                 <div className='w-full ml-10'>
-                    
+
                     <Search searchText={searchText} setSearchText={setSearchText} />
 
-                    <div className='bg-slate-50 my-5 rounded-lg'>
+                    <div className='bg-slate-50 my-5 rounded-lg drop-shadow-lg'>
                         <div className='py-3'>
                             <div className='flex flex-row justify-between  mx-10 items-center'>
                                 <h3 className='text-gray1'>แสดงผลลัพธ์ทั้งหมด "สินค้าและบริการ"</h3>
-                                <p className='text-gray1 text-xs'>ค้นพบสินค้าและบริการทั้งหมด: {currentItems.length} รายการ</p>
+                                <p className='text-gray1 text-xs'>
+                                    {searchText
+                                        ? `ค้นพบสินค้าและบริการทั้งหมด: ${currentItems.length} รายการ`
+                                        : `ค้นพบสินค้าและบริการทั้งหมด: ${data.length} รายการ`}
+                                </p>
                             </div>
-                            <div className='px-10 mx-10 border-t border-gray1'>
+                            <div className=' mx-10 border-t border-gray1'>
                                 {/* แสดงข้อมูล */}
                                 {currentItems && currentItems.length > 0 ? (
-                                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                                    <div className="mx-auto grid grid-cols-1 max-w-2xl gap-x-5 gap-y-5 pt-3 sm:my-1 sm:pt-5 lg:mx-0 lg:max-w-none lg:grid-cols-4 md:grid-cols-2">
                                         {currentItems.map((item, index) => (
                                             <ProductCard
                                                 key={item.id || index + 1}

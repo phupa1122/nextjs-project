@@ -46,11 +46,17 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
     const handleNavigate = () => {
         router.push("../account/favorites"); // นำทางไปยังหน้า /favorites
     };
+
+    const handleBook = () => {
+        router.push("/productAndService/booking"); // นำทางไปยังหน้า /productAndService/booking
+    };
+    
+
     return (
         <>
             <dialog id={`productPreview${id}`} className="modal">
                 <div key={id}
-                    className="modal-box w-11/12 max-w-5xl bg-slate-50 text-black1 text-start no-scrollbar">
+                    className="modal-box w-11/12 max-w-2xl bg-slate-50 text-black1 text-start no-scrollbar">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -64,7 +70,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
                         <div className="sm:col-span-8 lg:col-span-7">
                             <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{name}</h2>
 
-                            <p className='mt-2 text-gray1'>
+                            <p className='mt-2 text-gray1 truncate'>
                                 {subtitle}
                             </p>
                             <section aria-labelledby="information-heading" className="mt-2">
@@ -78,9 +84,9 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
                                         <div className="flex items-center">
                                             <Star />
                                         </div>
-                                        <p className="sr-only">{product.rating} out of 5 stars</p>
+                                        <p className="sr-only">out of 5 stars</p>
                                         <a href="#" className="ml-3 text-sm font-medium text-blue1 hover:text-indigo-600">
-                                            {product.reviewCount} reviews
+                                            10 ความคิดเห็น
                                         </a>
                                     </div>
                                 </div>
@@ -106,6 +112,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
                                     <div className='flex justify-between gap-3'>
                                         <button
                                             type="submit"
+                                            onClick={handleBook}
                                             className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-pink1 px-5 py-2 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
                                         >
                                             จองคิว

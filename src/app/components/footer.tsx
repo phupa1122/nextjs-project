@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 
-import { Phone, ChevronRight } from 'lucide-react';
-import { FaFacebookSquare } from "react-icons/fa";
+import { Phone, ChevronRight, Facebook } from 'lucide-react';
 
 function footer() {
     return (
@@ -57,12 +56,12 @@ function footer() {
                     <nav>
                         <div className="flex flex-col gap-2">
                             <div className="items-center space-x-2 inline-flex w-max">
-                                <FaFacebookSquare size={16} />
+                                <Facebook size={16} fill='#21211F' />
                                 <a className="text-black1">View Rungpairin</a>
                             </div>
 
                             <div className="items-center gap-2 inline-flex w-max">
-                                <Phone size={16} />
+                                <Phone size={16} fill='#21211F' />
                                 <a className="text-black1">090-316-6790</a>
                             </div>
                         </div>

@@ -9,8 +9,8 @@ import ModalBooking from "./productAndService/booking/components/modalBooking";
 import Star from "./components/star";
 
 import styled from 'styled-components';
-import { Package, MessagesSquare, HandCoins } from 'lucide-react';
-import { PiPhoneCallFill, PiMapPinAreaFill } from "react-icons/pi";
+import { Package, MessagesSquare, HandCoins, Phone } from 'lucide-react';
+import { PiMapPinAreaFill } from "react-icons/pi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -427,7 +427,7 @@ export default function Home() {
                                                 </h3>
 
                                             </div>
-                                            
+
                                             <Star />
 
                                             <div className="flex space-x-2 items-center">
@@ -590,18 +590,20 @@ export default function Home() {
                             <a className="text-black1 text-sm">บริการ</a>
                             <a className="text-black1 text-2xl font-bold">ติดต่อเรา</a>
                         </div>
+
                         <div className='mt-10'>
-                            <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-between mx-20 gap-4">
-                                <div className="text-start w-full sm:w-full md:w-2/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
+                            <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-start gap-10 mx-20">
+                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
-                                        <PiPhoneCallFill size={24} />
+                                        <Phone size={20} fill='#21211F' />
                                         เบอร์โทรศัพท์
                                     </h1>
                                     <p className="text-base text-start text-gray1">
                                         090-3166790
                                     </p>
                                 </div>
-                                <div className="text-start w-full sm:w-full md:w-3/6 flex flex-col gap-1 bg-slate-50 rounded-md p-3">
+
+                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
                                         <PiMapPinAreaFill size={24} />
                                         ที่อยู่

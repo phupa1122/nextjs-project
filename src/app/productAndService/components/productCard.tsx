@@ -11,20 +11,26 @@ interface productCardProps {
     price: number
     image: string
     subtitle: string
+    filter: string
 }
 
-export default function productCard({ id, name, type, category, price, image, subtitle }: productCardProps) {
+export default function productCard({ id, name, type, category, price, image, subtitle, filter }: productCardProps) {
     const openModal = (id: number) => {
         console.log("product ID:", id)
         const modal = document.getElementById(`productPreview${id}`) as HTMLDialogElement;
         modal?.showModal();
     }
 
+    if (filter && filter !== category) {
+        return null
+      }
+
     return (
         <>
+        
             <div
                 key={id}
-                className="bg-[#ffffff] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
+                className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
             >
                 <div className="w-full space-y-2">
 

@@ -29,46 +29,51 @@ export default function productAndService() {
         setFilteredProductAndServices(filtered);
     }, [searchText]);
 
-    const handleCream = () => {
-        const filtered = data.filter((item) => {
-            return item.category === 'ครีม';
-        });
-        setFilteredProductAndServices(filtered);
-        console.log(filtered);
-    };
+    const [filterCate, setFilterCate] = useState<string>("")
 
-    const handleShampoo = () => {
-        const filtered = data.filter((item) => {
-            return item.category === 'แชมพู';
-        });
-        setFilteredProductAndServices(filtered);
-        console.log(filtered);
-    };
+    const handleFilter = (category: string) => {
+        setFilterCate(category)
+    }
 
-    const handleTreatment = () => {
-        const filtered = data.filter((item) => {
-            return item.category === 'ทรีตเมนต์';
-        });
-        setFilteredProductAndServices(filtered);
-        console.log(filtered);
-    };
-    const handleTattoo = () => {
-        const filtered = data.filter((item) => {
-            return item.category === 'สักคิ้ว';
-        });
-        setFilteredProductAndServices(filtered);
-        console.log(filtered);
-    };
-    const handleNail = () => {
-        const filtered = data.filter((item) => {
-            return item.category === 'ทำเล็บ';
-        });
-        setFilteredProductAndServices(filtered);
-        console.log(filtered);
-    };
+    // const handleCream = () => {
+    //     const filtered = data.filter((item) => {
+    //         return item.category === 'ครีม';
+    //     });
+    //     setFilteredProductAndServices(filtered);
+    //     console.log(filtered);
+    // };
+
+    // const handleShampoo = () => {
+    //     const filtered = data.filter((item) => {
+    //         return item.category === 'แชมพู';
+    //     });
+    //     setFilteredProductAndServices(filtered);
+    //     console.log(filtered);
+    // };
+
+    // const handleTreatment = () => {
+    //     const filtered = data.filter((item) => {
+    //         return item.category === 'ทรีตเมนต์';
+    //     });
+    //     setFilteredProductAndServices(filtered);
+    //     console.log(filtered);
+    // };
+    // const handleTattoo = () => {
+    //     const filtered = data.filter((item) => {
+    //         return item.category === 'สักคิ้ว';
+    //     });
+    //     setFilteredProductAndServices(filtered);
+    //     console.log(filtered);
+    // };
+    // const handleNail = () => {
+    //     const filtered = data.filter((item) => {
+    //         return item.category === 'ทำเล็บ';
+    //     });
+    //     setFilteredProductAndServices(filtered);
+    //     console.log(filtered);
+    // };
 
     const pageUrl = '/';
-
 
     return (
         <>
@@ -90,7 +95,7 @@ export default function productAndService() {
 
             <div className='w-full flex flex-row pr-10 sapce-x-10'>
 
-                <Sidebar />
+            <Sidebar onFilter={handleFilter} />
 
                 <div className='w-full ml-10'>
 
@@ -120,6 +125,7 @@ export default function productAndService() {
                                                 subtitle={item.subtitle || "-"}
                                                 price={item.price || index}
                                                 image={item.image || "-"}
+                                                filter={filterCate}
                                             />
                                         ))}
                                     </div>

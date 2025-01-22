@@ -1,48 +1,40 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
-import PriceFilter from './priceFilter';
+import { useRouter } from 'next/navigation'
+import PriceFilter from './priceFilter'
+import { data } from '../data';
 
 import { ChevronDown, ShoppingBasket, ShoppingBag, Filter } from 'lucide-react';
 
-export default function sidebar() {
+interface sidebarProps {
+    onFilter: (category: string) => void
+}
+
+export default function sidebar({ onFilter }: sidebarProps) {
     const [ProductDropdown, setProductDropdown] = useState(true);
     const [ServiceDropdown, setServiceDropdown] = useState(true);
     const [isOpen, setIsOpen] = useState(true); // สำหรับควบคุม sidebar
 
     const router = useRouter();
 
-    // const PriceRangeSlider = () => {
-    //     const [price, setPrice] = useState(500);
+    const handleCream = () => {
+        onFilter('ครีม')
+    }
 
-    //     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //         setPrice(Number(e.target.value));
-    //     };
+    const handleShampoo = () => {
+        onFilter('แชมพู')
+    }
 
-    //     return (
-    //         <div className="max-w-md mx-auto">
-    //             <h2 className="font-semibold mb-4 text-start text-black1">ราคา</h2>
+    const handleTreatment = () => {
+        onFilter('ทรีตเมนต์')
+    }
 
-    //             <div className="flex flex-col items-center">
-    //                 <input
-    //                     type="range"
-    //                     min={0}
-    //                     max={1000}
-    //                     step={50}
-    //                     value={price}
-    //                     onChange={handleChange}
-    //                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-thumb:hover:bg-pink-500"
-    //                 />
+    const handleTattoo = () => {
+        onFilter('สักคิ้ว')
+    }
 
-    //                 <div className="my-2 text-sm font-base text-pink1">
-    //                     ราคา: {price} บาท
-    //                 </div>
-
-
-    //             </div>
-    //             <p className="text-sm font-base mb-4 text-start text-gray1">ราคา: 0฿ - 1,000฿</p>
-    //         </div>
-    //     );
-    // };
+    const handleNail = () => {
+        onFilter('ทำเล็บ')
+    }
 
     return (
         <>
@@ -53,8 +45,6 @@ export default function sidebar() {
                 <Filter size={16} color="#ffffff" />
                 <span className="ml-2">คัดกรอง</span>
             </button>
-
-
 
             <aside className="fixed inset-y-0 left-0 w-1/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full drop-shadow-md">
                 <div className='m-5'>
@@ -74,8 +64,17 @@ export default function sidebar() {
                                 </button>
                                 {ProductDropdown && (
                                     <ul className="overflow-y-auto flex flex-wrap gap-4 justify-start">
-                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1">ครีม</button>
-                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" >แชมพู</button>
+                                        <button
+                                            className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
+                                            onClick={handleCream}
+                                        >
+                                            ครีม
+                                        </button>
+                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
+                                            onClick={handleShampoo}
+                                        >
+                                            แชมพู
+                                        </button>
                                     </ul>
                                 )}
                             </div>
@@ -96,9 +95,21 @@ export default function sidebar() {
                                 {ServiceDropdown && (
                                     <ul className="overflow-y-auto flex flex-wrap gap-4 justify-start">
 
-                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" >ทรีตเมนต์</button>
-                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1">สักคิ้ว</button>
-                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1" >ทำเล็บ</button>
+                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
+                                            onClick={handleTreatment}
+                                        >
+                                            ทรีตเมนต์
+                                        </button>
+                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
+                                            onClick={handleTattoo}
+                                        >
+                                            สักคิ้ว
+                                        </button>
+                                        <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
+                                            onClick={handleNail}
+                                        >
+                                            ทำเล็บ
+                                        </button>
 
                                     </ul>
                                 )}

@@ -147,7 +147,7 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                                 {items.map((item, index) => (
                                     <div className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto" key={index}>
                                         <div className="w-full space-y-2">
-                                            <h1 className="text-black1 text-2xl text-center font-bold">{item.name}</h1>
+                                            
                                             <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
                                                 <Image
                                                     src={item.image}
@@ -159,13 +159,10 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                                                     className="rounded-md mx-auto"
                                                 />
                                             </div>
-                                            <p className="text-gray1 text-start truncate">{item.subtitle}</p>
 
-                                            <div className="flex flex-row">
-                                                {Array.from({ length: 5 }, (_, i) => (
-                                                    <Star key={i} size={12} color='#7A7772' />
-                                                ))}
-                                            </div>
+                                            <h1 className="text-black1 text-2xl text-start font-bold">{item.name}</h1>
+
+                                            <p className="text-gray1 text-start truncate">{item.subtitle}</p>
 
                                             <div
                                                 className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"

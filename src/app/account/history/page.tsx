@@ -72,7 +72,7 @@ export default function page() {
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-4 sm:px-0">
-                        <h3 className="text-lg/7 font-medium text-gray1">ตะกร้าของฉัน</h3>
+                        <h3 className="text-lg/7 font-medium text-gray1">ประวัติของจอง</h3>
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg p-5 '>
                         <div className='bg-[#FFFFFF] rounded-lg border shadow-lg'>

@@ -36,19 +36,20 @@ const TableComponent = () => {
                                     </div>
                                     <div className="text-black1">
                                         <div className="text-base font-bold">{history.title}</div>
-
-
                                     </div>
                                 </div>
                             </td>
                             <td className="py-3 px-4 text-gray1 text-sm">{history.price} บาท</td>
+
                             <td className="py-3 px-4 text-gray1 text-sm ">
                                 <div className="flex flex-row gap-2 items-center text-green1">
                                     <CircleCheck size={16} />
                                     อนุมัติ
                                 </div>
                             </td>
+
                             <td className="py-3 px-4 text-gray1 text-sm">
+
                                 <div className="flex flex-row gap-10 items-center">
                                     <button
                                         className="text-sm text-pink1 hover:text-blue1 transition-colors duration-200"
@@ -65,6 +66,11 @@ const TableComponent = () => {
                                         }}
                                     >
                                         รายละเอียด
+                                    </button>
+                                    <button
+                                        className="text-sm text-gray1 hover:text-blue1 transition-colors duration-200"
+                                    >
+                                        รีวิวการให้บริการ
                                     </button>
                                 </div>
                                 <ModalDetail

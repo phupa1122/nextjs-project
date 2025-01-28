@@ -9,8 +9,8 @@ import Noitems from '@/app/components/noitems';
 export default function coupon() {
 
     const pageUrl = '/';
-    const profileURL = '/account/profile';
-    const couponURL = '/account/coupon';
+    const accountURL = '/account';
+    const estimateURL = '/account/estimate';
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
@@ -29,15 +29,15 @@ export default function coupon() {
                 {/* เนื้อหาที่แสดงบนภาพพื้นหลัง */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                     {/* หัวข้อ */}
-                    <h1 className="text-6xl font-bold text-black1">คูปองส่วนลด</h1>
+                    <h1 className="text-6xl font-bold text-black1">ประเมินใบหน้า</h1>
 
                     {/* Breadcrumbs */}
                     <div className="mx-auto">
                         <div className="breadcrumbs text-lg text-black1">
                             <ul className="flex justify-center">
                                 <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
-                                <li>บัญชีของฉัน</li>
-                                <li>คูปองส่วนลด</li>
+                                <li><a href={accountURL} className="hover:text-pink1">บัญชีของฉัน</a></li>
+                                <li>ประเมินใบหน้า</li>
                             </ul>
                         </div>
                     </div>
@@ -60,8 +60,8 @@ export default function coupon() {
                             </div>
                         </div>
                         <div className="text-start flex flex-col px-2 gap-3">
-                            <Link href={profileURL} className="text-black1 text-sm border-b border-gray1 pb-3">ข้อมูลส่วนตัว</Link>
-                            <Link href={couponURL} className="text-pink1 text-sm">คูปองส่วนลด</Link>
+                            <Link href={accountURL} className="text-black1 text-sm border-b border-gray1 pb-3">บัญชีของฉัน</Link>
+                            <Link href={estimateURL} className="text-pink1 text-sm">ประเมินใบหน้า</Link>
                             <Link href={favoritesURL} className="text-black1 text-sm">รายการโปรด</Link>
                             <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
                             <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>
@@ -72,7 +72,7 @@ export default function coupon() {
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-4 sm:px-0">
-                        <h3 className="text-lg/7 font-medium text-gray1">ตะกร้าของฉัน</h3>
+                        <h3 className="text-lg/7 font-medium text-gray1">ประเมินใบหน้า</h3>
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg p-5 '>
                         <div className='bg-[#FFFFFF] rounded-lg border shadow-lg'>

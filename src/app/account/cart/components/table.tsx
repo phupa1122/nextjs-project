@@ -44,7 +44,38 @@ const TableComponent = () => {
                                     </div>
                                     <div className="text-black1">
                                         <div className="text-base font-bold">{book.title}</div>
-                                        <ModalDetail
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td className="py-3 px-4 text-gray1 text-sm">{book.price} บาท</td>
+                            <td className="py-3 px-4 text-gray1 text-sm">
+                                <div className="flex flex-row gap-2 items-center text-amber-400">
+                                    <Loader size={20} />
+                                    รออนุมัติ
+                                </div>
+                            </td>
+                            <td className="py-3 px-4 text-gray1 text-sm">
+                                <div className="flex flex-row gap-10">
+                                    <button
+                                        className="text-sm text-pink1 hover:text-blue1 transition-colors duration-200"
+                                        onClick={navigateToPayment}
+                                    >
+                                        ชำระเงิน
+                                    </button>
+                                    <button
+                                        className="text-sm text-gray1 hover:text-blue1 transition-colors duration-200"
+                                        onClick={() => {
+                                            const modal = document.getElementById(
+                                                `book${book.id}`
+                                            ) as HTMLDialogElement;
+                                            if (modal) modal.showModal();
+                                        }}
+                                    >
+                                        รายละเอียด
+                                    </button>
+                                </div>
+                                <ModalDetail
                                             id={book.id || index + 1}
                                             title={book.title || "-"}
                                             price={book.price || index}
@@ -54,40 +85,12 @@ const TableComponent = () => {
                                             emp={book.emp || "-"}
                                             time={book.time || "-"}
                                         />
-                                        <button
-                                            className="text-gray1 text-xs border-b-2"
-                                            onClick={() => {
-                                                const modal = document.getElementById(
-                                                    `book${book.id}`
-                                                ) as HTMLDialogElement;
-                                                if (modal) modal.showModal();
-                                            }}
-                                        >
-                                            รายละเอียด
-                                        </button>
-                                    </div>
-                                </div>
                             </td>
-                            <td className="py-3 px-4 text-gray1 text-sm">{book.price} บาท</td>
-                            <td className="py-3 px-4 text-gray1 text-sm">
-                                <div className="flex flex-row gap-2 items-center text-amber-400">
-                                <Loader size={20 } />
-                                    รออนุมัติ
-                                </div>
-                            </td>
-                            <td className="py-3 px-4 flex-row space-x-5 items-center">
-                                <button
-                                    className="text-sm text-pink1 hover:text-blue1 transition-colors duration-200"
-                                    onClick={navigateToPayment}
-                                >
-                                    ชำระเงิน
-                                </button>
-                            </td>
-                            <th className="py-3 px-4">
-                                <div className="flex flex-row gap-5 items-center">
+                            <th className="py-3 px-4 text-gray1 text-sm">
+                                <div className="flex flex-row justify-between">
                                     <PencilLine
                                         size={20}
-                                        className="text-[#7A7772] hover:text-amber-400 transition-colors duration-200"
+                                        className="hover:text-amber-400 transition-colors duration-200"
                                         onClick={() => {
                                             const modal = document.getElementById(
                                                 `edit${book.id}`
@@ -96,7 +99,20 @@ const TableComponent = () => {
                                         }}
 
                                     />
-                                    <ModalEdit
+                                    
+                                    <Trash2
+                                        size={20}
+                                        className="hover:text-[#FF2D47] transition-colors duration-200"
+                                        onClick={() => {
+                                            const modal = document.getElementById(
+                                                `delete${book.id}`
+                                            ) as HTMLDialogElement;
+                                            if (modal) modal.showModal();
+                                        }}
+                                    />
+                                    
+                                </div>
+                                <ModalEdit
                                         id={book.id || index + 1}
                                         title={book.title || "-"}
                                         price={book.price || index}
@@ -106,20 +122,9 @@ const TableComponent = () => {
                                         emp={book.emp || "-"}
                                         time={book.time || "-"}
                                     />
-                                    <Trash2
-                                        size={20}
-                                        className="text-[#7A7772] hover:text-[#FF2D47] transition-colors duration-200"
-                                        onClick={() => {
-                                            const modal = document.getElementById(
-                                                `delete${book.id}`
-                                            ) as HTMLDialogElement;
-                                            if (modal) modal.showModal();
-                                        }}
-                                    />
                                     <ModalDelete
                                         id={book.id || index + 1}
                                     />
-                                </div>
                             </th>
                         </tr>
                     ))}

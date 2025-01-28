@@ -24,8 +24,8 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
     const [currentPage, setCurrentPage] = useState(1);
 
     const pageUrl = '/';
-    const profileURL = '/account/profile';
-    const couponURL = '/account/coupon';
+    const accountURL = '/account';
+    const estimateURL = '/account/estimate';
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
@@ -99,7 +99,7 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                         <div className="breadcrumbs text-lg text-black1">
                             <ul className="flex justify-center">
                                 <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
-                                <li>บัญชีของฉัน</li>
+                                <li><a href={accountURL} className="hover:text-pink1">บัญชีของฉัน</a></li>
                                 <li>รายการโปรด</li>
                             </ul>
                         </div>
@@ -123,8 +123,8 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                             </div>
                         </div>
                         <div className="text-start flex flex-col px-2 gap-3">
-                            <Link href={profileURL} className="text-black1 text-sm border-b border-gray1 pb-3">ข้อมูลส่วนตัว</Link>
-                            <Link href={couponURL} className="text-black1 text-sm">คูปองส่วนลด</Link>
+                            <Link href={accountURL} className="text-black1 text-sm border-b border-gray1 pb-3">บัญชีของฉัน</Link>
+                            <Link href={estimateURL} className="text-black1 text-sm">ประเมินใบหน้า</Link>
                             <Link href={favoritesURL} className="text-pink1 text-sm">รายการโปรด</Link>
                             <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
                             <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>

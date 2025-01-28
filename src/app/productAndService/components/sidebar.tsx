@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PriceFilter from './priceFilter'
-import { data } from '../data';
 
 import { ChevronDown, ShoppingBasket, ShoppingBag, Filter } from 'lucide-react';
 

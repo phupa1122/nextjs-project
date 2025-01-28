@@ -2,6 +2,7 @@ import React, { ReactHTMLElement } from 'react'
 import Image from 'next/image'
 
 import ProductPreview from './productPreview';
+import Modal from './modal';
 
 interface productCardProps {
     id: number;
@@ -15,19 +16,25 @@ interface productCardProps {
 }
 
 export default function productCard({ id, name, type, category, price, image, subtitle, filter }: productCardProps) {
+    // const openModal = (id: number) => {
+    //     console.log("product ID:", id)
+    //     const modal = document.getElementById(`productPreview${id}`) as HTMLDialogElement;
+    //     modal?.showModal();
+    // }
+
     const openModal = (id: number) => {
         console.log("product ID:", id)
-        const modal = document.getElementById(`productPreview${id}`) as HTMLDialogElement;
+        const modal = document.getElementById(`my_modal_2${id}`) as HTMLDialogElement;
         modal?.showModal();
     }
 
     if (filter && filter !== category) {
         return null
-      }
+    }
 
     return (
         <>
-        
+
             <div
                 key={id}
                 className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
@@ -59,7 +66,7 @@ export default function productCard({ id, name, type, category, price, image, su
                         <button className="px-3 py-1 items-center text-pink1 rounded hover:text-blue1" onClick={() => openModal(id)}>
                             รายละเอียด
                         </button>
-                        <ProductPreview
+                        {/* <ProductPreview
                             id={id}
                             name={name}
                             type={type}
@@ -67,6 +74,11 @@ export default function productCard({ id, name, type, category, price, image, su
                             price={price}
                             image={image}
                             subtitle={subtitle}
+                        /> */}
+                        <Modal
+                            id={id}
+                            category={category}
+                            price={price}
                         />
                     </div>
                 </div>

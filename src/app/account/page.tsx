@@ -9,8 +9,8 @@ import Logout from "@/app/components/logout";
 export default function profile() {
 
     const pageUrl = '/';
-    const profileURL = '/account/profile';
-    const couponURL = '/account/coupon';
+    const accountURL = '/account';
+    const estimateURL = '/account/estimate';
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
@@ -29,7 +29,7 @@ export default function profile() {
                 {/* เนื้อหาที่แสดงบนภาพพื้นหลัง */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                     {/* หัวข้อ */}
-                    <h1 className="text-6xl font-bold text-black1">ข้อมูลส่วนตัว</h1>
+                    <h1 className="text-6xl font-bold text-black1">บัญชีของฉัน</h1>
 
                     {/* Breadcrumbs */}
                     <div className="mx-auto">
@@ -37,7 +37,6 @@ export default function profile() {
                             <ul className="flex justify-center">
                                 <li><a href={pageUrl} className="hover:text-pink1">หน้าแรก</a></li>
                                 <li>บัญชีของฉัน</li>
-                                <li>ข้อมูลส่วนตัว</li>
                             </ul>
                         </div>
                     </div>
@@ -60,8 +59,8 @@ export default function profile() {
                             </div>
                         </div>
                         <div className="text-start flex flex-col px-2 gap-3">
-                            <Link href={profileURL} className="text-pink1 text-sm border-b border-gray1 pb-3">ข้อมูลส่วนตัว</Link>
-                            <Link href={couponURL} className="text-black1 text-sm">คูปองส่วนลด</Link>
+                            <Link href={accountURL} className="text-pink1 text-sm border-b border-gray1 pb-3">บัญชีของฉัน</Link>
+                            <Link href={estimateURL} className="text-black1 text-sm">ประเมินใบหน้า</Link>
                             <Link href={favoritesURL} className="text-black1 text-sm">รายการโปรด</Link>
                             <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
                             <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>
@@ -74,7 +73,7 @@ export default function profile() {
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-5 sm:px-0">
-                        <h3 className="text-lg/7 font-medium text-gray1">ข้อมูลส่วนตัว</h3>
+                        <h3 className="text-lg/7 font-medium text-gray1">บัญชีของฉัน</h3>
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg'>
                         <dl className="divide-y divide-gray1 mx-10">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CircleAlert } from 'lucide-react';
+import { CircleAlert, LogOut } from 'lucide-react';
 
 export default function logout() {
     const openModal = () => {
@@ -13,9 +13,13 @@ export default function logout() {
     return (
         <div>
             {/* เปิด modal โดยเรียกฟังก์ชัน openModal */}
-            <button className="text-sm text-black1" onClick={openModal}>
-                ออกจากระบบ
-            </button>
+            <div className="flex items-center">
+                <LogOut className="w-8 h-8 block lg:hidden text-black1" onClick={openModal} />
+                <button className="text-sm text-black1 hidden lg:block max-[1030px]:hidden" onClick={openModal}>
+                    ออกจากระบบ
+                </button>
+            </div>
+
             <dialog id="logout" className="modal">
                 <div className="modal-box bg-slate-50">
                     <form method="dialog">

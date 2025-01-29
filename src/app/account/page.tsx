@@ -6,6 +6,8 @@ import Link from "next/link";
 import ModalProfile from "./modalProfile";
 import Logout from "@/app/components/logout";
 
+import { IdCard, ScanFace, Heart, ShoppingBag, History } from 'lucide-react';
+
 export default function profile() {
 
     const pageUrl = '/';
@@ -44,9 +46,9 @@ export default function profile() {
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
+            <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-slate-50">
                     <div className='m-5'>
-                        <div className="flex min-w-0 gap-x-4 items-center">
+                        <div className="flex min-w-0 gap-x-2 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
                                 <img
                                     alt=""
@@ -54,22 +56,39 @@ export default function profile() {
                                     className="inline-block size-10 rounded-full ring-1 ring-white1"
                                 />
                                 <div className="flex-auto">
-                                    <p className="text-base/6 font-semibold text-black1">ชื่อผู้ใช้</p>
+                                    <p className="text-base font-semibold text-black1 hidden lg:block max-[1030px]:hidden">ชื่อผู้ใช้</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="text-start flex flex-col px-2 gap-3">
-                            <Link href={accountURL} className="text-pink1 text-sm border-b border-gray1 pb-3">บัญชีของฉัน</Link>
-                            <Link href={estimateURL} className="text-black1 text-sm">ประเมินใบหน้า</Link>
-                            <Link href={favoritesURL} className="text-black1 text-sm">รายการโปรด</Link>
-                            <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
-                            <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>
+                        <div className="text-start flex flex-col px-2 gap-5 lg:gap-3">
+                            <Link href={accountURL} className="text-pink1 text-sm border-b border-gray1 pb-3 flex items-center">
+                                <IdCard className="w-8 h-8 block max-[1030px] lg:hidden stroke-1.75" />
+                                <span className="hidden lg:block max-[1030px]:hidden">บัญชีของฉัน</span>
+                            </Link>
+
+                            <Link href={estimateURL} className="text-black1 text-sm flex items-center">
+                                <ScanFace className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ประเมินใบหน้า</span>
+                            </Link>
+
+                            <Link href={favoritesURL} className="text-black1 text-sm flex items-center">
+                                <Heart className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">รายการโปรด</span>
+                            </Link>
+
+                            <Link href={cartURL} className="text-black1 text-sm flex items-center">
+                                <ShoppingBag className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ตะกร้าของฉัน</span>
+                            </Link>
+                            <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3 flex items-center">
+                                <History className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ประวัติของจอง</span>
+                            </Link>
+
                             <Logout />
                         </div>
                     </div>
                 </div>
-
-
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-5 sm:px-0">

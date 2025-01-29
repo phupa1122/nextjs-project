@@ -1,10 +1,12 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import Logout from '@/app/components/logout';
 import Noitems from '@/app/components/noitems';
+
+import { Images, IdCard, ScanFace, Heart, ShoppingBag, History } from 'lucide-react';
 
 export default function coupon() {
 
@@ -15,8 +17,21 @@ export default function coupon() {
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
 
-  return (
-    <>
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                setImagePreview(e.target?.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    return (
+        <>
             <div className="relative w-full h-[50vh] hero bg-white1 bg-center">
                 {/* ภาพพื้นหลัง */}
                 <Image
@@ -45,9 +60,9 @@ export default function coupon() {
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className='container w-1/4 lg:w-1/4 mb-5 bg-slate-50'>
+                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-slate-50">
                     <div className='m-5'>
-                        <div className="flex min-w-0 gap-x-4 items-center">
+                        <div className="flex min-w-0 gap-x-2 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
                                 <img
                                     alt=""
@@ -55,20 +70,40 @@ export default function coupon() {
                                     className="inline-block size-10 rounded-full ring-1 ring-white1"
                                 />
                                 <div className="flex-auto">
-                                    <p className="text-base/6 font-semibold text-black1">ชื่อผู้ใช้</p>
+                                    <p className="text-base font-semibold text-black1 hidden lg:block max-[1030px]:hidden">ชื่อผู้ใช้</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="text-start flex flex-col px-2 gap-3">
-                            <Link href={accountURL} className="text-black1 text-sm border-b border-gray1 pb-3">บัญชีของฉัน</Link>
-                            <Link href={estimateURL} className="text-pink1 text-sm">ประเมินใบหน้า</Link>
-                            <Link href={favoritesURL} className="text-black1 text-sm">รายการโปรด</Link>
-                            <Link href={cartURL} className="text-black1 text-sm">ตะกร้าของฉัน</Link>
-                            <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3">ประวัติของจอง</Link>
+                        <div className="text-start flex flex-col px-2 gap-5 lg:gap-3">
+                            <Link href={accountURL} className="text-black1 text-sm border-b border-gray1 pb-3 flex items-center">
+                                <IdCard className="w-8 h-8 block max-[1030px] lg:hidden stroke-1.75" />
+                                <span className="hidden lg:block max-[1030px]:hidden">บัญชีของฉัน</span>
+                            </Link>
+
+                            <Link href={estimateURL} className="text-pink1 text-sm flex items-center">
+                                <ScanFace className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ประเมินใบหน้า</span>
+                            </Link>
+
+                            <Link href={favoritesURL} className="text-black1 text-sm flex items-center">
+                                <Heart className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">รายการโปรด</span>
+                            </Link>
+
+                            <Link href={cartURL} className="text-black1 text-sm flex items-center">
+                                <ShoppingBag className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ตะกร้าของฉัน</span>
+                            </Link>
+                            <Link href={historyURL} className="text-black1 text-sm border-b border-gray1 pb-3 flex items-center">
+                                <History className="w-8 h-8 block max-[1030px]:block lg:hidden" />
+                                <span className="hidden lg:block max-[1030px]:hidden">ประวัติของจอง</span>
+                            </Link>
+
                             <Logout />
                         </div>
                     </div>
                 </div>
+
 
                 <div className='w-full my-5 mx-10'>
                     <div className="px-4 sm:px-0">
@@ -76,11 +111,79 @@ export default function coupon() {
                     </div>
                     <div className='bg-slate-50 mt-3 rounded-lg p-5 '>
                         <div className='bg-[#FFFFFF] rounded-lg border shadow-lg'>
-                            <Noitems />
+                            <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2">
+                                <div className="col-span-full md:col-span-1">
+                                    <div className="m-10 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                        {imagePreview ? (
+                                            <div className="flex justify-center items-center h-80">
+                                                <div className="text-center">
+                                                    <img src={imagePreview} alt="อัปโหลดใบหน้าของคุณ" className="mx-auto rounded-lg size-80 object-cover" />
+                                                    <button
+                                                        onClick={() => setImagePreview(null)}
+                                                        className="mt-5 px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                                                    >
+                                                        ลบรูปภาพ
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="flex justify-center items-center h-80">
+                                                <div className="text-center">
+                                                    <Images aria-hidden="true" className="mx-auto size-40 text-gray-300" />
+                                                    <div className="mt-4 flex text-sm/6 text-gray-600 justify-center">
+                                                        <label
+                                                            htmlFor="file-upload"
+                                                            className="relative cursor-pointer rounded-md bg-white font-semibold text-pink1 hover:text-pink-400"
+                                                        >
+                                                            <span>อัพโหลดใบหน้าของคุณ</span>
+                                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleFileUpload} />
+                                                        </label>
+                                                        <p className="pl-1">หรือลากและวาง</p>
+                                                    </div>
+                                                    <p className="text-xs/5 text-gray-600">รองรับไฟล์ PNG, JPG, GIF ขนาดไม่เกิน 10MB</p>
+                                                </div>
+                                            </div>
+
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center">
+                                    <div className="col-span-full md:col-span-1 m-10 w-full max-w-lg">
+                                        <label htmlFor="about" className="block text-base/6 font-medium text-gray-900">
+                                            รายละเอียดใบหน้าของคุณ
+                                        </label>
+                                        <div className="mt-2">
+                                            <textarea
+                                                id="about"
+                                                name="about"
+                                                rows={5}
+                                                className="block w-full rounded-md bg-white border border-gray1 px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray1 placeholder:text-gray1 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                                defaultValue={''}
+                                            />
+                                        </div>
+
+                                        <p className="mt-1 text-xs/6 text-gray-600">อธิบายจุดที่อยากแก้ไขบนใบหน้าของคุณ</p>
+
+                                        <div className="mt-5 flex justify-around">
+                                            <button
+                                                className="px-4 py-2 text-white bg-red1 rounded-md hover:bg-red-600"
+                                            >
+                                                ยกเลิก
+                                            </button>
+                                            <button
+                                                className="px-4 py-2 text-white bg-green1 rounded-md hover:bg-green-600"
+                                            >
+                                                ส่งข้อมูล
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
         </>
-  )
+    )
 }

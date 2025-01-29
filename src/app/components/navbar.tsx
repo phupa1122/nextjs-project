@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-import { Search, Ticket, Heart, ShoppingBag, CircleUserRound, AlignRight } from 'lucide-react';
+import { Search, ScanFace, Heart, ShoppingBag, CircleUserRound, AlignRight } from 'lucide-react';
 
 function navbar() {
 
@@ -115,7 +115,7 @@ function navbar() {
                         <li className='hover:text-gray-400 border-b-2'><Link href="/contact">ติดต่อเรา</Link></li>
 
                         <li className="hover:text-gray-400"><Link href="#">ค้นหา</Link></li>
-                        <li className="hover:text-gray-400"><Link href="/account/profile">คูปองของฉัน</Link></li>
+                        <li className="hover:text-gray-400"><Link href="/account/estimate">ประเมินใบหน้า</Link></li>
                         <li className="hover:text-gray-400"><Link href="/account/favorites">รายการโปรด</Link></li>
                         <li className="hover:text-gray-400"><Link href="/account/cart">ตะกร้าของฉัน</Link></li>
                         <li className="hover:text-gray-400"><Link href="/login">เข้าสุ่ระบบ</Link></li>
@@ -129,8 +129,8 @@ function navbar() {
                 <button className="MagnifyingGlass">
                     <Link href="#" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Search strokeWidth={2.5} /></Link>
                 </button>
-                <button className="Ticket">
-                    <Link href="/account/coupon" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Ticket strokeWidth={2.5} /></Link>
+                <button className="Face">
+                    <Link href="/account/estimate" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><ScanFace strokeWidth={2.5} /></Link>
                 </button>
                 <button className="HeartStraight">
                     <Link href="/account/favorites" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Heart strokeWidth={2.5} /></Link>

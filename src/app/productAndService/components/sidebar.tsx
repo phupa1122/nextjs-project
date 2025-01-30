@@ -24,15 +24,15 @@ export default function sidebar({ onFilter }: sidebarProps) {
     }
 
     const handleTreatment = () => {
-        onFilter('ทรีตเมนต์')
+        onFilter('บริการทรีตเมนต์')
     }
 
     const handleTattoo = () => {
-        onFilter('สักคิ้ว')
+        onFilter('บริการสักคิ้ว')
     }
 
     const handleNail = () => {
-        onFilter('ทำเล็บ')
+        onFilter('บริการทำเล็บ')
     }
 
     return (
@@ -135,4 +135,3 @@ export default function sidebar({ onFilter }: sidebarProps) {
         </>
     )
 }
-

@@ -98,17 +98,6 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
                                 </h3>
 
                                 <form>
-
-                                    {/* Sizes */}
-                                    {/* <fieldset aria-label="Choose a size" className="mt-10">
-                                        <div className="flex items-center justify-between">
-                                            <div className="text-sm font-medium text-gray-900">Size</div>
-                                            <a href="#" className="text-sm font-medium text-pink1 hover:text-indigo-500">
-                                                Size guide
-                                            </a>
-                                        </div>
-                                    </fieldset> */}
-
                                     <div className='flex justify-between gap-3'>
                                         <button
                                             type="submit"

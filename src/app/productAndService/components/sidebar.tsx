@@ -45,7 +45,7 @@ export default function sidebar({ onFilter }: sidebarProps) {
                 <span className="ml-2">คัดกรอง</span>
             </button>
 
-            <aside className="fixed inset-y-0 left-0 w-1/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full drop-shadow-md">
+            <aside className="fixed inset-y-0 left-0 w-1/4 lg:w-1/4 h-full border-l no-scrollbar overflow-y-auto border-gray-200 bg-white transform transition-transform duration-300 ease-in-out z-50 md:z-20 lg:static lg:translate-x-0 -translate-x-full rounded-md drop-shadow-md">
                 <div className='m-5'>
                     <div className="text-start flex flex-col mx-2">
                         <div className='flex flex-col'>
@@ -119,7 +119,7 @@ export default function sidebar({ onFilter }: sidebarProps) {
                             <PriceFilter />
                         </div>
 
-                        <div className="flex w-full flex-col">
+                        {/* <div className="flex w-full flex-col">
                             <div className="divider text-gray1">หรือ</div>
                         </div>
 
@@ -128,7 +128,8 @@ export default function sidebar({ onFilter }: sidebarProps) {
                             onClick={() => router.push('/productAndService/booking')}
                         >
                             เลือกจากปฏิทิน
-                        </button>
+                        </button> */}
+
                     </div>
                 </div>
             </aside>

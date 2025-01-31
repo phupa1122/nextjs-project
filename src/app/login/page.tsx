@@ -186,7 +186,7 @@ export default function login() {
                                             </a>
                                         </div>
                                         <div className="text-sm">
-                                            <a href="/login/newAccount" className="font-semibold text-pink1 hover:text-gray1">
+                                            <a href="/newAccount" className="font-semibold text-pink1 hover:text-gray1">
                                                 ลงทะเบียน
                                             </a>
                                         </div>

@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useHeart } from "../context/heartContext";
 
-import { Search, ScanFace, Heart, ShoppingBag, CircleUserRound, AlignRight } from 'lucide-react';
+import { Search, ScanFace, Heart, ShoppingBag, LogIn, AlignRight } from 'lucide-react';
 
 function navbar() {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const { heartCount, resetHeartCount } = useHeart();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -85,8 +87,6 @@ function navbar() {
                     >
                         ติดต่อเรา
                     </Link>
-
-
                 </ul>
             </div>
 
@@ -114,7 +114,7 @@ function navbar() {
                         <li className='hover:text-gray-400'><Link href="/result">ผลลัพธ์ลูกค้า</Link></li>
                         <li className='hover:text-gray-400 border-b-2'><Link href="/contact">ติดต่อเรา</Link></li>
 
-                        <li className="hover:text-gray-400"><Link href="#">ค้นหา</Link></li>
+                        {/* <li className="hover:text-gray-400"><Link href="#">ค้นหา</Link></li> */}
                         <li className="hover:text-gray-400"><Link href="/account/estimate">ประเมินใบหน้า</Link></li>
                         <li className="hover:text-gray-400"><Link href="/account/favorites">รายการโปรด</Link></li>
                         <li className="hover:text-gray-400"><Link href="/account/cart">ตะกร้าของฉัน</Link></li>
@@ -126,20 +126,37 @@ function navbar() {
             </div>
 
             <div className="navbar-end hidden lg:flex gap-5">
-                <button className="MagnifyingGlass">
+                {/* <button className="MagnifyingGlass">
                     <Link href="#" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Search strokeWidth={2.5} /></Link>
-                </button>
+                </button> */}
                 <button className="Face">
                     <Link href="/account/estimate" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><ScanFace strokeWidth={2.5} /></Link>
                 </button>
-                <button className="HeartStraight">
+                {/* <button className="HeartStraight">
                     <Link href="/account/favorites" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><Heart strokeWidth={2.5} /></Link>
-                </button>
+                </button> */}
+
+                <Link
+                    href="../account/favorites"
+                    className="relative text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"
+                    onClick={() => {
+                        resetHeartCount(); // รีเซ็ต heartCount
+                    }}
+                >
+                    <Heart strokeWidth={2.5} className="w-6 h-6" />
+                    {heartCount > 0 && (
+                        <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                            {heartCount}
+                        </span>
+                    )}
+                </Link>
+
+
                 <button className="Handbag">
                     <Link href="/account/cart" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><ShoppingBag strokeWidth={2.5} /></Link>
                 </button>
                 <button className="UserCircle">
-                    <Link href="/login" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><CircleUserRound strokeWidth={2.5} /></Link>
+                    <Link href="/login" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"><LogIn strokeWidth={2.5} /></Link>
                 </button>
 
             </div>

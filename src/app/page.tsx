@@ -1,45 +1,23 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Map from "./components/map";
-import './swiper.css';
-import ModalBooking from "./productAndService/booking/components/modalBooking";
-import Star from "./components/star";
+import Map from "./components/map"
+import './swiper.css'
+import Star from "./components/star"
+import { fetchServices, ServiceItem } from "@/services/productService"
+import ProductCard from "./productAndService/components/productCard"
 
 import styled from 'styled-components';
-import { Package, MessagesSquare, HandCoins, Phone } from 'lucide-react';
-import { PiMapPinAreaFill } from "react-icons/pi";
+import { Package, MessagesSquare, HandCoins, Phone } from 'lucide-react'
+import { PiMapPinAreaFill } from "react-icons/pi"
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
-import { Pagination, Autoplay, Navigation } from "swiper/modules";
-
-const data = [
-    { id: "1", type: "สินค้า", category: "ครีม", name: "หน้าขาว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "2", type: "สินค้า", category: "ครีม", name: "ใสสะอาด", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "3", type: "สินค้า", category: "ครีม", name: "ลดสิว", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "4", type: "สินค้า", title: "ครีม", name: "ผิวเนียน", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/Product.png" },
-    { id: "5", type: "สินค้า", category: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "6", type: "สินค้า", category: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "7", type: "สินค้า", category: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "8", type: "สินค้า", category: "แชมพู", name: "แชมพู", subtitle: "ที่สุดแห่งการฟื้นบำรุงทุกปัญหา", price: "299฿", image: "/images/product/shampoo.png" },
-    { id: "9", type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "10", type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "11", type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "12", type: "ทรีตเมนต์", category: "ทรีตเมนต์", name: "ทรีตเมนต์หน้า", subtitle: "ใบหน้าดูกระจ่างใสขึ้น เสริมให้ผิวแข็งแรง", price: "350฿", image: "/images/product/Treatment.png" },
-    { id: "13", type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ3", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "14", type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ4", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "15", type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ5", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "16", type: "สักคิ้ว", category: "สักคิ้ว", name: "สักคิ้ว", subtitle: "การสักคิ้ว 3 มิติหรือสักคิ้ว 6 มิติ", price: "150฿", image: "/images/product/Tattoo.png" },
-    { id: "17", type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "18", type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "19", type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-    { id: "20", type: "ทำเล็บ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: "199฿", image: "/images/product/Nail.png" },
-];
+import { Pagination, Autoplay, Navigation } from "swiper/modules"
 
 const CenteredDiv = styled.div`
   display: flex;
@@ -145,6 +123,28 @@ const dataResult = [
 ];
 
 export default function Home() {
+    const [services, setServices] = useState<ServiceItem[]>([]);
+
+    useEffect(() => {
+        const loadData = async () => {
+            try {
+                const data = await fetchServices();
+                // สมมติได้ข้อมูลกลับมาเป็นอาเรย์ของ ServiceItem
+                setServices(data);
+            } catch (error) {
+                console.error("Error fetching services:", error);
+            }
+        };
+        loadData();
+    }, []);
+
+    const [filterCate, setFilterCate] = useState<string>("");
+
+    const handleFilter = (category: string) => {
+        setFilterCate(category);
+        // กรณีอยากกรองตาม category ด้วย สามารถเขียน logic กรองต่อได้
+    };
+
     return (
         <>
             {/* โฆษณา */}
@@ -182,15 +182,15 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="flex space-x-4 items-center justify-center my-3">
+                    {/* <div className="flex space-x-4 items-center justify-center my-3">
                         <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1" aria-current="page">ยอมนิยม</a>
                         <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">สินค้า</a>
                         <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">ทรีตเมนต์</a>
                         <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">สักคิ้ว</a>
                         <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">ทำเล็บ</a>
-                    </div>
+                    </div> */}
 
-                    <div className="px-20">
+                    <div className="mx-20 bg-slate-50 my-3 rounded-md shadow-md">
                         <Swiper
                             modules={[Pagination, Autoplay]}
                             pagination={{ clickable: true, el: ".custom-pagination" }}
@@ -208,44 +208,19 @@ export default function Home() {
                             }}
                             className=""
                         >
-                            {data.map((item, index) => (
+                            {services.map((item, index) => (
                                 <SwiperSlide className="my-4 flex justify-center" key={index}>
-                                    <div className="bg-[#ffffff] p-4 w-48 lg:w-72 md:w-72 drop-shadow-md border border-gray1-300 rounded-lg mx-auto">
-                                        <div className="w-full space-y-2">
-                                            <h1 className="text-black1 text-2xl text-center font-bold">{item.name}</h1>
-                                            <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
-                                                <Image
-                                                    src={item.image}
-                                                    alt="models"
-                                                    width={200}
-                                                    height={200}
-                                                    priority={true}
-                                                    style={{ objectFit: "cover", objectPosition: "top center" }}
-                                                    className="rounded-md mx-auto"
-                                                />
-                                            </div>
-                                            <p className="text-gray1 text-start truncate">{item.subtitle}</p>
-
-                                            <Star />
-
-                                            <div
-                                                className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
-                                                style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 3 }}
-                                            >
-                                                {item.price}
-                                            </div>
-
-                                            <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                                                {item.type === "สินค้า" ? (
-                                                    <p className="text-gray1">สามารถซื้อได้ที่หน้าร้านเท่านั้น</p>
-                                                ) : (
-                                                    // ในหน้าหลักที่ใช้ `ModalBooking`
-                                                    <ModalBooking />
-
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard
+                                        key={item.service_id || index + 1}
+                                        id={item.service_id || index + 1}
+                                        name={item.service_name || "-"}
+                                        type={item.service_type_name || "-"}
+                                        category={item.service_type_name || "-"} //เวลาใข้งานจริงให้แก้เป็น item.service_type_name
+                                        subtitle={item.service_detail || "-"}
+                                        price={item.service_price || index}
+                                        image={`/images/product/${item.service_image}`}
+                                        filter={filterCate}
+                                    />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -253,8 +228,8 @@ export default function Home() {
 
                     <div className="flex justify-center py-2">
                         <Link href="/productAndService">
-                            <button className="flex-none rounded-md bg-pink1 px-3.5 py-2.5 text-sm font-semibold text-slate-50 shadow-sm hover:bg-pink-600 focus-pink1">
-                                ดูทั้งหมด
+                            <button className="flex-none rounded-md bg-pink1 px-3.5 py-2.5 text-sm font-base text-slate-50 shadow-sm hover:bg-pink-600 focus-pink1">
+                                ดูสินค้าและบริการทั้งหมด
                             </button>
                         </Link>
                     </div>

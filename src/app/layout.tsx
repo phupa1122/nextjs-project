@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
+import { HeartProvider } from "./context/heartContext";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -31,11 +33,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <HeartProvider>
         <Navbar />
 
-        {/* <AuthProvider > */}
         {children}
-        {/* </AuthProvider> */}
+        </HeartProvider>
 
         <Footer />
       </body>

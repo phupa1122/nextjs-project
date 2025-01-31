@@ -1,37 +1,14 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 import Star from '@/app/components/star'
 import { useRouter } from "next/navigation";
+import Swal from 'sweetalert2';
+import { useHeart } from "../../context/heartContext";
 
 import { Heart } from 'lucide-react';
 
-const product = {
-    name: 'Basic Tee 6-Pack ',
-    price: '$192',
-    rating: 3.9,
-    reviewCount: 117,
-    href: '#',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-quick-preview-02-detail.jpg',
-    imageAlt: 'Two each of gray, white, and black shirts arranged on table.',
-    colors: [
-        { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
-        { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
-        { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
-    ],
-    sizes: [
-        { name: 'XXS', inStock: true },
-        { name: 'XS', inStock: true },
-        { name: 'S', inStock: true },
-        { name: 'M', inStock: true },
-        { name: 'L', inStock: true },
-        { name: 'XL', inStock: true },
-        { name: 'XXL', inStock: true },
-        { name: 'XXXL', inStock: false },
-    ],
-}
-
 interface ProductPreviewProps {
-    id: number;
+    ID: number;
     name: string;
     type: string
     category: string
@@ -40,22 +17,46 @@ interface ProductPreviewProps {
     subtitle: string
 }
 
-const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, category, price, image, subtitle }: ProductPreviewProps) => {
+// const ProductPreview: React.FC<ProductPreviewProps> = () => {
+export default function ProductPreview({ ID, name, type, category, price, image, subtitle }: ProductPreviewProps) {
+
     const router = useRouter();
+    const { addToHeart } = useHeart();
 
-    const handleNavigate = () => {
-        router.push("../account/favorites"); // นำทางไปยังหน้า /favorites
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault(); // ป้องกันการเปลี่ยนหน้า
+        addToHeart(); // เรียกใช้ฟังก์ชันเพิ่มจำนวนออเดอร์
+        if (!isClicked) {
+            setIsClicked(true);
+        }
     };
 
-    const handleBook = () => {
-        router.push("/productAndService/booking"); // นำทางไปยังหน้า /productAndService/booking
+
+    const handleBook = (ID: number) => {
+        const token = localStorage.getItem("token")
+        if (!ID) {
+            {
+                console.error("ID is missing!");
+            }
+            router.push(`/booking/id=${ID}`);
+        }
+        // นำทางไปยัง `/booking/[ID]` พร้อมกับส่งข้อมูล customer ใน query
+
+        if (!token) {
+            {
+                alert("please login!")
+            }
+            router.push(`../login`);
+        }
     };
-    
+
 
     return (
         <>
-            <dialog id={`productPreview${id}`} className="modal">
-                <div key={id}
+            <dialog id={`productPreview${ID}`} className="modal">
+                <div key={ID}
                     className="modal-box w-11/12 max-w-2xl bg-slate-50 text-black1 text-start no-scrollbar">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
@@ -98,32 +99,28 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
                                 </h3>
 
                                 <form>
-
-                                    {/* Sizes */}
-                                    {/* <fieldset aria-label="Choose a size" className="mt-10">
-                                        <div className="flex items-center justify-between">
-                                            <div className="text-sm font-medium text-gray-900">Size</div>
-                                            <a href="#" className="text-sm font-medium text-pink1 hover:text-indigo-500">
-                                                Size guide
-                                            </a>
-                                        </div>
-                                    </fieldset> */}
-
                                     <div className='flex justify-between gap-3'>
                                         <button
                                             type="submit"
-                                            onClick={handleBook}
-                                            className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-pink1 px-5 py-2 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
+                                            onClick={() => handleBook(ID)}
+                                            className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-pink1 px-5 py-2 text-base font-medium text-white hover:bg-pink-600"
                                         >
                                             จองคิว
                                         </button>
-                                        <button
-                                            type="button"
+
+                                        <Link
+                                            href="/account/cart"
+                                            className={`mt-6 flex w-fit items-center justify-center rounded-md border-2 px-5 py-2 text-base font-medium transition-all
+                                                ${isClicked
+                                                    ? "border-gray-400 bg-gray-300 text-gray-600 cursor-not-allowed" // สีเมื่อกดแล้ว
+                                                    : "border-blue1 bg-slate-50 text-blue1 hover:text-slate-50 hover:bg-blue-400 hover:border-blue-500"
+                                                }`}
                                             onClick={handleNavigate}
-                                            className="mt-6 flex w-fit items-center justify-center rounded-md border-blue1 border-2 bg-slate-50 px-5 py-2 text-base font-medium text-blue1 hover:text-slate-50 hover:bg-blue-400 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                                            aria-disabled={isClicked} // ป้องกันการกดซ้ำสำหรับผู้ใช้ที่ใช้ screen reader
                                         >
                                             <Heart />
-                                        </button>
+                                        </Link>
+
                                     </div>
                                 </form>
                             </section>
@@ -138,5 +135,3 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ id, name, type, categor
         </>
     )
 }
-
-export default ProductPreview

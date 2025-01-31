@@ -37,13 +37,13 @@ export default function productCard({ id, name, type, category, price, image, su
 
             <div
                 key={id}
-                className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"
+                className="bg-[#FFFFFF] p-4 w-60 lg:w-64 md:w-60 drop-shadow-md rounded-lg mx-auto"
             >
                 <div className="w-full space-y-2">
 
                     <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
                         <Image
-                            src={image || "default.jpg"}
+                            src={image || "default.png"}
                             alt="models"
                             width={200}
                             height={200}
@@ -63,11 +63,11 @@ export default function productCard({ id, name, type, category, price, image, su
                     </div>
 
                     <div className="text-center mt-4 border-t border-gray1-300 pt-4">
-                        <button className="px-3 py-1 items-center text-pink1 rounded hover:text-blue1" onClick={() => openModal(id)}>
+                        <button className="px-3 py-1 items-center text-pink1 text-base rounded hover:text-blue1" onClick={() => openModal(id)}>
                             รายละเอียด
                         </button>
                         <ProductPreview
-                            id={id}
+                            ID={id}
                             name={name}
                             type={type}
                             category={category}

@@ -162,9 +162,9 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                         {items.length === 0 ? (
                             <Noitems />
                         ) : (
-                            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-4">
                                 {items.map((item, index) => (
-                                    <div className="bg-[#ffffff] p-4 w-32 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto" key={index}>
+                                    <div className="bg-[#FFFFFF] p-4 w-60 lg:w-60 md:w-60 drop-shadow-md rounded-lg mx-auto" key={index}>
                                         <div className="w-full space-y-2">
 
                                             <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">

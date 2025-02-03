@@ -1,3 +1,23 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    // ปิดกฎที่ไม่ต้องการ
+    "no-unused-vars": "off",  // ปิดกฎการไม่ใช้ตัวแปร
+    "@typescript-eslint/no-unused-vars": "off",  // ปิดกฎการไม่ใช้ตัวแปรใน TypeScript
+
+    // เพิ่มกฎใหม่ที่ต้องการ
+    "no-console": "warn",  // แจ้งเตือนหากใช้ console.log
+    "semi": ["error", "always"]  // ให้ต้องมีเครื่องหมาย semicolon
+  }
 }

@@ -1,6 +1,5 @@
-import { Loader } from 'lucide-react'
-import React, { useState, useEffect } from 'react'
-import { dataBook } from './dataBook'
+import { Loader } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
 interface modalEditProps {
     id: number
@@ -13,10 +12,10 @@ interface modalEditProps {
     time: string
 }
 
-export default function modalEdit({ id, title, price, name, phone, date, emp, time }: modalEditProps) {
+export default function modalEdit({ id, title, price, name, phone, date, emp }: modalEditProps) {
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
     const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-    const [selectedTime, setSelectedTime] = useState<string | null>(null)
+    const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -74,7 +73,7 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                 throw new Error('ไม่สามารถแก้ไขการจองได้');
             }
     
-            const data = await response.json(); // รับข้อมูลจาก API
+            //const data = await response.json(); // รับข้อมูลจาก API
     
             setIsLoading(false); // ซ่อน Loader
     
@@ -259,5 +258,5 @@ export default function modalEdit({ id, title, price, name, phone, date, emp, ti
                 </form>
             </dialog>
         </div>
-    )
+    );
 }

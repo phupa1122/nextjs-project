@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { Leaf, Crown, HandCoins} from 'lucide-react';
 
@@ -185,8 +185,6 @@ export default function about() {
                     </div>
                 </div>
             </div>
-
-
         </>
-    )
+    );
 }

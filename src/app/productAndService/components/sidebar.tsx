@@ -13,8 +13,6 @@ export default function sidebar({ onFilter }: sidebarProps) {
     const [ServiceDropdown, setServiceDropdown] = useState(true);
     const [isOpen, setIsOpen] = useState(true); // สำหรับควบคุม sidebar
 
-    const router = useRouter();
-
     const handleCream = () => {
         onFilter('ครีม')
     }

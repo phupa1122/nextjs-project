@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useHeart } from "../context/heartContext";
 
-import { Search, ScanFace, Heart, ShoppingBag, LogIn, AlignRight } from 'lucide-react';
+import { ScanFace, Heart, ShoppingBag, LogIn, AlignRight } from 'lucide-react';
 
 function navbar() {
 
@@ -19,12 +19,6 @@ function navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
-    const [isVisible, setIsVisible] = useState(true);
-
-    const handleClose = () => {
-        setIsVisible(false);
-    };
 
     return (
         <div

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logout from '@/app/components/logout';
@@ -103,5 +103,5 @@ export default function cart() {
                 </div>
             </div >
         </>
-    )
+    );
 }

@@ -1,29 +1,29 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type View = 'month' | 'week' | 'day' | 'list'
 
 export default function Calendar() {
     const [view, setView] = useState<View>('month')
-    const [currentDate, setCurrentDate] = useState(new Date()) // Manage the current month and year
+    const [currentDate] = useState(new Date()) // Manage the current month and year
 
     // Function to go to the previous month
-    const previousMonth = () => {
-        const newDate = new Date(currentDate)
-        newDate.setMonth(currentDate.getMonth() - 1)
-        setCurrentDate(newDate)
-    }
+    // const previousMonth = () => {
+    //     const newDate = new Date(currentDate)
+    //     newDate.setMonth(currentDate.getMonth() - 1)
+    //     setCurrentDate(newDate)
+    // }
 
     // Function to go to the next month
-    const nextMonth = () => {
-        const newDate = new Date(currentDate)
-        newDate.setMonth(currentDate.getMonth() + 1)
-        setCurrentDate(newDate)
-    }
+    // const nextMonth = () => {
+    //     const newDate = new Date(currentDate)
+    //     newDate.setMonth(currentDate.getMonth() + 1)
+    //     setCurrentDate(newDate)
+    // }
 
     // Format the current month and year
+    
     const monthYear = currentDate.toLocaleString('default', {
         month: 'long',
         year: 'numeric',

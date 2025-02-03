@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import Image from 'next/image';
 import ModalDetail from "./modalDetail";
 import ModalEdit from "./modalEdit";
 import ModalDelete from "./modalDelete";
@@ -39,7 +40,10 @@ const TableComponent = () => {
                                 <div className="flex items-center gap-3">
                                     <div className="avatar">
                                         <div className="mask mask-squircle h-16 w-16">
-                                            <img src={book.image} alt={book.title} />
+                                            <Image 
+                                            src={book.image} 
+                                            alt={book.title} 
+                                            />
                                         </div>
                                     </div>
                                     <div className="text-black1">

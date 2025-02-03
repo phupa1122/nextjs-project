@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+//import Image from "next/image";
 import Link from "next/link";
 import Map from "./components/map"
 import './swiper.css'
@@ -140,11 +140,6 @@ export default function Home() {
 
     const [filterCate, setFilterCate] = useState<string>("");
 
-    const handleFilter = (category: string) => {
-        setFilterCate(category);
-        // กรณีอยากกรองตาม category ด้วย สามารถเขียน logic กรองต่อได้
-    };
-
     return (
         <>
             {/* โฆษณา */}
@@ -172,6 +167,40 @@ export default function Home() {
                 </div>
             </div>
 
+            {/* เกี่ยวกับเรา */}
+            <div className="mx-10 mt-10">
+                <div className="flex flex-row items-center justify-center space-x-0 px-20 drop-shadow-md">
+                    <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center rounded-l-lg">
+                        <div className="h-[400px] flex-row bg-white1 bg-center rounded-l-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
+
+                        </div>
+                    </div>
+                    <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-r-lg">
+                        <div className="w-1/2 text-center">
+                            <p className="text-base text-black1">
+                                เกี่ยวกับเรา
+                            </p>
+                            <h1 className="text-2xl font-bold text-black1 my-5">
+                                ร้านค้าของเรา
+                            </h1>
+                            <p
+                                className="text-base text-start text-black1"
+                                style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 8,
+                                    overflow: "hidden",
+                                }}
+                            >
+                                เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
+                                การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
+                                อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* สินค้าและบริการ */}
             <div className="mx-10">
                 <div className="w-full my-10">
@@ -182,15 +211,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* <div className="flex space-x-4 items-center justify-center my-3">
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1" aria-current="page">ยอมนิยม</a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">สินค้า</a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">ทรีตเมนต์</a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">สักคิ้ว</a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-black1 hover:text-gray1 hover:border-b-1 hover:border-gray1 focus:text-pink1 focus:border-b-2 focus:border-pink1">ทำเล็บ</a>
-                    </div> */}
-
-                    <div className="mx-20 bg-slate-50 my-3 rounded-md shadow-md">
+                    <div className="mx-20 bg-slate-50 my-3 rounded-md shadow-lg">
                         <Swiper
                             modules={[Pagination, Autoplay]}
                             pagination={{ clickable: true, el: ".custom-pagination" }}
@@ -224,49 +245,22 @@ export default function Home() {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                    </div>
 
-                    <div className="flex justify-center py-2">
-                        <Link href="/productAndService">
-                            <button className="flex-none rounded-md bg-pink1 px-3.5 py-2.5 text-sm font-base text-slate-50 shadow-sm hover:bg-pink-600 focus-pink1">
-                                ดูสินค้าและบริการทั้งหมด
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+                        <div className="flex justify-center pb-4">
+                            <Link href="/productAndService">
+                                <button className="flex-none rounded-md bg-pink1 px-3.5 py-2.5 text-sm font-base text-slate-50 shadow-sm hover:bg-pink-600 focus-pink1">
+                                    ดูสินค้าและบริการทั้งหมด
+                                </button>
+                            </Link>
+                        </div>
 
-            {/* โปรโมท */}
-            <div className="flex flex-row items-center justify-center space-x-0">
-                <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center" style={{ backgroundImage: "url('/images/Promote1.png')" }}>
-                    <div className="flex pl-20 my-40">
-                        <div className="text-left">
-                            <p className="mb-4 text-sm text-black1">
-                                สุดยอด
-                            </p>
-                            <h1 className="text-2xl font-bold text-black1">
-                                ผลิตภัณฑ์ดูแลผิว
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center" style={{ backgroundImage: "url('/images/Promote2.png')" }}>
-                    <div className="flex pl-20 my-40">
-                        <div className="text-left">
-                            <p className="mb-4 text-sm text-black1">
-                                ผลิตภัณฑ์ชั้นนำ
-                            </p>
-                            <h1 className="text-2xl font-bold text-black1">
-                                การแต่งหน้า
-                            </h1>
-                        </div>
                     </div>
                 </div>
             </div>
 
             {/* การขาย */}
             <div className="mx-10">
-                <div className="w-full my-10 px-10">
+                <div className="w-full my-10 px-20">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div className="text-center flex flex-col gap-y-5">
                             <CenteredDiv>
@@ -331,37 +325,143 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* เกี่ยวกับเรา */}
-            <div className="mx-10">
-                <div className="flex flex-row items-center justify-center space-x-0 px-20 drop-shadow-md">
-                    <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center rounded-l-lg">
-                        <div className="h-[400px] flex-row bg-white1 bg-center rounded-l-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
-
-                        </div>
-                    </div>
-                    <div className="w-1/2 h-[400px] flex bg-slate-50 bg-center items-center justify-center rounded-r-lg">
-                        <div className="w-1/2 text-center">
-                            <p className="text-base text-black1">
-                                เกี่ยวกับเรา
+            {/* โปรโมท */}
+            <div className="flex flex-row items-center justify-center space-x-0">
+                <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center" style={{ backgroundImage: "url('/images/Promote1.png')" }}>
+                    <div className="flex pl-20 my-40">
+                        <div className="text-left">
+                            <p className="mb-4 text-sm text-black1">
+                                สุดยอด
                             </p>
-                            <h1 className="text-2xl font-bold text-black1 my-5">
-                                ร้านค้าของเรา
+                            <h1 className="text-2xl font-bold text-black1">
+                                ผลิตภัณฑ์ดูแลผิว
                             </h1>
-                            <p
-                                className="text-base text-start text-black1"
-                                style={{
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 8,
-                                    overflow: "hidden",
-                                }}
-                            >
-                                เรามุ่งมั่นที่จะใช้เฉพาะส่วนผสมที่ดีที่สุดในผลิตภัณฑ์ของเราโดยเน้นที่สูตรที่เป็นธรรมชาติและปราศจาก
-                                การทดลองกับสัตว์ทีมผู้เชี่ยวชาญของเราทำงาน
-                                อย่างไม่รู้จักเหน็ดเหนื่อยเพื่อพัฒนาผลิตภัณฑ์นวัตกรรมที่ให้ผลลัพธ์ที่แท้จริงตั้งแต่ผลิตภัณฑ์ดูแลผิวขั้นพื้นฐานไปจนถึงเครื่องสำอางสีสันสดใส
-                            </p>
                         </div>
                     </div>
+                </div>
+                <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center" style={{ backgroundImage: "url('/images/Promote2.png')" }}>
+                    <div className="flex pl-20 my-40">
+                        <div className="text-left">
+                            <p className="mb-4 text-sm text-black1">
+                                ผลิตภัณฑ์ชั้นนำ
+                            </p>
+                            <h1 className="text-2xl font-bold text-black1">
+                                การแต่งหน้า
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* พนักงานของเรา */}
+            <div className="flex flex-row items-center justify-center space-x-0 m-10" id="employee">
+                <div className="container">
+                    <div className="flex flex-col items-center space-y-2">
+                        <a className="text-black1 text-sm">ดูแลลูกค้า</a>
+                        <a className="text-black1 text-2xl font-bold">พนักงานของเรา</a>
+                    </div>
+                    <div>
+                        <div className="mx-20 bg-slate-50 my-3 rounded-md shadow-lg">
+                            <div className="mx-auto max-w-xl px-5 py-10 sm:px-6 lg:max-w-7xl lg:px-10 flex justify-center items-center">
+                                <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-20">
+                                    {employees.map((employee) => (
+                                        <div className="bg-[#FFFFFF] p-5 rounded-lg drop-shadow-md">
+                                            <a key={employee.id} className="group">
+                                                <img
+                                                    alt={employee.imageAlt}
+                                                    src={employee.imageSrc}
+                                                    className="aspect-square w-60 rounded-lg bg-gray1-200 object-cover"
+                                                />
+                                                <h3 className="mt-4 text-lg text-black1">{employee.name}</h3>
+                                                <p className="mt-1 text-sm font-medium text-gray1">{employee.imageAlt}</p>
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* โปรโมชั่น */}
+            <div className="flex flex-row items-center justify-center space-x-0 mt-10">
+                <div className="w-full">
+                    <div className="w-full flex flex-col items-center">
+                        <div className=" w-40 flex flex-col text-center space-y-2">
+                            <a className="text-black1 text-sm">ประจำร้าน</a>
+                            <a className="text-black1 text-2xl font-bold">โปรโมชั่น</a>
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-50 h-80 mt-3">
+                        <Swiper
+                            pagination={true}
+                            navigation={true} // เปิดใช้งาน navigation
+                            modules={[Navigation, Pagination, Autoplay]}
+                            className="mySwiper"
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            speed={1000}
+                            loop={true}
+                            breakpoints={{
+                                0: { slidesPerView: 1 },
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 1 },
+                                1024: { slidesPerView: 1 },
+                                1280: { slidesPerView: 1 },
+                            }}
+                        >
+                            <SwiperSlide>
+                                <div
+                                    className="w-full h-full bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/product/All.png')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
+                                    <div className="text-start w-fit p-5">
+                                        <p className="text-base text-black1"></p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+
+
+                            <SwiperSlide>
+                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Treat.png')" }}>
+                                    <div className="text-start w-fit">
+                                        <p className="text-base text-black1">
+                                            ทรีตเมนต์
+                                        </p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+
+                            <SwiperSlide>
+                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Tattoo1.png')" }}>
+                                    <div className="text-start w-fit">
+                                        <p className="text-base text-black1">
+                                            สักคิ้ว
+                                        </p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+
+                            <SwiperSlide>
+                                <div
+                                    className="w-full h-full bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/promotion/nail.jpeg')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
+                                    <div className="text-start w-fit p-5">
+                                        <p className="text-base text-black1"></p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
+                    </div>
+
                 </div>
             </div>
 
@@ -447,116 +547,6 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* พนักงานของเรา */}
-            <div className="flex flex-row items-center justify-center space-x-0 m-10" id="employee">
-                <div className="container">
-                    <div className="flex flex-col items-center space-y-2">
-                        <a className="text-black1 text-sm">ดูแลลูกค้า</a>
-                        <a className="text-black1 text-2xl font-bold">พนักงานของเรา</a>
-                    </div>
-                    <div>
-                        <div className="mx-auto max-w-xl px-5 py-10 sm:px-6 lg:max-w-7xl lg:px-10 flex justify-center items-center">
-                            <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-20">
-                                {employees.map((employee) => (
-                                    <div className="bg-[#FFFFFF] p-5 rounded-lg drop-shadow-md">
-                                        <a key={employee.id} className="group">
-                                            <img
-                                                alt={employee.imageAlt}
-                                                src={employee.imageSrc}
-                                                className="aspect-square w-60 rounded-lg bg-gray1-200 object-cover"
-                                            />
-                                            <h3 className="mt-4 text-lg text-black1">{employee.name}</h3>
-                                            <p className="mt-1 text-sm font-medium text-gray1">{employee.imageAlt}</p>
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* โปรโมชั่น */}
-            <div className="flex flex-row items-center justify-center space-x-0 mt-10">
-                <div className="w-full">
-                    <div className="w-full flex flex-col items-center">
-                        <div className=" w-40 flex flex-col text-center space-y-2">
-                            <a className="text-black1 text-sm">ประจำร้าน</a>
-                            <a className="text-black1 text-2xl font-bold">โปรโมชั่น</a>
-                        </div>
-                    </div>
-
-                    <div className="bg-slate-50 h-80 mt-10">
-                        <Swiper
-                            pagination={true}
-                            navigation={true} // เปิดใช้งาน navigation
-                            modules={[Navigation, Pagination, Autoplay]}
-                            className="mySwiper"
-                            autoplay={{ delay: 3000, disableOnInteraction: false }}
-                            speed={1000}
-                            loop={true}
-                            breakpoints={{
-                                0: { slidesPerView: 1 },
-                                640: { slidesPerView: 1 },
-                                768: { slidesPerView: 1 },
-                                1024: { slidesPerView: 1 },
-                                1280: { slidesPerView: 1 },
-                            }}
-                        >
-                            <SwiperSlide>
-                                <div
-                                    className="w-full h-full bg-center bg-no-repeat"
-                                    style={{
-                                        backgroundImage: "url('/images/product/All.png')",
-                                        backgroundSize: "cover",
-                                    }}
-                                >
-                                    <div className="text-start w-fit p-5">
-                                        <p className="text-base text-black1"></p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-
-
-                            <SwiperSlide>
-                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Treat.png')" }}>
-                                    <div className="text-start w-fit">
-                                        <p className="text-base text-black1">
-                                            ทรีตเมนต์
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Tattoo1.png')" }}>
-                                    <div className="text-start w-fit">
-                                        <p className="text-base text-black1">
-                                            สักคิ้ว
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div
-                                    className="w-full h-full bg-center bg-no-repeat"
-                                    style={{
-                                        backgroundImage: "url('/images/promotion/nail.jpeg')",
-                                        backgroundSize: "cover",
-                                    }}
-                                >
-                                    <div className="text-start w-fit p-5">
-                                        <p className="text-base text-black1"></p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        </Swiper>
-                    </div>
-
-                </div>
-            </div>
-
             {/* ติดต่อเรา */}
             <div className="m-10" id="contact-us">
                 <div className="flex flex-row items-center justify-center space-x-0 px-10">
@@ -566,9 +556,9 @@ export default function Home() {
                             <a className="text-black1 text-2xl font-bold">ติดต่อเรา</a>
                         </div>
 
-                        <div className='mt-10'>
+                        <div className='mt-3'>
                             <div className="grid sm:grid-cols-1 md:flex md:items-center md:justify-start gap-10 mx-20">
-                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3">
+                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3 shadow-md">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
                                         <Phone size={20} fill='#21211F' />
                                         เบอร์โทรศัพท์
@@ -578,7 +568,7 @@ export default function Home() {
                                     </p>
                                 </div>
 
-                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3">
+                                <div className="text-start inline-block flex-col gap-1 bg-slate-50 rounded-md p-3 shadow-md">
                                     <h1 className="flex flex-row gap-2 text-xl font-bold text-black1 items-center">
                                         <PiMapPinAreaFill size={24} />
                                         ที่อยู่

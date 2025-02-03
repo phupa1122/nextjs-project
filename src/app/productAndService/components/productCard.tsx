@@ -1,8 +1,7 @@
-import React, { ReactHTMLElement } from 'react'
+import React from 'react'
 import Image from 'next/image'
 
 import ProductPreview from './productPreview';
-import Modal from './modal';
 
 interface productCardProps {
     id: number;

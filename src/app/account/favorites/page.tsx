@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from "next/link";
 import Noitems from '@/app/components/noitems';
@@ -10,16 +10,13 @@ import Swal from "sweetalert2";
 import { IdCard, ScanFace, Heart, ShoppingBag, History } from 'lucide-react';
 
 interface FavoriteProps {
-    id: number;
-    name: string;
-    type: string
-    category: string
+    id: number
+    name: string
     price: number
     image: string
-    subtitle: string
 }
 
-const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, image, subtitle }: FavoriteProps) => {
+const Favorite: React.FC<FavoriteProps> = ({ id, name, price, image }: FavoriteProps) => {
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -159,18 +156,18 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
 
 
                     <div className='bg-slate-50 mt-3 rounded-lg'>
-                        {items.length === 0 ? (
+                        {currentItems.length === 0 ? (
                             <Noitems />
                         ) : (
                             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-                                {items.map((item, index) => (
-                                    <div className="bg-[#FFFFFF] p-4 w-60 lg:w-60 md:w-60 drop-shadow-md rounded-lg mx-auto" key={index}>
+                                {currentItems.map(() => (
+                                    <div className="bg-[#FFFFFF] p-4 w-60 lg:w-60 md:w-60 drop-shadow-md rounded-lg mx-auto" key={id}>
                                         <div className="w-full space-y-2">
 
                                             <div className="mx-auto w-44 h-44 rounded-md overflow-hidden mb-4">
                                                 <Image
-                                                    src={item.image}
-                                                    alt="models"
+                                                    src={image}  // ระบุเส้นทางให้ถูกต้องโดยใช้ / 
+                                                    alt="Default Image"
                                                     width={200}
                                                     height={200}
                                                     priority={true}
@@ -179,20 +176,18 @@ const Favorite: React.FC<FavoriteProps> = ({ id, name, type, category, price, im
                                                 />
                                             </div>
 
-                                            <h1 className="text-black1 text-2xl text-start font-bold">{item.name}</h1>
-
-                                            <p className="text-gray1 text-start truncate">{item.subtitle}</p>
+                                            <h1 className="text-black1 text-2xl text-start font-bold truncate">{name}</h1>
 
                                             <div
-                                                className="text-black1 text-xl text-justify overflow-hidden text-ellipsis mt-2"
+                                                className="text-gray1 text-base text-justify overflow-hidden text-ellipsis mt-2"
                                                 style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 3 }}
                                             >
-                                                {item.price} ฿
+                                                {price} ฿
                                             </div>
 
                                             <div
                                                 className="cursor-pointer text-red-500 hover:text-red-700 text-center"
-                                                onClick={() => handleDelete(item.id)}
+                                                onClick={() => handleDelete(id)}
                                             >
                                                 ลบรายการ
                                             </div>

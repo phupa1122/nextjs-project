@@ -203,7 +203,7 @@ const result = () => {
                                 </div>
                             ) : (
                                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-5 pt-3 sm:my-1 sm:p-5 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                                    {filtered.map((item) => (
+                                    {currentItems.map((item) => (
                                         <div
                                             key={item.id}
                                             className="bg-[#FFFFFF] p-4 w-60 lg:w-72 md:w-72 drop-shadow-md rounded-lg mx-auto"

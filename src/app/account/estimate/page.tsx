@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import Logout from '@/app/components/logout';
-import Noitems from '@/app/components/noitems';
 
 import { Images, IdCard, ScanFace, Heart, ShoppingBag, History } from 'lucide-react';
 

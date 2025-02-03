@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import Star from '@/app/components/star'
 import { useRouter } from "next/navigation";
-import Swal from 'sweetalert2';
 import { useHeart } from "../../context/heartContext";
 
 import { Heart } from 'lucide-react';
@@ -18,7 +17,7 @@ interface ProductPreviewProps {
 }
 
 // const ProductPreview: React.FC<ProductPreviewProps> = () => {
-export default function ProductPreview({ ID, name, type, category, price, image, subtitle }: ProductPreviewProps) {
+export default function ProductPreview({ ID, name, price, image, subtitle }: ProductPreviewProps) {
 
     const router = useRouter();
     const { addToHeart } = useHeart();

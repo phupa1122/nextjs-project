@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from 'next/link';
 import { useParams } from "next/navigation";
 
@@ -15,14 +15,14 @@ interface BookingProps {
     subtitle: string
 }
 
-export default function Booking({ID,name,type}:BookingProps){
+export default function Booking({ID}:BookingProps){
     // const route = useParams()
     const params = useParams();
     const pageUrl = '/';
     const productAndServiceUrl = '/productAndService';
 
-    const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-    const [selectedTime, setSelectedTime] = useState<string | null>(null)
+    //const [availableTimes, setAvailableTimes] = useState<string[]>([]);
+    //const [selectedTime, setSelectedTime] = useState<string | null>(null)
     
     const id = params.ID; 
     // const ID  = route.query;

@@ -1,14 +1,15 @@
 "use client"
 
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import Swal from "sweetalert2";
 
 import { CircleUserRound, LockKeyhole } from 'lucide-react';
 
-interface Login {
-    email: string
-    password: string
-}
+// interface Login {
+//     email: string
+//     password: string
+// }
+
 export default function login() {
     const [loading, setLoading] = useState(false);
     // const { setLoggedIn } = useContext(AuthContext);

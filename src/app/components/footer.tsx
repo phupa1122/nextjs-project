@@ -5,7 +5,8 @@ import { Phone, ChevronRight, Facebook } from 'lucide-react';
 
 function footer() {
     return (
-        <footer className="footer w-full bg-white1 text-black1 h-auto px-10 py-3 border-t border-gray1">
+        <footer className="footer w-full bg-[#FFFFFF];
+        text-black1 h-auto px-10 py-3 border-t border-gray1">
             <div className="w-full flex items-center justify-between">
                 <aside className="w-full flex justify-items-center sm:justify-center md:justify-center xl:justify-start" >
                     <img src="/images/Logo.png" alt="Logo" className="w-60 h-12" />

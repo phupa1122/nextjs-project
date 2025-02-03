@@ -143,7 +143,7 @@ export default function Home() {
     return (
         <>
             {/* โฆษณา */}
-            <div className="hero min-h-screen bg-white1 bg-center" style={{ backgroundImage: "url('/images/bg-homepage.png')" }}>
+            <div className="hero min-h-screen bg-center" id="home" style={{ backgroundImage: "url('/images/bg-homepage.png')" }}>
                 <div className="ml-auto mr-10 w-1/3">
                     <div className="text-right">
                         <p className="md:mb-6 md:text-xl text-black1 sm:mb-2">
@@ -168,10 +168,10 @@ export default function Home() {
             </div>
 
             {/* เกี่ยวกับเรา */}
-            <div className="mx-10 mt-10">
+            <div className="mx-10 mt-10" id="about">
                 <div className="flex flex-row items-center justify-center space-x-0 px-20 drop-shadow-md">
-                    <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center rounded-l-lg">
-                        <div className="h-[400px] flex-row bg-white1 bg-center rounded-l-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
+                    <div className="w-1/2 h-[400px] flex-row bg-center rounded-l-lg">
+                        <div className="h-[400px] flex-row bg-center rounded-l-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
 
                         </div>
                     </div>
@@ -202,7 +202,7 @@ export default function Home() {
             </div>
 
             {/* สินค้าและบริการ */}
-            <div className="mx-10">
+            <div className="mx-10" id="productAndService">
                 <div className="w-full my-10">
                     <div className="ml-auto mr-auto w-fit">
                         <div className="flex flex-col items-center space-y-2">
@@ -259,7 +259,7 @@ export default function Home() {
             </div>
 
             {/* การขาย */}
-            <div className="mx-10">
+            <div className="mx-10" id="sale">
                 <div className="w-full my-10 px-20">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div className="text-center flex flex-col gap-y-5">
@@ -326,8 +326,8 @@ export default function Home() {
             </div>
 
             {/* โปรโมท */}
-            <div className="flex flex-row items-center justify-center space-x-0">
-                <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center" style={{ backgroundImage: "url('/images/Promote1.png')" }}>
+            <div className="flex flex-row items-center justify-center space-x-0" id="promote">
+                <div className="w-1/2 h-[400px] flex-row bg-center" style={{ backgroundImage: "url('/images/Promote1.png')" }}>
                     <div className="flex pl-20 my-40">
                         <div className="text-left">
                             <p className="mb-4 text-sm text-black1">
@@ -385,7 +385,7 @@ export default function Home() {
             </div>
 
             {/* โปรโมชั่น */}
-            <div className="flex flex-row items-center justify-center space-x-0 mt-10">
+            <div className="flex flex-row items-center justify-center space-x-0 mt-10" id="promotion">
                 <div className="w-full">
                     <div className="w-full flex flex-col items-center">
                         <div className=" w-40 flex flex-col text-center space-y-2">
@@ -411,11 +411,11 @@ export default function Home() {
                                 1280: { slidesPerView: 1 },
                             }}
                         >
-                            <SwiperSlide>
+                            {/* <SwiperSlide>
                                 <div
-                                    className="w-full h-full bg-center bg-no-repeat"
+                                    className="w-full h-80 bg-center bg-no-repeat"
                                     style={{
-                                        backgroundImage: "url('/images/product/All.png')",
+                                        backgroundImage: "url('/images/promotion/promotion_treatment.png')",
                                         backgroundSize: "cover",
                                     }}
                                 >
@@ -423,40 +423,39 @@ export default function Home() {
                                         <p className="text-base text-black1"></p>
                                     </div>
                                 </div>
-                            </SwiperSlide>
+                            </SwiperSlide> */}
 
 
                             <SwiperSlide>
-                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Treat.png')" }}>
-                                    <div className="text-start w-fit">
-                                        <p className="text-base text-black1">
-                                            ทรีตเมนต์
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="w-full h-80 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/Tattoo1.png')" }}>
-                                    <div className="text-start w-fit">
-                                        <p className="text-base text-black1">
-                                            สักคิ้ว
-                                        </p>
-                                    </div>
+                                <div
+                                    className="w-full h-80 bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/promotion/promotion_treatment.png')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
                                 </div>
                             </SwiperSlide>
 
                             <SwiperSlide>
                                 <div
-                                    className="w-full h-full bg-center bg-no-repeat"
+                                    className="w-full h-80 bg-center bg-no-repeat"
                                     style={{
-                                        backgroundImage: "url('/images/promotion/nail.jpeg')",
+                                        backgroundImage: "url('/images/promotion/promotion_tattoo.png')",
                                         backgroundSize: "cover",
                                     }}
                                 >
-                                    <div className="text-start w-fit p-5">
-                                        <p className="text-base text-black1"></p>
-                                    </div>
+                                </div>
+                            </SwiperSlide>
+
+                            <SwiperSlide>
+                                <div
+                                    className="w-full h-80 bg-center bg-no-repeat"
+                                    style={{
+                                        backgroundImage: "url('/images/promotion/promotion_nail.png')",
+                                        backgroundSize: "cover",
+                                    }}
+                                >
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -466,7 +465,7 @@ export default function Home() {
             </div>
 
             {/* ความคิดเห็น */}
-            <div className="m-10">
+            <div className="m-10" id="review">
                 <div className="flex flex-row items-center justify-center space-x-0 px-20 mt-10 drop-shadow-md">
                     <div className="w-1/2 h-[400px] flex flex-col bg-slate-50 bg-center items-center justify-center rounded-l-lg">
                         <div className="w-1/2 text-center space-y-2 mt-3">
@@ -494,7 +493,7 @@ export default function Home() {
                         >
                             {dataResult.map((item, index) => (
                                 <SwiperSlide className="flex justify-start pt-20" key={index}>
-                                    <div className="bg-[#ffffff] p-4 w-60 lg:w-3/5 md:w-72 drop-shadow-md border border-gray1-300 rounded-lg mx-auto">
+                                    <div className="bg-[#FFFFFF] p-4 w-60 lg:w-3/5 md:w-72 drop-shadow-md border border-gray1-300 rounded-lg mx-auto">
                                         <article className="flex max-w-xl flex-col items-start justify-between gap-1">
                                             <div className="group relative w-full">
                                                 <h3 className="text-xl font-semibold text-black1 justify-items-start">
@@ -539,8 +538,8 @@ export default function Home() {
                             ))}
                         </Swiper>
                     </div>
-                    <div className="w-1/2 h-[400px] flex-row bg-white1 bg-center">
-                        <div className="h-[400px] flex-row bg-white1 bg-center rounded-r-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
+                    <div className="w-1/2 h-[400px] flex-row bg-center">
+                        <div className="h-[400px] flex-row bg-center rounded-r-lg" style={{ backgroundImage: "url('/images/About.png')" }}>
 
                         </div>
                     </div>
@@ -549,7 +548,7 @@ export default function Home() {
 
             {/* ติดต่อเรา */}
             <div className="m-10" id="contact-us">
-                <div className="flex flex-row items-center justify-center space-x-0 px-10">
+                <div className="flex flex-row items-center justify-center space-x-0">
                     <div className="container">
                         <div className="flex flex-col items-center space-y-2">
                             <a className="text-black1 text-sm">บริการ</a>

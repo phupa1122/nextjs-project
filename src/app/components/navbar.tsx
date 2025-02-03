@@ -33,9 +33,50 @@ function navbar() {
 
             <div className="navbar-center hidden lg:flex text-black1">
                 <ul className="menu menu-horizontal px-1 items-center gap-5">
-                    <Link href="/" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline">หน้าแรก</Link>
-                    <Link href="/about" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">เกี่ยวกับเรา</Link>
-                    {/* <Link href="/employee" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">พนักงานคลินิค</Link> */}
+
+                    <Link
+                        href="/#home"
+                        className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"
+                        onClick={(e) => {
+                            // เช็คถ้าเป็นการคลิกจากหน้าเดียวกัน (จากหน้าแรก)
+                            if (window.location.pathname === "/") {
+                                e.preventDefault();
+                                const element = document.getElementById("home");
+                                if (element) {
+                                    element.scrollIntoView({
+                                        behavior: "smooth",
+                                    });
+                                } else {
+                                    console.error("ไม่พบส่วนที่มี id='home'");
+                                }
+                            }
+                        }}
+                    >
+                        หน้าแรก
+                    </Link>
+
+                    <Link
+                        href="/#about"
+                        className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"
+                        onClick={(e) => {
+                            // เช็คถ้าเป็นการคลิกจากหน้าเดียวกัน (จากหน้าแรก)
+                            if (window.location.pathname === "/") {
+                                e.preventDefault();
+                                const element = document.getElementById("about");
+                                if (element) {
+                                    element.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
+                                    });
+                                } else {
+                                    console.error("ไม่พบส่วนที่มี id='about'");
+                                }
+                            }
+                        }}
+                    >
+                        เกี่ยวกับเรา
+                    </Link>
+
 
                     <Link
                         href="/#employee"
@@ -48,6 +89,7 @@ function navbar() {
                                 if (element) {
                                     element.scrollIntoView({
                                         behavior: "smooth",
+                                        block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
                                     });
                                 } else {
                                     console.error("ไม่พบส่วนที่มี id='employee'");
@@ -59,8 +101,11 @@ function navbar() {
                     </Link>
 
                     <Link href="/productAndService" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">สินค้าและบริการ</Link>
+
                     <Link href="/promotion" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">โปรโมชั่น</Link>
+
                     <Link href="/result" className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1">ผลลัพธ์ลูกค้า</Link>
+
                     <Link
                         href="/#contact-us"
                         className="link link-hover text-black1 hover:text-gray1 hover:decoration-gray1 focus:text-pink1 focus:underline focus:decoration-pink1"
@@ -72,6 +117,7 @@ function navbar() {
                                 if (element) {
                                     element.scrollIntoView({
                                         behavior: "smooth",
+                                        block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
                                     });
                                 } else {
                                     console.error("ไม่พบส่วนที่มี id='contact-us'");
@@ -94,9 +140,6 @@ function navbar() {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-slate-50 text-[#21211F] min-h-full w-80">
-                        {/* <div className="h-10 flex justify-end items-center bg-gray-100 p-2">
-                                <RiCloseLine size={24} onClick={handleClose} className="cursor-pointer hover:text-gray-400" />
-                            </div> */}
                         <div className='flex justify-center items-center mx-10'>
                             <img src='/images/Logo.png' alt='Logo' />
                         </div>

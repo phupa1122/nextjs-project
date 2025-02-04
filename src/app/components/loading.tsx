@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function loading() {
     return (
@@ -7,5 +7,5 @@ export default function loading() {
 
             <p className="text-black1 font-medium text-lg">กำลังโหลด...</p>
         </div>
-    )
+    );
 }

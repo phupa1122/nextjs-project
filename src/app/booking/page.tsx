@@ -61,7 +61,7 @@ const Booking: React.FC<BookingProps> = ({ id, category, price }: BookingProps) 
 
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
     const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-    const [selectedTime, setSelectedTime] = useState<string | null>(null)
+    const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
     const handleEmployeeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const employee = event.target.value;
@@ -277,7 +277,7 @@ const Booking: React.FC<BookingProps> = ({ id, category, price }: BookingProps) 
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Booking
+export default Booking;

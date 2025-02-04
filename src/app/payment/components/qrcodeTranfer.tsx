@@ -67,7 +67,7 @@ const qrcodeTranfer: React.FC = () => {
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default qrcodeTranfer
+export default qrcodeTranfer;

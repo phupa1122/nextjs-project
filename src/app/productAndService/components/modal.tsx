@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 interface ModalProps {
     id: number
@@ -11,7 +11,7 @@ const Modal: React.FC<ModalProps> = ({ id, category, price }: ModalProps) => {
 
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
     const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-    const [selectedTime, setSelectedTime] = useState<string | null>(null)
+    const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
     const handleEmployeeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const employee = event.target.value;
@@ -210,7 +210,7 @@ const Modal: React.FC<ModalProps> = ({ id, category, price }: ModalProps) => {
                 </form>
             </dialog>
         </>
-    )
-}
+    );
+};
 
-export default Modal
+export default Modal;

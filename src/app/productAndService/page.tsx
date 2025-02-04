@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Noitems from "../components/noitems";
 import { fetchServices, ServiceItem } from "@/services/productService";
-import Sidebar from "./components/sidebar"
+import Sidebar from "./components/sidebar";
 import Search from "./components/search";
 import ProductCard from "./components/productCard";
 
@@ -27,7 +27,7 @@ export default function productAndService() {
                 setServices(data);
                 setFilteredProductAndServices(data);
             } catch (error) {
-                console.error("Error fetching services:", error);
+                //console.error("Error fetching services:", error);
             }
         };
         loadData();
@@ -61,7 +61,7 @@ export default function productAndService() {
 
     return (
         <>
-            <div className="hero h-96 bg-white1 bg-center"
+            <div className="hero h-96 bg-center"
                 style={{ backgroundImage: "url('/images/product/bg-product-service.png')" }}>
                 <div className="flex items-center justify-center">
                     <div className="text-center items-center">
@@ -91,8 +91,12 @@ export default function productAndService() {
                                 <p className='text-gray1 text-xs'>
                                     {searchText
                                         ? `ค้นพบสินค้าและบริการทั้งหมด: ${currentItems.length} รายการ`
-                                        : `ค้นพบสินค้าและบริการทั้งหมด: ${services.length} รายการ`}
+                                        : `ค้นพบสินค้าและบริการทั้งหมด: ${filterCate
+                                            ? services.filter(item => item.service_type_name === filterCate).length
+                                            : services.length} รายการ`}
                                 </p>
+
+
                             </div>
                             <div className='mx-10 border-t border-gray1'>
                                 {/* แสดงข้อมูล */}
@@ -151,5 +155,5 @@ export default function productAndService() {
                 </div>
             </div>
         </>
-    )
+    );
 }

@@ -15,6 +15,7 @@
     // ปิดกฎที่ไม่ต้องการ
     "no-unused-vars": "off",  // ปิดกฎการไม่ใช้ตัวแปร
     "@typescript-eslint/no-unused-vars": "off",  // ปิดกฎการไม่ใช้ตัวแปรใน TypeScript
+    "@typescript-eslint/no-explicit-any": "off",
 
     // เพิ่มกฎใหม่ที่ต้องการ
     "no-console": "warn",  // แจ้งเตือนหากใช้ console.log

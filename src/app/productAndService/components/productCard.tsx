@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 
 import ProductPreview from './productPreview';
 
@@ -22,13 +22,13 @@ export default function productCard({ id, name, type, category, price, image, su
     // }
 
     const openModal = (id: number) => {
-        console.log("product ID:", id)
+        //console.log("product ID:", id)
         const modal = document.getElementById(`productPreview${id}`) as HTMLDialogElement;
         modal?.showModal();
-    }
+    };
 
     if (filter && filter !== category) {
-        return null
+        return null;
     }
 
     return (
@@ -84,5 +84,5 @@ export default function productCard({ id, name, type, category, price, image, su
             </div>
 
         </>
-    )
+    );
 }

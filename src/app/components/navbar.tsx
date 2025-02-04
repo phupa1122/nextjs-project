@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -23,8 +23,8 @@ function navbar() {
     return (
         <div
             className={`navbar w-screen px-10 h-10 fixed top-0 left-0 z-50 transition-colors duration-700 ${isScrolled
-                ? 'bg-gradient-to-b from-neutral-50 to-white1'
-                : 'bg-gradient-to-b from-white1 to-neutral-50'
+                ? 'bg-gradient-to-b from-neutral-50 to-[#FFFFFF]'
+                : 'bg-gradient-to-b from-[#FFFFFF] to-neutral-50'
                 }`}
         >
             <div className="navbar-start">
@@ -47,7 +47,7 @@ function navbar() {
                                         behavior: "smooth",
                                     });
                                 } else {
-                                    console.error("ไม่พบส่วนที่มี id='home'");
+                                    //console.error("ไม่พบส่วนที่มี id='home'");
                                 }
                             }
                         }}
@@ -69,7 +69,7 @@ function navbar() {
                                         block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
                                     });
                                 } else {
-                                    console.error("ไม่พบส่วนที่มี id='about'");
+                                    //console.error("ไม่พบส่วนที่มี id='about'");
                                 }
                             }
                         }}
@@ -92,7 +92,7 @@ function navbar() {
                                         block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
                                     });
                                 } else {
-                                    console.error("ไม่พบส่วนที่มี id='employee'");
+                                    //console.error("ไม่พบส่วนที่มี id='employee'");
                                 }
                             }
                         }}
@@ -120,7 +120,7 @@ function navbar() {
                                         block: "center", // ให้หยุด scroll ที่ตำแหน่งกลางๆ หน้าจอ
                                     });
                                 } else {
-                                    console.error("ไม่พบส่วนที่มี id='contact-us'");
+                                    //console.error("ไม่พบส่วนที่มี id='contact-us'");
                                 }
                             }
                         }}
@@ -198,7 +198,7 @@ function navbar() {
 
             </div>
         </div>
-    )
+    );
 }
 
-export default navbar
+export default navbar;

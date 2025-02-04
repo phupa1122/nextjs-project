@@ -6,6 +6,6 @@ const api = axios.create({
   // ถ้ามี header หรือ options อื่น ๆ ก็ใส่เพิ่มได้
 });
 
-console.log(process.env.NEXT_PUBLIC_API);
+//console.log(process.env.NEXT_PUBLIC_API);
 
 export default api;

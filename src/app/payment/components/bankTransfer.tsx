@@ -74,4 +74,4 @@ const bankTransfer: React.FC = () => {
     );
 };
 
-export default bankTransfer
+export default bankTransfer;

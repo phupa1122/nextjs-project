@@ -19,12 +19,12 @@ export default function cart() {
 
     return (
         <>
-            <div className="relative w-full h-[50vh] hero bg-white1 bg-center">
+            <div className="relative w-full h-[50vh] hero bg-center">
                 {/* ภาพพื้นหลัง */}
                 <Image
                     src="/images/profile/bg-profile.png"
                     alt="พื้นหลังโปรไฟล์"
-                    fill
+                    layout="fill"
                     className="object-cover"
                 />
 
@@ -47,7 +47,7 @@ export default function cart() {
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-slate-50">
+                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-[#FFFFFF] rounded-md shadow-md">
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-2 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>

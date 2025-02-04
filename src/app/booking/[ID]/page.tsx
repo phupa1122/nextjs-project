@@ -3,6 +3,7 @@
 import React from "react";
 import Link from 'next/link';
 import { useParams } from "next/navigation";
+import Calendar from "../components/calender";
 
 
 interface BookingProps {
@@ -24,15 +25,13 @@ export default function Booking({ID}:BookingProps){
     //const [availableTimes, setAvailableTimes] = useState<string[]>([]);
     //const [selectedTime, setSelectedTime] = useState<string | null>(null)
     
-    const id = params.ID; 
-    // const ID  = route.query;
+    const id = params.ID;
 
-    console.log(id)
-
+    //console.log(id)
 
     return (
         <>
-            <div className="hero h-96 bg-white1 bg-center" style={{ backgroundImage: "url('/images/product/bg-product-service.png')" }}>
+            <div className="hero h-96 bg-center" style={{ backgroundImage: "url('/images/product/bg-product-service.png')" }}>
                 <div className="flex items-center justify-center">
                     <div className="text-center items-center">
                         <h1 className="text-6xl font-bold text-black1">สินค้าและบริการ</h1>
@@ -51,10 +50,14 @@ export default function Booking({ID}:BookingProps){
 
             <div className='my-5 mx-10'>
                 <div className="px-4 sm:px-0">
-                    <h3 className="text-lg/7 font-medium text-gray1">ไทม์ไลน์ </h3>
+                    <h3 className="text-lg/7 font-medium text-gray1">ไทม์ไลน์</h3>
                 </div>
 
                 <div className='flex flex-row gap-10 justify-between'>
+                    <div className='bg-slate-50 my-5 rounded-lg border border-gray-200 shadow-lg w-2/3'>
+                                            <Calendar />
+                                        </div>
+
                     <div className='bg-slate-50 mt-5 rounded-lg p-5 w-1/3 drop-shadow-md'>
                         <div className='m-5'>
                             <div className="flex justify-start items-center border-b">
@@ -69,8 +72,7 @@ export default function Booking({ID}:BookingProps){
                                     <button
                                         disabled
                                         className="py-2 px-3 text-gray1 border border-gray-100 rounded-md cursor-not-allowed"
-                                    >
-                                        
+                                    >  
                                     </button>
                                 </div>
                             </div>
@@ -161,8 +163,6 @@ export default function Booking({ID}:BookingProps){
                                 </div>
                             </div>
 
-
-
                             <div className="flex flex-row justify-around mt-6 text-right space-x-3">
                                 <form method="dialog">
                                     <button className="py-2 px-4 text-base text-gray1 border border-gray-200 bg-slate-50 rounded-md hover:bg-gray-200 hover:text-gray1 hover:border-gray-200">ปิด</button>
@@ -182,6 +182,6 @@ export default function Booking({ID}:BookingProps){
                 </div>
             </div>
         </>
-    )
+    );
 }
 

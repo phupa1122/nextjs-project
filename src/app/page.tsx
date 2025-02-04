@@ -3,21 +3,21 @@
 import React, { useState, useEffect } from "react";
 //import Image from "next/image";
 import Link from "next/link";
-import Map from "./components/map"
-import './swiper.css'
-import Star from "./components/star"
-import { fetchServices, ServiceItem } from "@/services/productService"
-import ProductCard from "./productAndService/components/productCard"
+import Map from "./components/map";
+import './swiper.css';
+import Star from "./components/star";
+import { fetchServices, ServiceItem } from "@/services/productService";
+import ProductCard from "./productAndService/components/productCard";
 
 import styled from 'styled-components';
-import { Package, MessagesSquare, HandCoins, Phone } from 'lucide-react'
-import { PiMapPinAreaFill } from "react-icons/pi"
+import { Package, MessagesSquare, HandCoins, Phone } from 'lucide-react';
+import { PiMapPinAreaFill } from "react-icons/pi";
 
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
-import { Pagination, Autoplay, Navigation } from "swiper/modules"
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 const CenteredDiv = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ const employees = [
         imageSrc: '/images/Employee.png',
         imageAlt: 'สักคิ้ว, ทรีตเมนต์'
     },
-]
+];
 
 const dataResult = [
     {
@@ -132,7 +132,7 @@ export default function Home() {
                 // สมมติได้ข้อมูลกลับมาเป็นอาเรย์ของ ServiceItem
                 setServices(data);
             } catch (error) {
-                console.error("Error fetching services:", error);
+                //console.error("Error fetching services:", error);
             }
         };
         loadData();
@@ -547,9 +547,9 @@ export default function Home() {
             </div>
 
             {/* ติดต่อเรา */}
-            <div className="m-10" id="contact-us">
+            <div className="m-10">
                 <div className="flex flex-row items-center justify-center space-x-0">
-                    <div className="container">
+                    <div className="container" id="contact-us">
                         <div className="flex flex-col items-center space-y-2">
                             <a className="text-black1 text-sm">บริการ</a>
                             <a className="text-black1 text-2xl font-bold">ติดต่อเรา</a>

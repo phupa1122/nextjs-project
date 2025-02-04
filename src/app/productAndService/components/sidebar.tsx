@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import PriceFilter from './priceFilter'
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import PriceFilter from './priceFilter';
 
 import { ChevronDown, ShoppingBasket, ShoppingBag, Filter } from 'lucide-react';
 
@@ -14,24 +14,24 @@ export default function sidebar({ onFilter }: sidebarProps) {
     const [isOpen, setIsOpen] = useState(true); // สำหรับควบคุม sidebar
 
     const handleCream = () => {
-        onFilter('ครีม')
-    }
+        onFilter('ครีม');
+    };
 
     const handleShampoo = () => {
-        onFilter('แชมพู')
-    }
+        onFilter('แชมพู');
+    };
 
     const handleTreatment = () => {
-        onFilter('บริการทรีตเมนต์')
-    }
+        onFilter('บริการทรีทเมนท์');
+    };
 
     const handleTattoo = () => {
-        onFilter('บริการสักคิ้ว')
-    }
+        onFilter('บริการสักคิ้ว');
+    };
 
     const handleNail = () => {
-        onFilter('บริการทำเล็บ')
-    }
+        onFilter('บริการทำเล็บ');
+    };
 
     return (
         <>
@@ -95,7 +95,7 @@ export default function sidebar({ onFilter }: sidebarProps) {
                                         <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
                                             onClick={handleTreatment}
                                         >
-                                            ทรีตเมนต์
+                                            ทรีทเมนต์
                                         </button>
                                         <button className="text-md block py-1 px-3 rounded-md border border-gray-300 font-light transition text-black1 text-start hover:bg-gray-200 hover:text-gray1 focus:text-slate-50 focus:bg-blue1"
                                             onClick={handleTattoo}
@@ -113,24 +113,13 @@ export default function sidebar({ onFilter }: sidebarProps) {
                             </div>
                         </div>
 
-                        <div className=' items-center'>
+                        {/* <div className=' items-center'>
                             <PriceFilter />
-                        </div>
-
-                        {/* <div className="flex w-full flex-col">
-                            <div className="divider text-gray1">หรือ</div>
-                        </div>
-
-                        <button
-                            className="w-full text-sm block py-2 px-4 rounded-md border text-green1 border-green1 font-normal transition bg-[#FFFFFF] hover:bg-green1 hover:text-slate-50"
-                            onClick={() => router.push('/productAndService/booking')}
-                        >
-                            เลือกจากปฏิทิน
-                        </button> */}
+                        </div> */}
 
                     </div>
                 </div>
             </aside>
         </>
-    )
+    );
 }

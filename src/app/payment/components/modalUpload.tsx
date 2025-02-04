@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 import { ImagePlus, CircleCheck } from 'lucide-react';
 
@@ -46,7 +46,7 @@ export default function ModalUpload() {
         setModalUploadOpen(false);
         setModalSuccessOpen(true);
 
-        console.log("Uploading file:", selectedFile);
+        //console.log("Uploading file:", selectedFile);
     };
 
     const closeSuccess = () => {

@@ -9,6 +9,7 @@ import Noitems from "@/app/components/noitems";
 import './styles.css';
 
 import { Loader, PencilLine, Trash2 } from 'lucide-react';
+import { Autoplay } from "swiper/modules";
 
 const TableComponent = () => {
     const router = useRouter();
@@ -40,15 +41,16 @@ const TableComponent = () => {
                                 <div className="flex items-center gap-3">
                                     <div className="avatar">
                                         <div className="mask mask-squircle h-16 w-16">
-                                            <Image 
-                                            src={book.image} 
-                                            alt={book.title} 
+                                            <Image
+                                                src={book.image}
+                                                alt={book.title}
+                                                layout="fill"
                                             />
                                         </div>
                                     </div>
                                     <div className="text-black1">
                                         <div className="text-base font-bold">{book.title}</div>
-                                        
+
                                     </div>
                                 </div>
                             </td>
@@ -80,15 +82,15 @@ const TableComponent = () => {
                                     </button>
                                 </div>
                                 <ModalDetail
-                                            id={book.id || index + 1}
-                                            title={book.title || "-"}
-                                            price={book.price || index}
-                                            name={book.name || "-"}
-                                            phone={book.phone || "-"}
-                                            date={book.date || "-"}
-                                            emp={book.emp || "-"}
-                                            time={book.time || "-"}
-                                        />
+                                    id={book.id || index + 1}
+                                    title={book.title || "-"}
+                                    price={book.price || index}
+                                    name={book.name || "-"}
+                                    phone={book.phone || "-"}
+                                    date={book.date || "-"}
+                                    emp={book.emp || "-"}
+                                    time={book.time || "-"}
+                                />
                             </td>
                             <th className="py-3 px-4 text-gray1 text-sm">
                                 <div className="flex flex-row justify-between">
@@ -103,7 +105,7 @@ const TableComponent = () => {
                                         }}
 
                                     />
-                                    
+
                                     <Trash2
                                         size={20}
                                         className="hover:text-[#FF2D47] transition-colors duration-200"
@@ -114,21 +116,21 @@ const TableComponent = () => {
                                             if (modal) modal.showModal();
                                         }}
                                     />
-                                    
+
                                 </div>
                                 <ModalEdit
-                                        id={book.id || index + 1}
-                                        title={book.title || "-"}
-                                        price={book.price || index}
-                                        name={book.name || "-"}
-                                        phone={book.phone || "-"}
-                                        date={book.date || "-"}
-                                        emp={book.emp || "-"}
-                                        time={book.time || "-"}
-                                    />
-                                    <ModalDelete
-                                        id={book.id || index + 1}
-                                    />
+                                    id={book.id || index + 1}
+                                    title={book.title || "-"}
+                                    price={book.price || index}
+                                    name={book.name || "-"}
+                                    phone={book.phone || "-"}
+                                    date={book.date || "-"}
+                                    emp={book.emp || "-"}
+                                    time={book.time || "-"}
+                                />
+                                <ModalDelete
+                                    id={book.id || index + 1}
+                                />
                             </th>
                         </tr>
                     ))}

@@ -19,10 +19,10 @@ export default function modalDelete({ id }: modalDeleteProps) {
                     const row = document.getElementById(`row-${id}`);
                     if (row) row.remove();
                 } else {
-                    console.error('ลบการจองคิวไม่สำเร็จ:', data.message);
+                    //console.error('ลบการจองคิวไม่สำเร็จ:', data.message);
                 }
-            })
-            .catch((error) => console.error('ไม่สำเร็จ:', error));
+            });
+            //.catch((error) => console.error('ไม่สำเร็จ:', error));
     };
     
     return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 
 import { Phone, ChevronRight, Facebook } from 'lucide-react';
@@ -71,7 +71,7 @@ function footer() {
             </div>
 
         </footer>
-    )
+    );
 }
 
-export default footer
+export default footer;

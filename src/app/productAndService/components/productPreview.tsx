@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React, { useState } from 'react'
-import Star from '@/app/components/star'
+import React, { useState } from 'react';
+import Star from '@/app/components/star';
 import { useRouter } from "next/navigation";
 import { useHeart } from "../../context/heartContext";
 
@@ -34,10 +34,10 @@ export default function ProductPreview({ ID, name, price, image, subtitle }: Pro
 
 
     const handleBook = (ID: number) => {
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("token");
         if (!ID) {
             {
-                console.error("ID is missing!");
+                //console.error("ID is missing!");
             }
             router.push(`/booking/id=${ID}`);
         }
@@ -45,7 +45,7 @@ export default function ProductPreview({ ID, name, price, image, subtitle }: Pro
 
         if (!token) {
             {
-                alert("please login!")
+                alert("please login!");
             }
             router.push(`../login`);
         }
@@ -132,5 +132,5 @@ export default function ProductPreview({ ID, name, price, image, subtitle }: Pro
                 </form>
             </dialog>
         </>
-    )
+    );
 }

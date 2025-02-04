@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react'
+import React from 'react';
 import BankTransfer from './components/bankTransfer';
 import QrcodeTranfer from './components/qrcodeTranfer';
 import ModalUpload from './components/modalUpload';
@@ -205,5 +205,5 @@ export default function payment() {
                 </div>
             </div>
         </>
-    )
+    );
 }

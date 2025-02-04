@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
+import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from "next/link";
 import Logout from '@/app/components/logout';
 
@@ -28,6 +28,34 @@ export default function coupon() {
             reader.readAsDataURL(file);
         }
     };
+
+    const handleSubmit = async () => {
+        try {
+            // สร้าง FormData และเพิ่มข้อมูล
+            const formData = new FormData();
+            const fileInput = document.querySelector('#fileInput') as HTMLInputElement; // Input สำหรับไฟล์
+            const file = fileInput?.files?.[0]; // ดึงไฟล์จาก input
+            const text = document.querySelector('#textInput') as HTMLInputElement; // Input สำหรับข้อความ
+    
+            if (file) formData.append('image', file); // เพิ่มรูปภาพใน FormData
+            if (text?.value) formData.append('description', text.value); // เพิ่มข้อความใน FormData
+    
+            // Fetch ไปยัง API
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData, // ใช้ FormData เป็น body
+            });
+    
+            if (!response.ok) throw new Error('ส่งข้อมูลไม่สำเร็จ');
+    
+            const result = await response.json();
+            //console.log('✅ บันทึกสำเร็จ', result);
+        } catch (error) {
+            //console.error('❌ เกิดข้อผิดพลาด', error);
+        }
+    };
+    
+    
 
     return (
         <>
@@ -59,7 +87,7 @@ export default function coupon() {
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-slate-50">
+                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-[#FFFFFF] rounded-md shadow-md">
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-2 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
@@ -108,57 +136,72 @@ export default function coupon() {
                     <div className="px-4 sm:px-0">
                         <h3 className="text-lg/7 font-medium text-gray1">ประเมินใบหน้า</h3>
                     </div>
-                    <div className='bg-slate-50 mt-3 rounded-lg p-5 '>
+                    <div className='bg-slate-50 mt-3 rounded-lg p-5'>
                         <div className='bg-[#FFFFFF] rounded-lg border shadow-lg'>
                             <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2">
-                                <div className="col-span-full md:col-span-1">
-                                    <div className="m-10 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                        {imagePreview ? (
-                                            <div className="flex justify-center items-center h-80">
-                                                <div className="text-center">
-                                                    <img src={imagePreview} alt="อัปโหลดใบหน้าของคุณ" className="mx-auto rounded-lg size-80 object-cover" />
-                                                    <button
-                                                        onClick={() => setImagePreview(null)}
-                                                        className="mt-5 px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
-                                                    >
-                                                        ลบรูปภาพ
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <div className="flex justify-center items-center h-80">
-                                                <div className="text-center">
-                                                    <Images aria-hidden="true" className="mx-auto size-40 text-gray-300" />
-                                                    <div className="mt-4 flex text-sm/6 text-gray-600 justify-center">
-                                                        <label
-                                                            htmlFor="file-upload"
-                                                            className="relative cursor-pointer rounded-md bg-white font-semibold text-pink1 hover:text-pink-400"
-                                                        >
-                                                            <span>อัพโหลดใบหน้าของคุณ</span>
-                                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleFileUpload} />
-                                                        </label>
-                                                        <p className="pl-1">หรือลากและวาง</p>
-                                                    </div>
-                                                    <p className="text-xs/5 text-gray-600">รองรับไฟล์ PNG, JPG, GIF ขนาดไม่เกิน 10MB</p>
-                                                </div>
-                                            </div>
+                            <div className="col-span-full md:col-span-1">
+    <div className="m-10 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+        {imagePreview ? (
+            <div className="flex justify-center items-center h-80">
+                <div className="text-center">
+                    <img
+                        src={imagePreview}
+                        alt="อัปโหลดใบหน้าของคุณ"
+                        className="mx-auto rounded-lg size-80 object-cover"
+                    />
+                    <button
+                        onClick={() => setImagePreview(null)}
+                        className="mt-5 px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+                    >
+                        ลบรูปภาพ
+                    </button>
+                </div>
+            </div>
+        ) : (
+            <div className="flex justify-center items-center h-80">
+                <div className="text-center">
+                    <Images
+                        aria-hidden="true"
+                        className="mx-auto size-40 text-gray-300"
+                    />
+                    <div className="mt-4 flex text-sm/6 text-gray-600 justify-center">
+                        <label
+                            htmlFor="fileInput"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-pink1 hover:text-pink-400"
+                        >
+                            <span>อัพโหลดใบหน้าของคุณ</span>
+                            <input
+                                id="fileInput"
+                                name="file-upload"
+                                type="file"
+                                className="sr-only"
+                                onChange={handleFileUpload}
+                            />
+                        </label>
+                        <p className="pl-1">หรือลากและวาง</p>
+                    </div>
+                    <p className="text-xs/5 text-gray-600">
+                        รองรับไฟล์ PNG, JPG, GIF ขนาดไม่เกิน 10MB
+                    </p>
+                </div>
+            </div>
+        )}
+    </div>
+</div>
 
-                                        )}
-                                    </div>
-                                </div>
 
                                 <div className="flex items-center">
                                     <div className="col-span-full md:col-span-1 m-10 w-full max-w-lg">
-                                        <label htmlFor="about" className="block text-base/6 font-medium text-gray-900">
+                                        <label htmlFor="textInput" className="block text-base/6 font-medium text-gray-900">
                                             รายละเอียดใบหน้าของคุณ
                                         </label>
                                         <div className="mt-2">
                                             <textarea
-                                                id="about"
-                                                name="about"
+                                                id="textInput"
+                                                name="textInput"
                                                 rows={5}
                                                 className="block w-full rounded-md bg-white border border-gray1 px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray1 placeholder:text-gray1 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                                defaultValue={''}
+                                                placeholder="เพิ่มคำอธิบาย"
                                             />
                                         </div>
 
@@ -171,10 +214,11 @@ export default function coupon() {
                                                 ยกเลิก
                                             </button>
                                             <button
-                                                className="px-4 py-2 text-white bg-green1 rounded-md hover:bg-green-600"
-                                            >
-                                                ส่งข้อมูล
-                                            </button>
+    className="px-4 py-2 text-white bg-green1 rounded-md hover:bg-green-600"
+    onClick={handleSubmit} // 🟢 เรียกใช้ฟังก์ชันเมื่อกดปุ่ม
+>
+    ส่งข้อมูล
+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -184,5 +228,5 @@ export default function coupon() {
                 </div>
             </div>
         </>
-    )
+    );
 }

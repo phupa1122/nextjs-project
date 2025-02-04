@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Swal from "sweetalert2";
 
 import { CircleUserRound, LockKeyhole } from 'lucide-react';
@@ -29,7 +29,7 @@ export default function login() {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("API Response:", data);
+                //console.log("API Response:", data);
                 setLoading(false);
                 if (data.status == "ok") {
                     Swal.fire({
@@ -45,7 +45,7 @@ export default function login() {
                         text: "โปรดตรวจสอบชื่อผู้ใช้หรือรหัสผ่าน",
                         confirmButtonColor: "#FF2D47",
                     });
-                    console.log(data.status)
+                    //console.log(data.status)
                 }
 
             })
@@ -57,7 +57,7 @@ export default function login() {
                     text: "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
                     confirmButtonColor: "#FF2D47",
                 });
-                console.error("Error:", error);
+                //console.error("Error:", error);
             });
 
     };
@@ -199,5 +199,5 @@ export default function login() {
                 </div>
             </div>
         </>
-    )
+    );
 }

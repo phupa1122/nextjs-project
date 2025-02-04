@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import { UsersRound, CircleUserRound, Mail, Phone, Cake, KeyRound, LockKeyhole } from 'lucide-react';
 
@@ -200,5 +200,5 @@ export default function newAccount() {
                 </div>
             </div>
         </>
-    )
+    );
 }

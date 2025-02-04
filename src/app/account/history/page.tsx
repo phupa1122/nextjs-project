@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logout from '@/app/components/logout';
@@ -12,7 +12,7 @@ export default function page() {
 
     const pageUrl = '/';
     const accountURL = '/account';
-    const estimateURL = '/account/estimate'
+    const estimateURL = '/account/estimate';
     const favoritesURL = '/account/favorites';
     const cartURL = '/account/cart';
     const historyURL = '/account/history';
@@ -47,7 +47,7 @@ export default function page() {
             </div>
 
             <div className='w-full flex flex-row'>
-                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-slate-50">
+                <div className="container w-20 sm:w-20 lg:w-1/4 xl:w-1/4 mb-5 bg-[#FFFFFF] rounded-md shadow-md">
                     <div className='m-5'>
                         <div className="flex min-w-0 gap-x-2 items-center">
                             <div className='flex flex-row items-center m-2 gap-3'>
@@ -103,5 +103,5 @@ export default function page() {
                 </div>
             </div >
         </>
-    )
+    );
 }

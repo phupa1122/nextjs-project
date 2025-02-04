@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 type View = 'month' | 'week' | 'day' | 'list'
 
 export default function Calendar() {
-    const [view, setView] = useState<View>('month')
-    const [currentDate] = useState(new Date()) // Manage the current month and year
+    const [view, setView] = useState<View>('month');
+    const [currentDate] = useState(new Date()); // Manage the current month and year
 
     // Function to go to the previous month
     // const previousMonth = () => {
@@ -27,7 +27,7 @@ export default function Calendar() {
     const monthYear = currentDate.toLocaleString('default', {
         month: 'long',
         year: 'numeric',
-    })
+    });
 
     return (
         <div className="max-w-6xl mx-auto p-4">
@@ -79,7 +79,7 @@ export default function Calendar() {
 
             )}
         </div>
-    )
+    );
 }
 
 function ListView() {
@@ -96,7 +96,7 @@ function ListView() {
             date: 'วันเสาร์',
             fullDate: '18 มกราคม 2568'
         }
-    ]
+    ];
 
     return (
         <div className="border rounded-lg divide-y">
@@ -113,11 +113,11 @@ function ListView() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 function DayView() {
-    const hours = Array.from({ length: 24 }, (_, i) => i) // 0-23 hours
+    const hours = Array.from({ length: 24 }, (_, i) => i); // 0-23 hours
 
     return (
         <div className="border rounded-lg">
@@ -166,11 +166,11 @@ function DayView() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 function WeekView() {
-    const hours = Array.from({ length: 13 }, (_, i) => i + 6) // 6am to 6pm
+    const hours = Array.from({ length: 13 }, (_, i) => i + 6); // 6am to 6pm
     const days = [
         'อาทิตย์',
         'จันทร์',
@@ -179,7 +179,7 @@ function WeekView() {
         'พฤหัสบดี',
         'ศุกร์',
         'เสาร์'
-    ]
+    ];
 
     return (
         <div className="border rounded-lg">
@@ -213,7 +213,7 @@ function WeekView() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 function MonthView() {

@@ -86,7 +86,7 @@ export default function modalEdit({ id, title, price, name, phone, date, emp }: 
             alert('แก้ไขการจองคิวเสร็จสิ้น');
         } catch (error) {
             setIsLoading(false); // ซ่อน Loader ในกรณีที่มีข้อผิดพลาด
-            console.error(error);
+            //console.error(error);
             alert('เกิดข้อผิดพลาดในการแก้ไขการจอง');
         }
     };

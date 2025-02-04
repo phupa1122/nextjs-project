@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function employee() {
 
@@ -127,5 +127,5 @@ export default function employee() {
                 </div>
             </div>
         </>
-    )
+    );
 }

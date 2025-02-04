@@ -21,6 +21,4 @@ export const data = [
     { id: 19, type: "บริการ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: 199, image: "/images/product/Nail.png" },
     { id: 20, type: "บริการ", category: "ทำเล็บ", name: "ทำเล็บ", subtitle: "ฝีมือช่างขั้นเทพ ราคาถูก", price: 199, image: "/images/product/Nail.png" },
 
-]
-
-
+];

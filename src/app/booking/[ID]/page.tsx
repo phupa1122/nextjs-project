@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import { useParams } from "next/navigation";
 import Calendar from "../components/calender";
@@ -16,16 +16,49 @@ interface BookingProps {
     subtitle: string
 }
 
-export default function Booking({ID}:BookingProps){
+export default function Booking({ ID }: BookingProps) {
     // const route = useParams()
     const params = useParams();
     const pageUrl = '/';
     const productAndServiceUrl = '/productAndService';
-
-    //const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-    //const [selectedTime, setSelectedTime] = useState<string | null>(null)
-    
     const id = params.ID;
+
+    const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
+    const [availableTimes, setAvailableTimes] = useState<string[]>([]);
+    const [selectedTime, setSelectedTime] = useState<string | null>(null);
+
+    const handleEmployeeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const employee = event.target.value;
+        setSelectedEmployee(employee);
+    };
+
+    useEffect(() => {
+        if (selectedEmployee === "ช่างแมว") {
+            fetchAvailableTimes("ช่างแมว");
+        } else if (selectedEmployee === "ช่างชาย") {
+            fetchAvailableTimes("ช่างชาย");
+        } else if (selectedEmployee === "ช่างหญิง") {
+            fetchAvailableTimes("ช่างหญิง");
+        } else {
+            // ถ้าไม่มีพนักงานที่เลือก ให้ล้างเวลา
+            setAvailableTimes([]);
+        }
+    }, [selectedEmployee]);
+
+    const fetchAvailableTimes = async (employee: "ช่างแมว" | "ช่างชาย" | "ช่างหญิง") => {
+        const times = {
+            "ช่างแมว": ["11:00", "13:00", "15:00", "17:00"],
+            "ช่างชาย": ["10:00", "12:00", "14:00", "16:00"],
+            "ช่างหญิง": ["09:00", "11:00", "13:00", "15:00"],
+        };
+
+        // เข้าถึงเวลาตามชื่อพนักงาน
+        setAvailableTimes(times[employee] || []);
+    };
+
+    const TimeFilter = (time: string) => {
+        setSelectedTime(selectedTime === time ? null : time);
+    };
 
     //console.log(id)
 
@@ -54,11 +87,11 @@ export default function Booking({ID}:BookingProps){
                 </div>
 
                 <div className='flex flex-row gap-10 justify-between'>
-                    <div className='bg-slate-50 my-5 rounded-lg border border-gray-200 shadow-lg w-2/3'>
-                                            <Calendar />
-                                        </div>
+                    <div className='my-5 rounded-lg border shadow-lg w-2/3'>
+                        <Calendar />
+                    </div>
 
-                    <div className='bg-slate-50 mt-5 rounded-lg p-5 w-1/3 drop-shadow-md'>
+                    <div id="booking" className="container w-1/3 sm:w-1/3 lg:w-1/3 xl:w-1/3 my-5 bg-white border rounded-md shadow-md">
                         <div className='m-5'>
                             <div className="flex justify-start items-center border-b">
                                 <h3 className="font-semibold text-xl text-black1">กรอกข้อมูลการจองคิว{ID}</h3>
@@ -72,7 +105,7 @@ export default function Booking({ID}:BookingProps){
                                     <button
                                         disabled
                                         className="py-2 px-3 text-gray1 border border-gray-100 rounded-md cursor-not-allowed"
-                                    >  
+                                    >
                                     </button>
                                 </div>
                             </div>
@@ -83,7 +116,7 @@ export default function Booking({ID}:BookingProps){
                                 </label>
                                 <div className="mt-1">
                                     <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start sm:text-sm/6 cursor-not-allowed">
-                                       
+
                                     </button>
                                 </div>
                             </div>
@@ -94,7 +127,7 @@ export default function Booking({ID}:BookingProps){
                                 </label>
                                 <div className="mt-1">
                                     <button className="block w-full rounded-md bg-gray-200 px-3 py-1.5 text-gray1 text-start  sm:text-sm/6 cursor-not-allowed">
-                                       
+
                                     </button>
                                 </div>
                             </div>
@@ -111,7 +144,7 @@ export default function Booking({ID}:BookingProps){
                                         required
                                         autoComplete="name"
                                         placeholder="ชื่อลูกค้า"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -128,7 +161,7 @@ export default function Booking({ID}:BookingProps){
                                         required
                                         autoComplete="phone"
                                         placeholder="เบอร์โทรศัพท์"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-slate-50 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -144,7 +177,7 @@ export default function Booking({ID}:BookingProps){
                                         type="date"
                                         required
                                         autoComplete="off"
-                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6"
+                                        className="block w-full rounded-md bg-slate-50 px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -154,7 +187,7 @@ export default function Booking({ID}:BookingProps){
                                     พนักงาน
                                 </label>
                                 <div>
-                                    <select className="select-none w-full bg-slate-50 border-2 bg-border-gray1 rounded-md px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink1 sm:text-sm/6" >
+                                    <select className="select-none w-full bg-slate-50 border-2 bg-border-gray1 rounded-md px-3 py-1.5 text-gray1 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray1 placeholder:bg-white1 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-gray-500 sm:text-sm/6" onChange={handleEmployeeChange}>
                                         <option disabled selected>พนักงาน</option>
                                         <option value="ช่างแมว">ช่างแมว</option>
                                         <option value="ช่างชาย">ช่างชาย</option>
@@ -162,6 +195,33 @@ export default function Booking({ID}:BookingProps){
                                     </select>
                                 </div>
                             </div>
+
+                            {/* Display Available Times */}
+                            <label htmlFor="times" className="block text-sm/6 font-medium text-black1 text-start mt-3">
+                                เวลาที่สามารถจองได้
+                            </label>
+                            {availableTimes.length > 0 && (
+                                <div className="mt-4">
+                                    <div className="flex flex-wrap space-x-2">
+                                        {availableTimes.map((time, index) => (
+                                            <button
+                                                type='button'
+                                                key={index}
+                                                className={`py-1 px-3 text-sm font-medium ${selectedTime === time
+                                                    ? 'text-slate-50 border-blue1 border rounded-md px-3 py-1 dark:text-slate-50 dark:border-blue1 dark:bg-blue1'
+                                                    : ' hover:text-gray1 text-gray-800 border rounded-md px-3 py-1'
+                                                    }
+                                                ${time === "13:00" ? "cursor-not-allowed bg-gray-200 text-gray1" : ""}
+                                                `}
+                                                onClick={() => TimeFilter(time)}
+                                                disabled={time === "13:00"}
+                                            >
+                                                {time}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="flex flex-row justify-around mt-6 text-right space-x-3">
                                 <form method="dialog">

@@ -1,0 +1,33 @@
+/* เปลี่ยนสีตัวเลขของวันที่ */
+.fc-daygrid-day-number {
+  color: #21211F!important; /* สีดำ */
+}
+
+/* เปลี่ยนสีตัวอักษรของหัวปฏิทิน */
+.fc-toolbar-title {
+  color: #EC407A !important; /* สีตามที่กำหนด */
+  font-weight: bold;
+}
+
+/* เปลี่ยนสีพื้นหลังของวันที่ถูกเลือก */
+.fc-daygrid-day.fc-day-today {
+  background-color: #eafbff !important; /* สีเหลืองอ่อน */
+}
+
+/* เปลี่ยนสีพื้นหลังของวันธรรมดา */
+.fc-daygrid-day {
+  background-color: #ffffff !important; /* สีขาว */
+}
+
+/* เปลี่ยนสีพื้นหลังและตัวอักษรของอีเวนต์ */
+.fc-event {
+  background-color: #EC407A !important; /* สีหลัก */
+  border-color: #EC407A !important; /* สีขอบ */
+  color: #fff !important; /* สีตัวอักษร */
+}
+
+/* เปลี่ยนสีตัวอักษรของชื่อวันใน Header */
+.fc-col-header-cell {
+  color: #21211F !important; /* สีดำ */
+  font-weight: bold !important; /* ตัวหนา */
+}

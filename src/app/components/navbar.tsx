@@ -23,8 +23,8 @@ function navbar() {
     return (
         <div
             className={`navbar w-screen px-10 h-10 fixed top-0 left-0 z-50 transition-colors duration-700 ${isScrolled
-                ? 'bg-gradient-to-b from-neutral-50 to-[#FFFFFF]'
-                : 'bg-gradient-to-b from-[#FFFFFF] to-neutral-50'
+                ? 'bg-gradient-to-b from-neutral-50 to-[#a3e7f9]'
+                : 'bg-gradient-[#a3e7f9]'
                 }`}
         >
             <div className="navbar-start">
